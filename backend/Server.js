@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     //listen for request
     app.listen(process.env.PORT, () => {
-        console.log("connect to database, listening on port",process.env.PORT)
+        console.log("connect to bingo database , listening on port",process.env.PORT)
     })
 })
 .catch((error) => {
