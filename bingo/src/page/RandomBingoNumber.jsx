@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BingoCall } from './BingoCall';
 import styles from '../css/RandomBingoNumber.module.css';
-import notRegisteredAudio from '../audio/Notregistered.m4a'
+import notRegisteredAudio from '../audio/NOTREGISTERD.mp4'
 function RandomBingoNumber() {
   const [currentNumber, setCurrentNumber] = useState('');
   const [calledNumbers, setCalledNumbers] = useState(() => {

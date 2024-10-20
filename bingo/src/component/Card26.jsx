@@ -2,8 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../css/Card.module.css'; // Import the CSS module for styling
 import { useNavigate } from 'react-router-dom';
-import Win from '../audio/Win.m4a'
-import Notwin from '../audio/Notwin.m4a'
+import Win from '../audio/WIN.mp4'
+import Notwin from '../audio/NOTWIN.mp4'
 function Card26() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);

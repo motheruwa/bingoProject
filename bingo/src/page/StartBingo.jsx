@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../css/start.module.css';
 import { useNavigate } from 'react-router-dom';
 import BingoCard from '../images/bingocard.jpg';
-import startAudio from '../audio/Start.m4a';
+import startAudio from '../audio/START.mp4';
 
 const StartBingo = () => {
   const [registeredNumbers, setRegisteredNumbers] = useState([]);
