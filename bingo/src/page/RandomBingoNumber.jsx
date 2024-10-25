@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BingoCall } from './BingoCall';
 import styles from '../css/RandomBingoNumber.module.css';
 import notRegisteredAudio from '../audio/NOTREGISTERD.mp4'
@@ -22,8 +22,8 @@ function RandomBingoNumber() {
     return storedInterval ? parseInt(storedInterval) : 3;
   });
   const navigate = useNavigate();
-  const location = useLocation();
-  const { registeredNumbers,remainingMoney } = location.state;
+  const registeredNumbers = JSON.parse(localStorage.getItem('registeredNumbers')) || [];
+  const remainingMoney = localStorage.getItem('remainingMoney') || 0;
 
   useEffect(() => {
     localStorage.setItem('secondsInterval', secondsInterval);
@@ -99,6 +99,78 @@ function RandomBingoNumber() {
       switch (cardNumberInput) {
         case '1':
           navigate(`/card1?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '2':
+          navigate(`/card2?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '3':
+          navigate(`/card3?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '4':
+          navigate(`/card4?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '5':
+          navigate(`/card5?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '6':
+          navigate(`/card6?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '7':
+          navigate(`/card7?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '8':
+          navigate(`/card8?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '9':
+          navigate(`/card9?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '10':
+          navigate(`/card10?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '11':
+          navigate(`/card11?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '12':
+          navigate(`/card12?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '13':
+          navigate(`/card13?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '14':
+          navigate(`/card14?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '15':
+          navigate(`/card15?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '16':
+          navigate(`/card16?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '17':
+          navigate(`/card17?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '18':
+          navigate(`/card18?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '19':
+          navigate(`/card19?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '20':
+          navigate(`/card20?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '21':
+          navigate(`/card21?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '22':
+          navigate(`/card22?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '23':
+          navigate(`/card23?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '24':
+          navigate(`/card24?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+          break;
+        case '25':
+          navigate(`/card25?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
           break;
         case '26':
           navigate(`/card26?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);

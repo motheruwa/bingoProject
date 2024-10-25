@@ -1,12 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../css/RegisterCard.module.css';
+import { useAuthContext } from '../hooks/useAuthContext';
+import axios from 'axios'
+import { useLogout } from '../hooks/useLogout';
 
 const RegisterCard = () => {
+  const { logout } = useLogout();
   const [registeredNumbers, setRegisteredNumbers] = useState([]);
   const [selectedAmount, setSelectedAmount] = useState(20);
-  const [roundsPlayed, setRoundsPlayed] = useState(0);
+  const [roundsPlayed, setRoundsPlayed] = useState(1);
   const navigate = useNavigate();
+  const {user} = useAuthContext()
+  // eslint-disable-next-line
+  const [fetchedUser, setFetchedUser] = useState([]);
+  // eslint-disable-next-line
+  const [userName, setUserName] = useState('');
+
+  const handleLogOut = () => {
+    logout();
+    navigate('/login');
+    alert('you have been restricted')
+  };
+
+const fetchUserByUsername = async (userName) => {
+    try {
+        const response = await axios.get(`http://localhost:4000/api/user/${userName}`);
+        const fetchedUser = response.data;
+
+        console.log('Fetched user by username:', fetchedUser);
+
+        setFetchedUser(fetchedUser);
+
+        // Check if user permission is true, assuming permission is a boolean value
+        if (fetchedUser.permission === 'false') {
+            handleLogOut(); // Call handleLogOut function if permission is not true
+        }
+
+        // Handle the fetched user data as needed
+    } catch (error) {
+        console.error('Error fetching user by username:', error);
+        // Handle errors
+    }
+};
+
+  useEffect(() => {
+    if (user) {
+      setUserName(user.userName);
+      fetchUserByUsername(user.userName);
+    }
+    // eslint-disable-next-line
+  }, [user]);
 
   useEffect(() => {
     const storedNumbers = localStorage.getItem('registeredNumbers');

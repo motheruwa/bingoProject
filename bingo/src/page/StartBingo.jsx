@@ -3,30 +3,68 @@ import styles from '../css/start.module.css';
 import { useNavigate } from 'react-router-dom';
 import BingoCard from '../images/bingocard.jpg';
 import startAudio from '../audio/START.mp4';
+import { useAuthContext } from '../hooks/useAuthContext';
+import axios from 'axios'
+import { supabase } from '../store/Supabase'
+import { useLogout } from '../hooks/useLogout';
+
 
 const StartBingo = () => {
+  const { logout } = useLogout();
   const [registeredNumbers, setRegisteredNumbers] = useState([]);
+  const [fetchedUser, setFetchedUser] = useState([]);
   const [selectedAmount, setSelectedAmount] = useState(1);
+  const [round, setRound] = useState(1);
   const [remainingMoney, setRemainingMoney] = useState(0);
   // eslint-disable-next-line
   const [deductedAmount, setDeductedAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [userName, setUserName] = useState('');
+  const [creatingReport, setCreatingReport] = useState(false);
   const navigate = useNavigate();
+  const {user} = useAuthContext()
 
+  const handleLogOut = () => {
+    logout();
+    navigate('/login');
+  };
+  const fetchUserByUsername = async (userName) => {
+    try {
+      const response = await axios.get(`http://localhost:4000/api/user/${userName}`);
+      console.log('Fetched user by username:', response.data);
+      setFetchedUser(response.data)
+      // Handle the fetched user data as needed
+    } catch (error) {
+      console.error('Error fetching user by username:', error);
+      // Handle errors
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      setUserName(user.userName);
+      fetchUserByUsername(user.userName);
+    }
+  }, [user]);
+  
   useEffect(() => {
     const storedNumbers = localStorage.getItem('registeredNumbers');
     const storedAmount = localStorage.getItem('selectedAmount');
+    const round = localStorage.getItem('roundsPlayed');
 
     if (storedNumbers) {
       setRegisteredNumbers(JSON.parse(storedNumbers));
     }
-
+    if (round) {
+      setRound(Number(round));
+    }
     if (storedAmount) {
       setSelectedAmount(Number(storedAmount));
     }
+    setUserName(user.userName);
 
     resetRoundCountIfNewDay();
-
+// eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -101,43 +139,88 @@ const StartBingo = () => {
     };
   }, []); // Empty dependency array to run only on mount
 
-  const handleClick = () => {
-    const audio = new Audio(startAudio);
-
-    audio.onended = () => {
-      // Increment the number of rounds played
-      const roundsPlayed = JSON.parse(localStorage.getItem('roundsPlayed')) || 0;
-      localStorage.setItem('roundsPlayed', roundsPlayed + 1);
-
-      navigate('/randombingonumber', {
-        state: { registeredNumbers, remainingMoney }
-      });
-    };
-
-    audio.play();
+  const handleClick = async () => {
+    try {
+      console.log(userName)
+      setCreatingReport(true);
+      const newBalance = fetchedUser.balance - deductedAmount;
+    
+      // Update the user's balance using Axios PUT request
+      const response = await axios.put(`http://localhost:4000/api/user/update`, { userName, newBalance });
+      
+      console.log('Balance updated successfully:', response.data);
+      localStorage.setItem('remainingMoney', remainingMoney);
+      await createReport();
+    } catch (error) {
+      console.error('Report creation failed:', error);
+      // Handle the error, e.g., show a message to the user
+    }
+    finally {
+      setCreatingReport(false);
+    }
   };
 
   const handleregisterClick = () => {
     navigate('/registerdcard');
   };
-
+  const handleReportClick = () => {
+    navigate('/report');
+  };
   const resetRoundCountIfNewDay = () => {
     const lastResetDate = localStorage.getItem('lastResetDate');
     const currentDate = new Date().toLocaleDateString();
 
     if (lastResetDate !== currentDate) {
-      localStorage.setItem('roundsPlayed', '0');
+      localStorage.setItem('roundsPlayed', '1');
       localStorage.setItem('lastResetDate', currentDate);
     }
   };
 
+  const createReport = async () => {
+    try {
+      const { data, error } = await supabase.from('report').insert([
+        {
+          round: round,
+          selectedAmount: selectedAmount,
+          deductedAmount: deductedAmount,
+          userName: userName,
+          winAmount: remainingMoney,
+          noOfPlayer: registeredNumbers.length
+        }
+      ]);
+  
+      if (error) {
+        console.error('Supabase error:', error.message);
+        throw error;
+      }
+
+      console.log('Report created successfully:', data);
+      const audio = new Audio(startAudio);
+      audio.onended = () => {
+        const roundsPlayed = JSON.parse(localStorage.getItem('roundsPlayed')) || 0;
+        localStorage.setItem('roundsPlayed', roundsPlayed + 1);
+
+        navigate('/randombingonumber');
+      };
+
+      audio.play();
+      // Handle the response as needed
+    } catch (error) {
+      console.error('Error creating report:', error);
+      // Handle errors
+    }
+  };
   return (
     <div className={styles.container}>
-      <div className={styles.link} onClickCapture={handleregisterClick}>registercard</div>
+      <div className={styles.link}>
+        <div onClickCapture={handleregisterClick}>RegisterCard</div>
+        <div onClickCapture={handleReportClick}>Report</div>
+        <div onClick={handleLogOut}>Logout</div>
+        </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
       </div>
-      <button onClick={handleClick} disabled={registeredNumbers.length === 0} className={styles.button}>
+      <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.button}>
         Start
       </button>
     </div>

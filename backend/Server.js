@@ -2,9 +2,8 @@ require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
-const reportRouters = require('./routes/report');
-
+const userRouters = require('./routes/user');
+const multer = require('multer');
 
 const app = express()
 
@@ -15,8 +14,8 @@ app.use((req,res,next) => {
     next();
 });
 
-
-app.use('/api/report', reportRouters)
+const upload = multer();
+app.use('/api/user',upload.none(), userRouters);
 
 
 mongoose.connect(process.env.MONGO_URI)

@@ -28,36 +28,36 @@
     background: white;
     font-family: 'Roboto', sans-serif;
 }
-td{
+td {
   border: 2px solid black;
 }
 .B{
   width: 20%;
   color: white;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to right,rgb(6, 6, 51),rgb(0, 162, 255));
 }
 .I{
   color: white;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to right,rgb(64, 9, 78),rgb(124, 6, 89));
   width: 20%;
 }
 .N{
   color: white;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to right,rgb(7, 90, 39),rgb(6, 161, 115));
   width: 20%;
 }
 .G{
   color: white;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to right,rgb(71, 31, 5),rgb(201, 136, 17));
   width: 20%;
 }
 .O{
   color: white;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to right,rgb(22, 14, 8),rgb(163, 159, 152));
   width: 20%;
 }

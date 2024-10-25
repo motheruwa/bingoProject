@@ -4,18 +4,18 @@ import styles from '../css/Card.module.css'; // Import the CSS module for stylin
 import { useNavigate } from 'react-router-dom';
 import Win from '../audio/WIN.mp4'
 import Notwin from '../audio/NOTWIN.mp4'
-function Card() {
+function Card1() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get('calledNumbers')));
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
-      B: [6, 12, 3, 9, 8],
-      I: [19, 23, 18, 21, 27],
-      N: [32, 37, 'free', 45, 39],
-      G: [53, 48, 52, 56, 59],
-      O: [68, 64, 62, 70, 75]
+      B: [15, 11, 12, 3, 10],
+      I: [16, 28, 20, 30, 24],
+      N: [39, 40, 'free', 35, 37],
+      G: [59, 51, 56, 60, 53],
+      O: [66, 68, 67, 72, 64]
     };
 
     // Set the center cell as a free space
@@ -26,19 +26,19 @@ function Card() {
 
   const checkWin = () => {
     const winConditions = [
-      ['B6', 'B12', 'B3', 'B9', 'B8'], // First row
-      ['I19', 'I23', 'I18', 'I21', 'I27'], // Second row
-      ['N32', 'N37', 'free', 'N45', 'N39'], // Third row
-      ['G53', 'G48', 'G52', 'G56', 'G59'], // Fourth row
-      ['O68', 'O64', 'O62', 'O70', 'O75'], // Fifth row
-      ['B6', 'I23', 'free', 'G56', 'O75'], // Top-left to bottom-right diagonal
-      ['O68', 'G48', 'free', 'I21', 'B8'], // Top-right to bottom-left diagonal
-      ['B6', 'I19', 'N32', 'G53', 'O68'], // First column
-      ['B12', 'I23', 'N37', 'G48', 'O64'], // Second column
-      ['B3', 'I18', 'free', 'G52', 'O62'], // Third column
-      ['B9', 'I21', 'N45', 'G56', 'O70'], // Fourth column
-      ['B8', 'I27', 'N39', 'G59', 'O75'], // Fifth column
-      ['B6', 'B8', 'O68', 'O75'], // corner 
+        ['B15', 'B11', 'B12', 'B3', 'B10'], // First row (B)
+    ['I16', 'I28', 'I20', 'I30', 'I24'], // Second row (I)
+    ['N39', 'N40', 'free', 'N35', 'N37'], // Third row (N)
+    ['G59', 'G51', 'G56', 'G60', 'G53'], // Fourth row (G)
+    ['O66', 'O68', 'O67', 'O72', 'O64'], // Fifth row (O)
+    ['B15', 'I28', 'free', 'G60', 'O64'], // Top-left to bottom-right diagonal
+    ['O66', 'G51', 'free', 'I30', 'B10'], // Top-right to bottom-left diagonal
+    ['B15', 'I16', 'N39', 'G59', 'O66'], // First column
+    ['B11', 'I28', 'N40', 'G51', 'O68'], // Second column
+    ['B12', 'I20', 'free', 'G56', 'O67'], // Third column
+    ['B3', 'I30', 'N35', 'G60', 'O72'], // Fourth column
+    ['B10', 'I24', 'N37', 'G53', 'O64'], // Fifth column
+    ['B15', 'B10', 'O66', 'O64'] // Corner
     ];
 
     const winningLines = [];
@@ -83,6 +83,11 @@ function Card() {
     audioNotwin.play();
   };
 
+  const isFourCornersWinning =
+  winningNumbers.includes('B10') &&
+  winningNumbers.includes('B3') &&
+  winningNumbers.includes('O65') &&
+  winningNumbers.includes('O67');
   return (
     <div className={styles.container}>
       <div className={styles.cardnumber}>Card Number 1</div>
@@ -97,22 +102,32 @@ function Card() {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(bingoCard).map((letter) => (
-            <tr key={letter}>
-              {bingoCard[letter].map((number) => {
-                const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
-                const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
-                const cellClassName = isWinningNumber ? styles.winning : (isCalled ? styles.called : '');
-                
-                return (
-                  <td key={number} className={cellClassName}>
-                    {number}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
+        {[0, 1, 2, 3, 4].map((index) => (
+          <tr key={index}>
+            {Object.keys(bingoCard).map((letter) => {
+              const number = bingoCard[letter][index];
+              const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
+              const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
+              const isCornerWinning = isFourCornersWinning && (letter === 'B' || letter === 'O') && (index === 0 || index === 4);
+
+              const cellClassName = isWinningNumber
+                ? isCornerWinning
+                  ? styles.cornerwinning
+                  : styles.winning
+                : isCalled
+                ? styles.called
+                : '';
+              return (
+                <td >
+                  <div key={number} className={cellClassName}>
+                  {number}
+                  </div>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
       </table>
       <div className={styles.buttons}>
       <button onClick={playWinSound} className={styles.good}>Good Bingo</button>
@@ -125,4 +140,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Card1;
