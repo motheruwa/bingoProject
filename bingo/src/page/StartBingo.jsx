@@ -72,60 +72,404 @@ const StartBingo = () => {
     const total = registeredNumbers.length * selectedAmount;
     setTotalAmount(total);
   
-    let deductionMultiplier = 1; // Default deduction multiplier for registered numbers 1-6
   
     // Update deduction multiplier based on the range of registered numbers
-    if (registeredNumbers.length >= 7 && registeredNumbers.length <= 8) {
-      deductionMultiplier = 1.5;
-    } else if (registeredNumbers.length >= 9 && registeredNumbers.length <= 11) {
-      deductionMultiplier = 2;
-    } else if (registeredNumbers.length >= 12 && registeredNumbers.length <= 13) {
-      deductionMultiplier = 2.5;
-    } else if (registeredNumbers.length >= 14 && registeredNumbers.length <= 16) {
-      deductionMultiplier = 3;
-    }else if (registeredNumbers.length >= 17 && registeredNumbers.length <= 18) {
-      deductionMultiplier = 3.5;
-    }else if (registeredNumbers.length >= 19 && registeredNumbers.length <= 21) {
-      deductionMultiplier = 4;
-    }else if (registeredNumbers.length >= 22 && registeredNumbers.length <= 23) {
-      deductionMultiplier = 4.5;
-    }else if (registeredNumbers.length >= 24 && registeredNumbers.length <= 26) {
-      deductionMultiplier = 5;
-    }else if (registeredNumbers.length >= 27 && registeredNumbers.length <= 28) {
-      deductionMultiplier = 5.5;
-    }else if (registeredNumbers.length >= 29 && registeredNumbers.length <= 31) {
-      deductionMultiplier = 6;
-    }else if (registeredNumbers.length >= 32 && registeredNumbers.length <= 33) {
-      deductionMultiplier = 6.5;
-    }else if (registeredNumbers.length >= 34 && registeredNumbers.length <= 36) {
-      deductionMultiplier = 7;
-    }else if (registeredNumbers.length >= 37 && registeredNumbers.length <= 38) {
-      deductionMultiplier = 7.5;
-    }else if (registeredNumbers.length >= 39 && registeredNumbers.length <= 41) {
-      deductionMultiplier = 8;
-    }else if (registeredNumbers.length >= 42 && registeredNumbers.length <= 43) {
-      deductionMultiplier = 8.5;
-    }else if (registeredNumbers.length >= 44 && registeredNumbers.length <= 46) {
-      deductionMultiplier = 9;
-    }else if (registeredNumbers.length >= 47 && registeredNumbers.length <= 48) {
-      deductionMultiplier = 9.5;
-    }else if (registeredNumbers.length >= 49 && registeredNumbers.length <= 51) {
-      deductionMultiplier = 10;
-    }
-  
-    // Calculate the deducted amount
-    let deducted = deductionMultiplier * selectedAmount;
-    
-    // If the deducted amount is odd, subtract 5
-    if (deducted % 2 !== 0) {
-      deducted -= 5;
-    }
-  
-    setDeductedAmount(deducted);
-  
+    if (selectedAmount === 10 && registeredNumbers.length <= 7) {
+      setDeductedAmount(selectedAmount);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 8 &&registeredNumbers.length <= 10){
+      setDeductedAmount(20);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 11 &&registeredNumbers.length <= 17){
+      setDeductedAmount(30);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 18 &&registeredNumbers.length <= 22){
+      setDeductedAmount(40);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 23 &&registeredNumbers.length <= 27){
+      setDeductedAmount(50);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 28 &&registeredNumbers.length <= 31){
+      setDeductedAmount(60);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 32 &&registeredNumbers.length <= 35){
+      setDeductedAmount(70);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 36 &&registeredNumbers.length <= 38){
+      setDeductedAmount(80);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 39 &&registeredNumbers.length <= 41){
+      setDeductedAmount(90);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 42 &&registeredNumbers.length <= 45){
+      setDeductedAmount(100);
+    }else if(selectedAmount === 10  && registeredNumbers.length >= 46 &&registeredNumbers.length <= 50){
+      setDeductedAmount(110);
+    }else if(selectedAmount === 20  && registeredNumbers.length <= 6){
+      setDeductedAmount(20);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 7 &&registeredNumbers.length <= 8){
+      setDeductedAmount(30);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 9 &&registeredNumbers.length <= 11){
+      setDeductedAmount(40);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 12 &&registeredNumbers.length <= 13){
+      setDeductedAmount(50);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 14 &&registeredNumbers.length <= 15){
+      setDeductedAmount(60);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 16 &&registeredNumbers.length <= 17){
+      setDeductedAmount(70);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 18 &&registeredNumbers.length <= 19){
+      setDeductedAmount(80);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 20 &&registeredNumbers.length <= 21){
+      setDeductedAmount(90);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 22 &&registeredNumbers.length <= 23){
+      setDeductedAmount(100);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 24 &&registeredNumbers.length <= 25){
+      setDeductedAmount(110);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 26 &&registeredNumbers.length <= 27){
+      setDeductedAmount(120);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 28 &&registeredNumbers.length <= 29){
+      setDeductedAmount(130);
+    }else if(selectedAmount === 20  && registeredNumbers.length >=30 &&registeredNumbers.length <= 31){
+      setDeductedAmount(140);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 32 &&registeredNumbers.length <= 33){
+      setDeductedAmount(150);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 34 &&registeredNumbers.length <= 35){
+      setDeductedAmount(160);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 36 &&registeredNumbers.length <= 37){
+      setDeductedAmount(170);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 38 &&registeredNumbers.length <= 39){
+      setDeductedAmount(180);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 40 &&registeredNumbers.length <= 41){
+      setDeductedAmount(190);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 42 &&registeredNumbers.length <= 43){
+      setDeductedAmount(200);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 44 &&registeredNumbers.length <= 45){
+      setDeductedAmount(210);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 46 &&registeredNumbers.length <= 47){
+      setDeductedAmount(220);
+    }else if(selectedAmount === 20  && registeredNumbers.length >= 48 &&registeredNumbers.length <= 50){
+      setDeductedAmount(230);
+    }else if(selectedAmount === 30  && registeredNumbers.length <= 5 ){
+      setDeductedAmount(30);
+    }else if(selectedAmount === 30  && registeredNumbers.length >= 6 &&registeredNumbers.length <= 7){
+      setDeductedAmount(40);
+    }else if(selectedAmount === 30  && registeredNumbers.length >= 8 &&registeredNumbers.length <= 9){
+      setDeductedAmount(50);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 10){
+      setDeductedAmount(60);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 11){
+      setDeductedAmount(70);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 12){
+      setDeductedAmount(80);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 13){
+      setDeductedAmount(90);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 14){
+      setDeductedAmount(100);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 15){
+      setDeductedAmount(110);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 16){
+      setDeductedAmount(120);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 17){
+      setDeductedAmount(130);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 18){
+      setDeductedAmount(140);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 19){
+      setDeductedAmount(150);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 20){
+      setDeductedAmount(160);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 21){
+      setDeductedAmount(170);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 22){
+      setDeductedAmount(180);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 23){
+      setDeductedAmount(190);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 24){
+      setDeductedAmount(200);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 25){
+      setDeductedAmount(210);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 26){
+      setDeductedAmount(220);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 27){
+      setDeductedAmount(230);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 28){
+      setDeductedAmount(240);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 29){
+      setDeductedAmount(250);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 30){
+      setDeductedAmount(260);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 31){
+      setDeductedAmount(270);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 32){
+      setDeductedAmount(280);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 33){
+      setDeductedAmount(290);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 34){
+      setDeductedAmount(300);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 35){
+      setDeductedAmount(310);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 36){
+      setDeductedAmount(320);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 37){
+      setDeductedAmount(330);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 38){
+      setDeductedAmount(340);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 39){
+      setDeductedAmount(350);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 40){
+      setDeductedAmount(360);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 41){
+      setDeductedAmount(370);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 42){
+      setDeductedAmount(380);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 43){
+      setDeductedAmount(390);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 44){
+      setDeductedAmount(400);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 45){
+      setDeductedAmount(410);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 46){
+      setDeductedAmount(420);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 47){
+      setDeductedAmount(430);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 48){
+      setDeductedAmount(440);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 49){
+      setDeductedAmount(450);
+    }else if(selectedAmount === 30  && registeredNumbers.length === 50){
+      setDeductedAmount(460);
+    }else if(selectedAmount === 40  && registeredNumbers.length <= 5){
+      setDeductedAmount(40);
+    }else if(selectedAmount === 40  && registeredNumbers.length === 6){
+      setDeductedAmount(50);
+    }else if(selectedAmount === 40  && registeredNumbers.length === 7){
+      setDeductedAmount(60);
+    }else if(selectedAmount === 40  && registeredNumbers.length === 8){
+      setDeductedAmount(70);
+    }else if (selectedAmount === 40  &&registeredNumbers.length === 9) {
+      setDeductedAmount(80);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 10) {
+      setDeductedAmount(90);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 11) {
+      setDeductedAmount(100);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 12) {
+      setDeductedAmount(110);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 13) {
+      setDeductedAmount(120);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 14) {
+      setDeductedAmount(130);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 15) {
+      setDeductedAmount(140);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 16) {
+      setDeductedAmount(150);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 17) {
+      setDeductedAmount(160);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 18) {
+      setDeductedAmount(170);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 19) {
+      setDeductedAmount(180);
+  } else if (selectedAmount === 40  &&registeredNumbers.length === 20) {
+      setDeductedAmount(190);
+  }else if(selectedAmount === 40  &&registeredNumbers.length === 21) {
+    setDeductedAmount(200);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 22) {
+    setDeductedAmount(210);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 23) {
+    setDeductedAmount(220);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 24) {
+    setDeductedAmount(230);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 25) {
+    setDeductedAmount(240);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 26) {
+    setDeductedAmount(250);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 27) {
+    setDeductedAmount(260);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 28) {
+    setDeductedAmount(270);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 29) {
+    setDeductedAmount(280);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 30) {
+    setDeductedAmount(290);
+}else  if (selectedAmount === 40  &&registeredNumbers.length === 31) {
+  setDeductedAmount(300);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 32) {
+  setDeductedAmount(310);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 33) {
+  setDeductedAmount(320);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 34) {
+  setDeductedAmount(330);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 35) {
+  setDeductedAmount(340);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 36) {
+  setDeductedAmount(350);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 37) {
+  setDeductedAmount(360);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 38) {
+  setDeductedAmount(370);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 39) {
+  setDeductedAmount(380);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 40) {
+  setDeductedAmount(390);
+}else if (selectedAmount === 40  &&registeredNumbers.length === 41) {
+  setDeductedAmount(400);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 42) {
+  setDeductedAmount(410);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 43) {
+  setDeductedAmount(420);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 44) {
+  setDeductedAmount(430);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 45) {
+  setDeductedAmount(440);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 46) {
+  setDeductedAmount(450);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 47) {
+  setDeductedAmount(460);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 48) {
+  setDeductedAmount(470);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 49) {
+  setDeductedAmount(480);
+} else if (selectedAmount === 40  &&registeredNumbers.length === 50) {
+  setDeductedAmount(490);
+}else if (selectedAmount === 50  &&registeredNumbers.length <= 5) {
+  setDeductedAmount(50);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 6) {
+  setDeductedAmount(60);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 7) {
+  setDeductedAmount(80);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 8) {
+  setDeductedAmount(90);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 9) {
+  setDeductedAmount(100);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 10) {
+  setDeductedAmount(110);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 11) {
+  setDeductedAmount(120);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 12) {
+  setDeductedAmount(130);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 13) {
+  setDeductedAmount(140);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 14) {
+  setDeductedAmount(150);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 15) {
+  setDeductedAmount(160);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 16) {
+  setDeductedAmount(200);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 17) {
+  setDeductedAmount(210);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 18) {
+  setDeductedAmount(220);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 19) {
+  setDeductedAmount(250);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 20) {
+  setDeductedAmount(300);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 21) {
+  setDeductedAmount(310);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 22) {
+  setDeductedAmount(320);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 23) {
+  setDeductedAmount(350);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 24) {
+  setDeductedAmount(360);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 25) {
+  setDeductedAmount(380);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 26) {
+  setDeductedAmount(400);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 27) {
+  setDeductedAmount(420);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 28) {
+  setDeductedAmount(450);
+} else if (selectedAmount === 50  &&registeredNumbers.length === 29) {
+  setDeductedAmount(460);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 30) {
+  setDeductedAmount(470);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 31) {
+  setDeductedAmount(480);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 32) {
+  setDeductedAmount(490);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 33) {
+  setDeductedAmount(500);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 34) {
+  setDeductedAmount(510);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 35) {
+  setDeductedAmount(520);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 36) {
+  setDeductedAmount(530);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 37) {
+  setDeductedAmount(540);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 38) {
+  setDeductedAmount(550);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 39) {
+  setDeductedAmount(560);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 40) {
+  setDeductedAmount(570);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 41) {
+  setDeductedAmount(600);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 42) {
+  setDeductedAmount(630);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 43) {
+  setDeductedAmount(650);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 44) {
+  setDeductedAmount(660);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 45) {
+  setDeductedAmount(670);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 46) {
+  setDeductedAmount(680);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 47) {
+  setDeductedAmount(690);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 48) {
+  setDeductedAmount(700);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 49) {
+  setDeductedAmount(750);
+}else if (selectedAmount === 50  &&registeredNumbers.length === 50) {
+  setDeductedAmount(760);
+}else if (selectedAmount === 100  &&registeredNumbers.length <= 5) {
+  setDeductedAmount(100);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 6) {
+  setDeductedAmount(130);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 7) {
+  setDeductedAmount(150);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 8) {
+  setDeductedAmount(200);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 9) {
+  setDeductedAmount(250);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 10) {
+  setDeductedAmount(300);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 11) {
+  setDeductedAmount(330);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 12) {
+  setDeductedAmount(360);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 13) {
+  setDeductedAmount(390);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 14) {
+  setDeductedAmount(420);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 15) {
+  setDeductedAmount(460);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 16) {
+  setDeductedAmount(490);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 17) {
+  setDeductedAmount(520);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 18) {
+  setDeductedAmount(550);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 19) {
+  setDeductedAmount(570);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 20) {
+  setDeductedAmount(600);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 21) {
+  setDeductedAmount(630);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 22) {
+  setDeductedAmount(660);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 23) {
+  setDeductedAmount(690);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 24) {
+  setDeductedAmount(720);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 25) {
+  setDeductedAmount(750);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 26) {
+  setDeductedAmount(780);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 27) {
+  setDeductedAmount(810);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 28) {
+  setDeductedAmount(840);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 29) {
+  setDeductedAmount(870);
+}else if (selectedAmount === 100  &&registeredNumbers.length === 30) {
+  setDeductedAmount(900);
+}
+
     // Calculate the remaining money after deduction
-    const remaining = totalAmount - deducted;
+    const remaining = totalAmount - deductedAmount;
     setRemainingMoney(remaining);
+    // eslint-disable-next-line
   }, [registeredNumbers, selectedAmount, totalAmount]);
   useEffect(() => {
     const audio = new Audio(startAudio);
@@ -137,6 +481,7 @@ const StartBingo = () => {
       audio.removeAttribute('src');
       audio.load();
     };
+    // eslint-disable-next-line
   }, []); // Empty dependency array to run only on mount
 
   const handleClick = async () => {

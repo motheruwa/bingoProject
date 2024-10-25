@@ -131,8 +131,10 @@ const fetchUserByUsername = async (userName) => {
               <option value={40}>በ 40</option>
               <option value={50}>በ 50</option>
               <option value={100}>በ 100</option>
-              <option value={150}>በ 150</option>
               <option value={200}>በ 200</option>
+              <option value={300}>በ 300</option>
+              <option value={400}>በ 400</option>
+              <option value={500}>በ 500</option>
             </select>
           </div>
           
