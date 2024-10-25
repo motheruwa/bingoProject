@@ -17,7 +17,7 @@ const Report = () => {
 
   const fetchUserByUsername = async (userName) => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/user/${userName}`);
+      const response = await axios.get(`https://bingoproject-3.onrender.com/api/user/${userName}`);
       console.log('Fetched user by username:', response.data);
       setFetchedUser(response.data)
       // Handle the fetched user data as needed

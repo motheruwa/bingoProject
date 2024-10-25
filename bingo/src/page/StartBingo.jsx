@@ -30,7 +30,7 @@ const StartBingo = () => {
   };
   const fetchUserByUsername = async (userName) => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/user/${userName}`);
+      const response = await axios.get(`https://bingoproject-3.onrender.com/api/user/${userName}`);
       console.log('Fetched user by username:', response.data);
       setFetchedUser(response.data)
       // Handle the fetched user data as needed
@@ -146,7 +146,7 @@ const StartBingo = () => {
       const newBalance = fetchedUser.balance - deductedAmount;
     
       // Update the user's balance using Axios PUT request
-      const response = await axios.put(`http://localhost:4000/api/user/update`, { userName, newBalance });
+      const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
       
       console.log('Balance updated successfully:', response.data);
       localStorage.setItem('remainingMoney', remainingMoney);

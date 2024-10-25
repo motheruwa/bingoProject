@@ -10,7 +10,7 @@ export const useSignup = () => {
     setIsLoading(true)
     setError(null)
 
-    const response = await fetch('http://localhost:4000/api/user/signup', {
+    const response = await fetch('https://bingoproject-3.onrender.com/api/user/signup', {
       method: 'POST',
       body: formData
     })

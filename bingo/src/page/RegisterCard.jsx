@@ -25,7 +25,7 @@ const RegisterCard = () => {
 
 const fetchUserByUsername = async (userName) => {
     try {
-        const response = await axios.get(`http://localhost:4000/api/user/${userName}`);
+        const response = await axios.get(`https://bingoproject-3.onrender.com/api/user/${userName}`);
         const fetchedUser = response.data;
 
         console.log('Fetched user by username:', fetchedUser);
