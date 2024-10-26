@@ -36,7 +36,7 @@ function Card26() {
     ['B10', 'I25', 'N37', 'G53', 'O65'], // First column
     ['B14', 'I29', 'N38', 'G58', 'O69'], // Second column
     ['B2', 'I28', 'free', 'G56', 'O68'], // Third column
-    ['B6', 'I22', 'N45', 'G57', 'O70'], // Fourth column
+    ['B6', 'I22', 'N35', 'G57', 'O70'], // Fourth column
     ['B3', 'I18', 'N45', 'G60', 'O67'], // Fifth column
     ['B10', 'B3', 'O65', 'O67'],// corner 
     ];
@@ -81,7 +81,10 @@ function Card26() {
 
   const playNotwinSound = () => {
     audioNotwin.play();
-  };
+    audioNotwin.onended = function() {
+        handleGoBack();
+    };
+};
 
   const isFourCornersWinning =
   winningNumbers.includes('B10') &&

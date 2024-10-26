@@ -81,7 +81,10 @@ function Card45() {
 
   const playNotwinSound = () => {
     audioNotwin.play();
-  };
+    audioNotwin.onended = function() {
+        handleGoBack();
+    };
+};
   const isFourCornersWinning =
   winningNumbers.includes('B9') &&
   winningNumbers.includes('B8') &&
