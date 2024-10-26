@@ -56,17 +56,20 @@ const userSchema = new Schema({
 };
 
 userSchema.statics.login = async function (userName, password) {
-  if (!userName || !password) {
-      throw Error('All fields must be filled');
-  }
-  const user = await this.findOne({ userName });
-  if (!user) {
-      throw Error('User not found');
-  }
-  if (user.password !== password) {
-      throw Error('Incorrect password');
-  }
-  return user;
-};
+    if (!userName || !password) {
+        throw Error('All fields must be filled');
+    }
+    
+    // Perform a case-sensitive search for the username
+    const user = await this.findOne({ userName: { $regex: new RegExp('^' + userName + '$', 'i') } });
+    
+    if (!user) {
+        throw Error('User not found');
+    }
+    if (user.password !== password) {
+        throw Error('Incorrect password');
+    }
+    return user;
+  };
 
 module.exports = mongoose.model('User', userSchema);
