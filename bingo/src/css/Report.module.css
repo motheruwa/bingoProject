@@ -82,5 +82,9 @@ td {
 .balance span{
   display: none;
 }
+.home{
+  position: absolute;
+  left: 5px;
+}
 }
 

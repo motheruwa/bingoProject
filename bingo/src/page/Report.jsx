@@ -79,9 +79,6 @@ const Report = () => {
     <div className={styles.container}>
       <div className={styles.date}>
       <Link to="/startbingo" className={styles.home}>Home</Link>
-        <label htmlFor="dateInput" className={styles.enterdate}>
-          Enter Date:
-        </label>
         <input
           type="date"
           id="dateInput"

@@ -60,8 +60,8 @@ userSchema.statics.login = async function (userName, password) {
         throw Error('All fields must be filled');
     }
     
-    // Perform a case-sensitive search for the username
-    const user = await this.findOne({ userName: { $regex: new RegExp('^' + userName + '$', 'i') } });
+    // Perform a case-insensitive search for the username
+    const user = await this.findOne({ userName });
     
     if (!user) {
         throw Error('User not found');
@@ -70,6 +70,6 @@ userSchema.statics.login = async function (userName, password) {
         throw Error('Incorrect password');
     }
     return user;
-  };
+};
 
 module.exports = mongoose.model('User', userSchema);
