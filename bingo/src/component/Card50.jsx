@@ -38,7 +38,7 @@ function Card50() {
       ['B3', 'I17', 'N36', 'G49', 'O69'], // First column
       ['B10', 'I30', 'N40', 'G52', 'O62'], // Second column
       ['B14', 'I27', 'free', 'G58', 'O66'], // Third column
-      ['B2', 'I19', 'N41', 'G49', 'O68'], // Fourth column
+      ['B2', 'I19', 'N41', 'G59', 'O68'], // Fourth column
       ['B15', 'I18', 'N42', 'G47', 'O64'], // Fifth column
       ['B3', 'B15', 'O69', 'O64'], // corner
     ];
