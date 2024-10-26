@@ -71,3 +71,16 @@ td {
     height: 25px;
     color: white;
 }
+@media(max-width:600px){
+  .balance{
+    position: absolute;
+    right: 5px;
+    background: rgb(7, 87, 153);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.balance span{
+  display: none;
+}
+}
+
