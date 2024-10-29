@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { supabase } from '../store/Supabase';
 import { supabase1 } from '../store/Supabase1';
+import { supabase2 } from '../store/Supabase2';
 import styles from '../css/User.module.css'
 const User = () => {
     const { username } = useParams();
@@ -17,7 +18,7 @@ const User = () => {
         const fetchReportData = async () => {
           if (user && user.userName) { // Check if user and userName are not null
             try {
-              const { data, error } = await supabase
+              const { data, error } = await supabase2
                 .from('report')
                 .select()
                 .eq('userName', user.userName);
