@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { supabase } from '../store/Supabase';
+import { supabase1 } from '../store/Supabase1';
 import styles from '../css/User.module.css'
 const User = () => {
     const { username } = useParams();
@@ -46,23 +47,25 @@ const User = () => {
           setFilteredData(filtered);
         } else if (selectedOption === 'weekly') {
           const currentDate = new Date();
-          const weekStart = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay()));
-          const weekEnd = new Date(weekStart);
-          weekEnd.setDate(weekStart.getDate() + 6);
-    
+          const currentDay = currentDate.getDay();
+          const weekStart = new Date(currentDate);
+          const daysToMonday = currentDay === 0 ? 6 : currentDay - 1;
+          
+          weekStart.setDate(currentDate.getDate() - daysToMonday); // Start from the previous Monday
+      
           const filtered = reportData.filter(report => {
             const reportDate = new Date(report.created_at);
-            return reportDate >= weekStart && reportDate <= weekEnd;
+            return reportDate >= weekStart && reportDate <= currentDate;
           });
           setFilteredData(filtered);
-        } else if (selectedOption === 'monthly') {
+        }else if (selectedOption === 'monthly') {
           const currentDate = new Date();
-          const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-          const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    
+          const monthStart = new Date(currentDate);
+          monthStart.setDate(currentDate.getDate() - 29); // Start from 29 days ago
+      
           const filtered = reportData.filter(report => {
             const reportDate = new Date(report.created_at);
-            return reportDate >= firstDayOfMonth && reportDate <= lastDayOfMonth;
+            return reportDate >= monthStart && reportDate <= currentDate;
           });
           setFilteredData(filtered);
         }
