@@ -11,11 +11,11 @@ function Card5() {
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
-      B: [2, 4, 9, 1, 14],
-      I: [16, 23, 17, 26, 20],
-      N: [43, 32, 'free', 34, 31],
-      G: [47, 58, 51, 59, 57],
-      O: [70, 73, 74, 75, 72]
+      B: [3, 10, 4, 2, 1],
+      I: [24, 16, 30, 18, 28],
+      N: [41, 35, 'free', 32, 44],
+      G: [58, 51, 48, 52, 50],
+      O: [61, 68, 74, 75, 67]
     };
 
     // Set the center cell as a free space

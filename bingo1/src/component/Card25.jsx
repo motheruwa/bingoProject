@@ -11,11 +11,11 @@ function Card25() {
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
-      B: [3, 1, 4, 14, 9],
-      I: [23, 27, 28, 29, 30],
-      N: [40, 45, 'free', 35, 41],
-      G: [53, 51, 46, 56, 52],
-      O: [75, 68, 73, 61, 74]
+      B: [4, 5, 8, 11, 10],
+      I: [30, 28, 16, 21, 23],
+      N: [38, 40, 'free', 31, 32],
+      G: [50, 51, 54, 57, 46],
+      O: [64, 70,68, 61, 74]
     };
 
     // Set the center cell as a free space
@@ -26,19 +26,19 @@ function Card25() {
 
   const checkWin = () => {
     const winConditions = [
-        ['B3', 'B1', 'B4', 'B14', 'B9'], // First row (B)
-        ['I23', 'I27', 'I28', 'I29', 'I30'], // Second row (I)
-        ['N40', 'N45','free', 'N35', 'N41'], // Third row (N)
-        ['G53', 'G51', 'G46', 'G56', 'G52'], // Fourth row (G)
-        ['O75', 'O68', 'O73', 'O61', 'O74'], // Fifth row (O)
-        ['B3', 'I27', 'free', 'G56', 'O74'], // Top-left to bottom-right diagonal
-        ['O75', 'G51', 'free', 'I29', 'B9'], // Top-right to bottom-left diagonal
-        ['B3', 'I23', 'N40', 'G53', 'O75'], // First column
-        ['B1', 'I27', 'N45', 'G51', 'O68'], // Second column
-        ['B4', 'I28', 'free', 'G46', 'O73'], // Third column
-        ['B14', 'I29', 'N35', 'G56', 'O61'], // Fourth column
-        ['B9', 'I30', 'N41', 'G52', 'O74'], // Fifth column
-        ['B3', 'B9', 'O75', 'O74'] // Corner 
+      ['B4', 'B5', 'B8', 'B11', 'B10'], // First row (B)
+      ['I30', 'I28', 'I16', 'I21', 'I23'], // Second row (I)
+      ['N38', 'N40', 'free', 'N31', 'N32'], // Third row (N)
+      ['G50', 'G51', 'G54', 'G57', 'G46'], // Fourth row (G)
+      ['O64', 'O70', 'O68', 'O61', 'O74'], // Fifth row (O)
+      ['B4', 'I28', 'free', 'G57', 'O74'], // Top-left to bottom-right diagonal
+      ['O64', 'G51', 'free', 'I21', 'B10'], // Top-right to bottom-left diagonal
+      ['B4', 'I30', 'N38', 'G50', 'O64'], // First column
+      ['B5', 'I28', 'N40', 'G51', 'O70'], // Second column
+      ['B8', 'I16', 'free', 'G54', 'O68'], // Third column
+      ['B11', 'I21', 'N31', 'G57', 'O61'], // Fourth column
+      ['B10', 'I23', 'N32', 'G46', 'O74'], // Fifth column
+      ['B4', 'B10', 'O64', 'O74'] // Corner 
     ];
 
     const winningLines = [];
