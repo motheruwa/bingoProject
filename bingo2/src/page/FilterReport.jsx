@@ -75,7 +75,6 @@ const FilterReport = () => {
         <div className={styles.select}>
         <select value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)} className={styles.selectoption}>
         <option value="daily">Daily</option>
-        <option value="weekly">Weekly</option>
         <option value="monthly">Monthly</option>
       </select>
       <button onClick={filterData}>Show Data</button>

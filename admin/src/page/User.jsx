@@ -5,6 +5,7 @@ import { supabase } from '../store/Supabase';
 import { supabase1 } from '../store/Supabase1';
 import { supabase2 } from '../store/Supabase2';
 import { supabase3 } from '../store/Supabase3';
+import { supabase4 } from '../store/Supabase4';
 import styles from '../css/User.module.css'
 const User = () => {
     const { username } = useParams();
