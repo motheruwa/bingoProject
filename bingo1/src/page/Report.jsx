@@ -102,7 +102,7 @@ const Report = () => {
         <tbody>
           {filteredReportData.map((report, index) => (
             <tr key={index}>
-              <td>{report.round}</td>
+              <td>{index + 1}</td>
               <td>{report.selectedAmount}</td>
               <td>{report.noOfPlayer}</td>
               <td>{report.winAmount}</td>
