@@ -15,7 +15,7 @@ function Card18() {
       I: [29, 24, 22, 26, 19],
       N: [35, 45, 'free', 41, 42],
       G: [56, 54, 52, 60, 55],
-      O: [68, 71, 73, 62, 72]
+      O: [68, 71, 73, 65, 72]
     };
 
     // Set the center cell as a free space
@@ -27,18 +27,18 @@ function Card18() {
   const checkWin = () => {
     const winConditions = [
       ['B11', 'B12', 'B4', 'B13', 'B8'], // First row (B)
-      ['I29', 'I24', 'I22', 'I26', 'I19'], // Second row (I)
-      ['N35', 'N45', 'free', 'N41', 'N42'], // Third row (N)
-      ['G56', 'G54', 'G52', 'G60', 'G55'], // Fourth row (G)
-      ['O68', 'O71', 'O73', 'O62', 'O72'], // Fifth row (O)
-      ['B11', 'I24', 'free', 'G60', 'O72'], // Top-left to bottom-right diagonal
-      ['O68', 'G54', 'free', 'I26', 'B8'], // Top-right to bottom-left diagonal
-      ['B11', 'I29', 'N35', 'G56', 'O68'], // First column
-      ['B12', 'I24', 'N45', 'G54', 'O71'], // Second column
-      ['B4', 'I22', 'free', 'G52', 'O73'], // Third column
-      ['B13', 'I26', 'N41', 'G60', 'O62'], // Fourth column
-      ['B8', 'I19', 'N42', 'G55', 'O72'], // Fifth column
-      ['B11', 'B8', 'O68', 'O72'] // Corner
+    ['I29', 'I24', 'I22', 'I26', 'I19'], // Second row (I)
+    ['N35', 'N45', 'free', 'N41', 'N42'], // Third row (N)
+    ['G56', 'G54', 'G52', 'G60', 'G55'], // Fourth row (G)
+    ['O68', 'O71', 'O73', 'O65', 'O72'], // Fifth row (O)
+    ['B11', 'I24', 'free', 'G60', 'O72'], // Top-left to bottom-right diagonal
+    ['O68', 'G54', 'free', 'I26', 'B8'], // Top-right to bottom-left diagonal
+    ['B11', 'I29', 'N35', 'G56', 'O68'], // First column
+    ['B12', 'I24', 'N45', 'G54', 'O71'], // Second column
+    ['B4', 'I22', 'free', 'G52', 'O73'], // Third column
+    ['B13', 'I26', 'N41', 'G60', 'O65'], // Fourth column
+    ['B8', 'I19', 'N42', 'G55', 'O72'], // Fifth column
+    ['B11', 'B8', 'O68', 'O72'], // Corner
     ];
 
     const winningLines = [];

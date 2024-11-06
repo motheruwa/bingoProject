@@ -12,7 +12,7 @@ function Card11() {
   const generateBingoCard = () => {
     const bingoCard = {
       B: [9, 14, 1, 13, 2],
-      I: [17, 8, 26, 27, 29],
+      I: [17, 18, 26, 27, 29],
       N: [44, 34, 'free', 35, 37],
       G: [59, 48, 53, 52, 57],
       O: [73, 72, 68, 64, 70]
@@ -27,18 +27,18 @@ function Card11() {
   const checkWin = () => {
     const winConditions = [
       ['B9', 'B14', 'B1', 'B13', 'B2'], // First row (B)
-      ['I17', 'I8', 'I26', 'I27', 'I29'], // Second row (I)
-      ['N44', 'N34', 'free', 'N35', 'N37'], // Third row (N)
-      ['G59', 'G48', 'G53', 'G52', 'G57'], // Fourth row (G)
-      ['O73', 'O72', 'O68', 'O64', 'O70'], // Fifth row (O)
-      ['B9', 'I8', 'free', 'G52', 'O70'], // Top-left to bottom-right diagonal
-      ['O73', 'G48', 'free', 'I27', 'B2'], // Top-right to bottom-left diagonal
-      ['B9', 'I17', 'N44', 'G59', 'O73'], // First column
-      ['B14', 'I8', 'N34', 'G48', 'O72'], // Second column
-      ['B1', 'I26', 'free', 'G53', 'O68'], // Third column
-      ['B13', 'I27', 'N35', 'G52', 'O64'], // Fourth column
-      ['B2', 'I29', 'N37', 'G57', 'O70'], // Fifth column
-      ['B9', 'B2', 'O73', 'O70'] // Corner
+    ['I17', 'I18', 'I26', 'I27', 'I29'], // Second row (I)
+    ['N44', 'N34', 'free', 'N35', 'N37'], // Third row (N)
+    ['G59', 'G48', 'G53', 'G52', 'G57'], // Fourth row (G)
+    ['O73', 'O72', 'O68', 'O64', 'O70'], // Fifth row (O)
+    ['B9', 'I18', 'free', 'G52', 'O70'], // Top-left to bottom-right diagonal
+    ['O73', 'G48', 'free', 'I27', 'B2'], // Top-right to bottom-left diagonal
+    ['B9', 'I17', 'N44', 'G59', 'O73'], // First column
+    ['B14', 'I18', 'N34', 'G48', 'O72'], // Second column
+    ['B1', 'I26', 'free', 'G53', 'O68'], // Third column
+    ['B13', 'I27', 'N35', 'G52', 'O64'], // Fourth column
+    ['B2', 'I29', 'N37', 'G57', 'O70'], // Fifth column
+    ['B9', 'B2', 'O73', 'O70'] // Corner
     ];
 
     const winningLines = [];
