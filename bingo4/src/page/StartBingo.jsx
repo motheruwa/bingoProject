@@ -1018,7 +1018,7 @@ const StartBingo = () => {
       <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.lowbutton}>
         Start
       </button>
-      <div onClick={handlepewzew} className={styles.pewzew}>pewzew</div>
+      <div onClick={handlepewzew} className={styles.pewzew}>ፐውዘው</div>
       </div>
     </div>
   );
