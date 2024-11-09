@@ -3,6 +3,7 @@ import styles from '../css/start.module.css';
 import { useNavigate } from 'react-router-dom';
 import BingoCard from '../images/bingocard.jpg';
 import startAudio from '../audio/START.mp4';
+import pewwzew from '../audio/pewzew.mp4';
 import { useAuthContext } from '../hooks/useAuthContext';
 import axios from 'axios'
 import { supabase } from '../store/Supabase'
@@ -921,6 +922,7 @@ const StartBingo = () => {
       audio.pause();
       audio.removeAttribute('src');
       audio.load();
+      
     };
     // eslint-disable-next-line
   }, []); // Empty dependency array to run only on mount
@@ -934,16 +936,13 @@ const StartBingo = () => {
       // Update the user's balance using Axios PUT request
       const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
       
-      console.log('Balance updated successfully:', response.data);
       localStorage.setItem('remainingMoney', remainingMoney);
       await createReport();
     } catch (error) {
       console.error('Report creation failed:', error);
       // Handle the error, e.g., show a message to the user
     }
-    finally {
-      setCreatingReport(false);
-    }
+  
   };
 
   const handleregisterClick = () => {
@@ -951,6 +950,11 @@ const StartBingo = () => {
   };
   const handleReportClick = () => {
     navigate('/report');
+  };
+  const handlepewzew = () => {
+    const pewzew = new Audio(pewwzew);
+    pewzew.play();
+
   };
   const resetRoundCountIfNewDay = () => {
     const lastResetDate = localStorage.getItem('lastResetDate');
@@ -1009,9 +1013,12 @@ const StartBingo = () => {
       <div className={styles.remaining}>
       {remainingMoney} ብር ወሳጅ
       </div>
-      <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.button}>
+      <div  className={styles.button}>
+      <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.lowbutton}>
         Start
       </button>
+      <div onClick={handlepewzew} className={styles.pewzew}>pewzew</div>
+      </div>
     </div>
   );
 };

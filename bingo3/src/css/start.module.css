@@ -51,6 +51,20 @@
 .button{
     width: 50%;
     height: 8%;
+    background: white;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+    gap:2%;
+}
+
+.lowbutton{
+    width: 79%;
     background: rgb(6, 18, 58);
     color: white;
     font-weight: bold;
@@ -59,7 +73,23 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    height: 100%;
 }
-.button:hover{
+.lowbutton:hover{
+    background: rgb(4, 76, 94);
+}
+.pewzew{
+    width: 20%;
+    background: rgb(6, 18, 58);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 100%;
+}
+.pewzew:hover{
     background: rgb(4, 76, 94);
 }
