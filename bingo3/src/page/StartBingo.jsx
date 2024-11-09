@@ -934,6 +934,7 @@ const StartBingo = () => {
       const newBalance = fetchedUser.balance - deductedAmount;
     
       // Update the user's balance using Axios PUT request
+      // eslint-disable-next-line
       const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
       
       localStorage.setItem('remainingMoney', remainingMoney);
