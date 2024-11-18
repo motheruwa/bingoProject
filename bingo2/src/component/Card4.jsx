@@ -87,10 +87,10 @@ function Card4() {
 };
 
   const isFourCornersWinning =
-  winningNumbers.includes('B10') &&
-  winningNumbers.includes('B3') &&
-  winningNumbers.includes('O65') &&
-  winningNumbers.includes('O67');
+  winningNumbers.includes('B1') &&
+  winningNumbers.includes('B2') &&
+  winningNumbers.includes('O72') &&
+  winningNumbers.includes('O65');
   return (
     <div className={styles.container}>
       <div className={styles.cardnumber}>Card Number 4</div>

@@ -92,10 +92,30 @@ const timeout = setTimeout(() => {
 return () => clearTimeout(timeout);
 }, [currentNumber]);
 
-  useEffect(() => {
-    playAudioForNumber(currentNumber); // Play audio for the current number
-  }, [currentNumber]);
+useEffect(() => {
+  // Retrieve selectedName from localStorage
+  const savedName = localStorage.getItem('selectedName');
+  // Call the appropriate function based on the selected name
+  switch (savedName) {
+    case 'yabsra':
+      playAudioForNumberMikiyas(currentNumber);
+      break;
+    case 'bereket':
+      playAudioForNumberBereket(currentNumber);
+      break;
+    case 'Xbingo':
+      playAudioForNumber(currentNumber);
+      break;
+    default:
+      playAudioForNumber(currentNumber);
+  }
+}, [currentNumber]);
+const playAudioForNumberBereket = (number) =>{
 
+}
+const playAudioForNumberMikiyas = (number) =>{
+  
+}
   const playAudioForNumber = (number) => {
     let audio;
 

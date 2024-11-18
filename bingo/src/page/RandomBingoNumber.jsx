@@ -4,6 +4,10 @@ import { BingoCall } from './BingoCall';
 import styles from '../css/RandomBingoNumber.module.css';
 import notRegisteredAudio from '../audio/NOTREGISTERD.mp4'
 function RandomBingoNumber() {
+  const [selectedName, setSelectedName] = useState(() => {
+    const savedName = localStorage.getItem('selectedName');
+    return savedName ? savedName : 'Xbingo';
+  });
   const [currentNumber, setCurrentNumber] = useState('');
   const [calledNumbers, setCalledNumbers] = useState(() => {
     const cachedCalledNumbers = JSON.parse(localStorage.getItem('calledNumbers'));
@@ -259,6 +263,11 @@ function RandomBingoNumber() {
     }
   };
 
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    setSelectedName(newName);
+    localStorage.setItem('selectedName', newName);
+  };
   return (
     <div className={styles.randombingonumber}>
       <BingoCall currentNumber={currentNumber} calledNumbers={calledNumbers} totalAmount={remainingMoney}/>
@@ -267,6 +276,13 @@ function RandomBingoNumber() {
       <button onClick={handlePlayStopToggle} className={isPlaying ? styles.stopbutton : styles.playbutton}>
   {isPlaying ? 'Stop' : 'Play'}
 </button>
+<div className={styles.name}>
+<select id="amount" value={selectedName} onChange={handleNameChange}>
+              <option value={'bereket'}>bereket</option>
+              <option value={'yabsra'}>Yabsra</option>
+              <option value={'Xbingo'}>Xbingo</option>    
+            </select>
+</div>
 <div className={styles.sliderContainer}>
 <span>{secondsInterval} seconds</span>
 

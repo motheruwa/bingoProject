@@ -87,9 +87,9 @@ function Card19() {
 };
 
   const isFourCornersWinning =
-  winningNumbers.includes('B10') &&
-  winningNumbers.includes('B3') &&
-  winningNumbers.includes('O65') &&
+  winningNumbers.includes('B1') &&
+  winningNumbers.includes('B4') &&
+  winningNumbers.includes('O62') &&
   winningNumbers.includes('O67');
   return (
     <div className={styles.container}>
