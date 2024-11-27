@@ -6,6 +6,7 @@ const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const { login, isLoading, error } = useLogin();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +47,7 @@ const Login = () => {
         <div className={styles.button} onClick={handleSubmit} disabled={isLoading}>
           Sign In
         </div>
+        {errorMessage && <div className={styles.error}>{errorMessage}</div>}
         {error && <div className={styles.error}>{error}</div>}
         
       </div>
