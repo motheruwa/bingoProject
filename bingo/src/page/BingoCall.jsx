@@ -116,7 +116,7 @@ const playAudioForNumberBereket = (number) =>{
 const playAudioForNumberMikiyas = (number) =>{
   
 }
-
+// eslint-disable-next-line
 const YourComponent = () => {
   useEffect(() => {
       // Define a list of audio file paths
