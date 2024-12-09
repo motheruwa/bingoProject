@@ -78,6 +78,81 @@ import O73 from '../audio/O73.mp4'
 import O74 from '../audio/O74.mp4'
 import O75 from '../audio/O75.mp4'
 
+import BB1 from '../audio/BB1.mp4'
+import BB2 from '../audio/BB2.mp4'
+import BB3 from '../audio/BB3.mp4'
+import BB4 from '../audio/BB4.mp4'
+import BB5 from '../audio/BB5.mp4'
+import BB6 from '../audio/BB6.mp4'
+import BB7 from '../audio/BB7.mp4'
+import BB8 from '../audio/BB8.mp4'
+import BB9 from '../audio/BB9.mp4'
+import BB10 from '../audio/BB10.mp4'
+import BB11 from '../audio/BB11.mp4'
+import BB12 from '../audio/BB12.mp4'
+import BB13 from '../audio/BB13.mp4'
+import BB14 from '../audio/BB14.mp4'
+import BB15 from '../audio/BB15.mp4'
+import II16 from '../audio/II16.mp4'
+import II17 from '../audio/II17.mp4'
+import II18 from '../audio/II18.mp4'
+import II19 from '../audio/II19.mp4'
+import II20 from '../audio/II20.mp4'
+import II21 from '../audio/II21.mp4'
+import II22 from '../audio/II22.mp4'
+import II23 from '../audio/II23.mp4'
+import II24 from '../audio/II24.mp4'
+import II25 from '../audio/II25.mp4'
+import II26 from '../audio/II26.mp4'
+import II27 from '../audio/II27.mp4'
+import II28 from '../audio/II28.mp4'
+import II29 from '../audio/II29.mp4'
+import II30 from '../audio/II30.mp4'
+import NN31 from '../audio/NN31.mp4'
+import NN32 from '../audio/NN32.mp4'
+import NN33 from '../audio/NN33.mp4'
+import NN34 from '../audio/NN34.mp4'
+import NN35 from '../audio/NN35.mp4'
+import NN36 from '../audio/NN36.mp4'
+import NN37 from '../audio/NN37.mp4'
+import NN38 from '../audio/NN38.mp4'
+import NN39 from '../audio/NN39.mp4'
+import NN40 from '../audio/NN40.mp4'
+import NN41 from '../audio/NN41.mp4'
+import NN42 from '../audio/NN42.mp4'
+import NN43 from '../audio/NN43.mp4'
+import NN44 from '../audio/NN44.mp4'
+import NN45 from '../audio/NN45.mp4'
+import GG46 from '../audio/GG46.mp4'
+import GG47 from '../audio/GG47.mp4'
+import GG48 from '../audio/GG48.mp4'
+import GG49 from '../audio/GG49.mp4'
+import GG50 from '../audio/GG50.mp4'
+import GG51 from '../audio/GG51.mp4'
+import GG52 from '../audio/GG52.mp4'
+import GG53 from '../audio/GG53.mp4'
+import GG54 from '../audio/GG54.mp4'
+import GG55 from '../audio/GG55.mp4'
+import GG56 from '../audio/GG56.mp4'
+import GG57 from '../audio/GG57.mp4'
+import GG58 from '../audio/GG58.mp4'
+import GG59 from '../audio/GG59.mp4'
+import GG60 from '../audio/GG60.mp4'
+import OO61 from '../audio/OO61.mp4'
+import OO62 from '../audio/OO62.mp4'
+import OO63 from '../audio/OO63.mp4'
+import OO64 from '../audio/OO64.mp4'
+import OO65 from '../audio/OO65.mp4'
+import OO66 from '../audio/OO66.mp4'
+import OO67 from '../audio/OO67.mp4'
+import OO68 from '../audio/OO68.mp4'
+import OO69 from '../audio/OO69.mp4'
+import OO70 from '../audio/OO70.mp4'
+import OO71 from '../audio/OO71.mp4'
+import OO72 from '../audio/OO72.mp4'
+import OO73 from '../audio/OO73.mp4'
+import OO74 from '../audio/OO74.mp4'
+import OO75 from '../audio/OO75.mp4'
 export const BingoCall = ({ currentNumber, calledNumbers,totalAmount }) => {
   const [animateCurrent, setAnimateCurrent] = useState(false);
 
@@ -92,9 +167,272 @@ const timeout = setTimeout(() => {
 return () => clearTimeout(timeout);
 }, [currentNumber]);
 
-  useEffect(() => {
-    playAudioForNumber(currentNumber); // Play audio for the current number
-  }, [currentNumber]);
+useEffect(() => {
+  // Retrieve selectedName from localStorage
+  const savedName = localStorage.getItem('selectedName');
+  // Call the appropriate function based on the selected name
+  switch (savedName) {
+    case 'ngus':
+      playAudioForNumberNgus(currentNumber);
+      break;
+    case 'bereket':
+      playAudioForNumberBereket(currentNumber);
+      break;
+    case 'Xbingo':
+      playAudioForNumber(currentNumber);
+      break;
+    default:
+      playAudioForNumber(currentNumber);
+  }
+}, [currentNumber]);
+
+const playAudioForNumberBereket = (number) =>{
+
+}
+const playAudioForNumberNgus = (number) =>{
+  let audio;
+
+    switch (number) {
+      case 'B1':
+        audio = new Audio(BB1);
+        break;
+      case 'B2':
+        audio = new Audio(BB2);
+        break;
+      case 'B3':
+        audio = new Audio(BB3);
+        break;
+        case 'B4':
+          audio = new Audio(BB4);
+          break;
+          case 'B5':
+          audio = new Audio(BB5);
+          break;
+          case 'B6':
+          audio = new Audio(BB6);
+          break;
+          case 'B7':
+          audio = new Audio(BB7);
+          break;
+          case 'B8':
+          audio = new Audio(BB8);
+          break;
+          case 'B9':
+          audio = new Audio(BB9);
+          break;
+          case 'B10':
+          audio = new Audio(BB10);
+          break;
+          case 'B11':
+          audio = new Audio(BB11);
+          break;
+          case 'B12':
+          audio = new Audio(BB12);
+          break;
+          case 'B13':
+          audio = new Audio(BB13);
+          break;
+          case 'B14':
+            audio = new Audio(BB14);
+            break;
+            case 'B15':
+            audio = new Audio(BB15);
+            break;
+            case 'I16':
+              audio = new Audio(II16);
+              break;
+              case 'I17':
+              audio = new Audio(II17);
+              break;
+              case 'I18':
+              audio = new Audio(II18);
+              break;
+              case 'I19':
+              audio = new Audio(II19);
+              break;
+              case 'I20':
+              audio = new Audio(II20);
+              break;
+              case 'I21':
+              audio = new Audio(II21);
+              break;
+              case 'I22':
+              audio = new Audio(II22);
+              break;
+              case 'I23':
+              audio = new Audio(II23);
+              break;
+              case 'I24':
+              audio = new Audio(II24);
+              break;
+              case 'I25':
+              audio = new Audio(II25);
+              break;
+              case 'I26':
+              audio = new Audio(II26);
+              break;
+              case 'I27':
+              audio = new Audio(II27);
+              break;
+              case 'I28':
+              audio = new Audio(II28);
+              break;
+              case 'I29':
+              audio = new Audio(II29);
+              break;
+              case 'I30':
+              audio = new Audio(II30);
+              break;
+              case 'N31':
+              audio = new Audio(NN31);
+              break;
+              case 'N32':
+              audio = new Audio(NN32);
+              break;
+              case 'N33':
+              audio = new Audio(NN33);
+              break;
+              case 'N34':
+              audio = new Audio(NN34);
+              break;
+              case 'N35':
+              audio = new Audio(NN35);
+              break;
+              case 'N36':
+              audio = new Audio(NN36);
+              break;
+              case 'N37':
+              audio = new Audio(NN37);
+              break;
+              case 'N38':
+              audio = new Audio(NN38);
+              break;
+              case 'N39':
+              audio = new Audio(NN39);
+              break;
+              case 'N40':
+              audio = new Audio(NN40);
+              break;
+              case 'N41':
+              audio = new Audio(NN41);
+              break;
+              case 'N42':
+              audio = new Audio(NN42);
+              break;
+              case 'N43':
+              audio = new Audio(NN43);
+              break;
+              case 'N44':
+              audio = new Audio(NN44);
+              break;
+              case 'N45':
+              audio = new Audio(NN45);
+              break;
+              case 'G46':
+              audio = new Audio(GG46);
+              break;
+              case 'G47':
+              audio = new Audio(GG47);
+              break;
+              case 'G48':
+              audio = new Audio(GG48);
+              break;
+              case 'G49':
+              audio = new Audio(GG49);
+              break;
+              case 'G50':
+              audio = new Audio(GG50);
+              break;
+              case 'G51':
+              audio = new Audio(GG51);
+              break;
+              case 'G52':
+              audio = new Audio(GG52);
+              break;
+              case 'G53':
+              audio = new Audio(GG53);
+              break;
+              case 'G54':
+              audio = new Audio(GG54);
+              break;
+              case 'G55':
+              audio = new Audio(GG55);
+              break;
+              case 'G56':
+              audio = new Audio(GG56);
+              break;
+              case 'G57':
+              audio = new Audio(GG57);
+              break;
+              case 'G58':
+              audio = new Audio(GG58);
+              break;
+              case 'G59':
+              audio = new Audio(GG59);
+              break;
+              case 'G60':
+              audio = new Audio(GG60);
+              break;
+              case 'O61':
+              audio = new Audio(OO61);
+              break;
+              case 'O62':
+              audio = new Audio(OO62);
+              break;
+              case 'O63':
+              audio = new Audio(OO63);
+              break;
+              case 'O64':
+              audio = new Audio(OO64);
+              break;
+              case 'O65':
+              audio = new Audio(OO65);
+              break;
+              case 'O66':
+              audio = new Audio(OO66);
+              break;
+              case 'O67':
+              audio = new Audio(OO67);
+              break;
+              case 'O68':
+              audio = new Audio(OO68);
+              break;
+              case 'O69':
+              audio = new Audio(OO69);
+              break;
+              case 'O70':
+              audio = new Audio(OO70);
+              break;
+              case 'O71':
+              audio = new Audio(OO71);
+              break;
+              case 'O72':
+              audio = new Audio(OO72);
+              break;
+              case 'O73':
+              audio = new Audio(OO73);
+              break;
+              case 'O74':
+              audio = new Audio(OO74);
+              break;
+              case 'O75':
+              audio = new Audio(OO75);
+              break;
+      default:
+        // Handle cases where no audio needs to be played
+        break;
+      }
+
+      if (audio) {
+        audio.play();
+    
+        // Pause the audio after 3 seconds
+        setTimeout(() => {
+          audio.pause();
+          audio.currentTime = 0; // Reset audio to the beginning
+        }, 3000); // Duration of 3 seconds
+      }
+};
 
   const playAudioForNumber = (number) => {
     let audio;
