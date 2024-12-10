@@ -929,34 +929,25 @@ const StartBingo = () => {
 
   const handleClick = async () => {
     try {
-      console.log(userName);
-      setCreatingReport(true);
-      const newBalance = fetchedUser.balance - deductedAmount;
-  
-      if (newBalance < 0) {
-        alert('Insufficient balance. Please recharge your account.');
-        return;
-      }
-  
-      let reportCreated = false;
-  
-      const updateBalanceResponse = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
-  
-      if (updateBalanceResponse.status === 200) {
+        console.log(userName);
+        setCreatingReport(true);
+        const newBalance = fetchedUser.balance - deductedAmount;
+
+        const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
+
+        if (response.status === 200) {
+            console.log('Balance updated successfully');
+        }else{
+          return;
+        }
+
         localStorage.setItem('remainingMoney', remainingMoney);
-        reportCreated = await createReport();
-      }
-  
-      if (!reportCreated) {
-        // Undo the balance update if report creation fails
-        await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, balance: fetchedUser.balance });
-        alert('Report creation failed. Balance update undone.');
-      }
+        await createReport();
     } catch (error) {
-      console.error('An error occurred:', error);
-      // Handle the error, e.g., show a message to the user
+        console.error('Report creation failed:', error);
+        // Handle the error, e.g., show a message to the user
     }
-  };
+};
 
   const handleregisterClick = () => {
     navigate('/registerdcard');

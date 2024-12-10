@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../css/Card.module.css'; // Import the CSS module for styling
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,25 @@ function Card1() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get('calledNumbers')));
+  const [animateCurrent, setAnimateCurrent] = useState(false);
+  const [currentNumber, setCurrentNumber] = useState('');
+  useEffect(() => {
+    if (calledNumbers.size > 0) {
+      setCurrentNumber(Array.from(calledNumbers).pop());
+    }
+  }, []);
+
+  useEffect(() => {
+    setAnimateCurrent(true);
+    
+    
+    const timeout = setTimeout(() => {
+      setAnimateCurrent(false);
+    }, 2000); // Duration of the 'current' animation
+    
+    return () => clearTimeout(timeout);
+    }, [currentNumber]);
+
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
@@ -100,7 +119,13 @@ function Card1() {
   winningNumbers.includes('O67');
   return (
     <div className={styles.container}>
-      <div className={styles.cardnumber}>Card Number 1</div>
+      <div className={styles.current11}>
+          <div className={`${styles.current} ${animateCurrent ? styles.animated : ''}`}>
+            <h3>{currentNumber}</h3>
+          </div>
+        </div>
+        <div className={styles.cont}>
+        <div className={styles.cardnumber}>Card Number 1</div>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -145,6 +170,8 @@ function Card1() {
       <button onClick={ handleGoBack} className={styles.good}>Additional</button>
       <button onClick={handleResetAndNavigate} className={styles.add}>New Bingo</button>
       </div>
+        </div>
+      
       
     </div>
   );

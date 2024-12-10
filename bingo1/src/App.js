@@ -38,7 +38,6 @@ import Card27 from './component/Card27';
 import Card28 from './component/Card28';
 import Card29 from './component/Card29';
 import Card30 from './component/Card30';
-import Card34 from './component/Card34';
 
 
 function App() {
@@ -82,7 +81,6 @@ function App() {
       <Route path="/card28" element={<Card28/>} />
       <Route path="/card29" element={<Card29/>} />
       <Route path="/card30" element={<Card30/>} />
-      <Route path="/card34" element={<Card34/>} />
       
       <Route path="/startbingo" element={<StartBingo />} />
       <Route path="/report" element={<Report/>} />
