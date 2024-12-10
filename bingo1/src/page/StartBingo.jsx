@@ -933,12 +933,17 @@ const StartBingo = () => {
         setCreatingReport(true);
         const newBalance = fetchedUser.balance - deductedAmount;
 
+        if (newBalance < 0) {
+            alert('Insufficient funds');
+            return;
+        }
+
         const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
 
         if (response.status === 200) {
             console.log('Balance updated successfully');
-        }else{
-          return;
+        } else {
+            return;
         }
 
         localStorage.setItem('remainingMoney', remainingMoney);

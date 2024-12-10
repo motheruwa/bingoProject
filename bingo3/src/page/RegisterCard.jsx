@@ -101,7 +101,7 @@ const fetchUserByUsername = async (userName) => {
         <div className={styles.odd}>ካርድ ቁጥሮች</div>
 
         <div className={styles.numberscontainer}>
-          {[...Array(50).keys()].map((number) => (
+          {[...Array(100).keys()].map((number) => (
             <div
               key={number + 1}
               className={registeredNumbers.includes(number + 1) ? styles.registered : styles.unregistered}

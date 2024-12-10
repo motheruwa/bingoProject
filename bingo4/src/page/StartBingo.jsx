@@ -929,22 +929,30 @@ const StartBingo = () => {
 
   const handleClick = async () => {
     try {
-      console.log(userName)
-      setCreatingReport(true);
-      const newBalance = fetchedUser.balance - deductedAmount;
-    
-      // Update the user's balance using Axios PUT request
-      // eslint-disable-next-line
-      const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
-      
-      localStorage.setItem('remainingMoney', remainingMoney);
-      await createReport();
+        console.log(userName);
+        setCreatingReport(true);
+        const newBalance = fetchedUser.balance - deductedAmount;
+
+        if (newBalance < 0) {
+            alert('Insufficient funds');
+            return;
+        }
+
+        const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
+
+        if (response.status === 200) {
+            console.log('Balance updated successfully');
+        } else {
+            return;
+        }
+
+        localStorage.setItem('remainingMoney', remainingMoney);
+        await createReport();
     } catch (error) {
-      console.error('Report creation failed:', error);
-      // Handle the error, e.g., show a message to the user
+        console.error('Report creation failed:', error);
+        // Handle the error, e.g., show a message to the user
     }
-  
-  };
+};
 
   const handleregisterClick = () => {
     navigate('/registerdcard');
