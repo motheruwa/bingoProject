@@ -14,6 +14,7 @@ function Card6() {
     if (calledNumbers.size > 0) {
       setCurrentNumber(Array.from(calledNumbers).pop());
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
