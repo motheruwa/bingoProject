@@ -28,6 +28,7 @@ function RandomBingoNumber() {
   const navigate = useNavigate();
   const registeredNumbers = JSON.parse(localStorage.getItem('registeredNumbers')) || [];
   const remainingMoney = localStorage.getItem('remainingMoney') || 0;
+  // eslint-disable-next-line
   const [sequenceIndex, setSequenceIndex] = useState(() => {
     const storedIndex = localStorage.getItem('sequenceIndex');
     return storedIndex ? parseInt(storedIndex) : 0;
@@ -74,7 +75,7 @@ function RandomBingoNumber() {
     setCalledNumbers(new Set(calledNumbers).add(newRandomNumber));
     setCurrentNumber(newRandomNumber);
   };
-
+// eslint-disable-next-line
   const sequentialGenerateBingoNumber = () => {
     const sequence = [
       'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'B14', 'B15',
@@ -113,7 +114,7 @@ function RandomBingoNumber() {
 
     if (isPlaying) {
       interval = setInterval(() => {
-        sequentialGenerateBingoNumber();
+        generateRandomBingoNumber();
       }, secondsInterval * 1000);
     }
 
