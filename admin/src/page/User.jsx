@@ -16,7 +16,44 @@ const User = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
+    const [playType, setPlayType] = useState('default');
 
+    const handlePlayTypeChange = (value) => {
+      setPlayType(value);
+  };
+
+  const handleCreateOrUpdate = async () => {
+    try {
+        const { data, error } = await supabase
+            .from('algorithm')
+            .insert([{ userName: user.userName, playType }]);
+        
+        if (error) {
+            throw error;
+        }
+
+        console.log('succesfuly created');
+    } catch (error) {
+        console.error('Error creating in algorithm table:', error.message);
+    }
+};
+const handleUpdate = async () => {
+  try {
+      const { data, error } = await supabase
+          .from('algorithm')
+          .update({ playType })
+          .eq('userName', user.userName);
+
+      if (error) {
+          throw error;
+      }
+
+      console.log('succesfuly updated');
+
+  } catch (error) {
+      console.error('Error updating in algorithm table:', error.message);
+  }
+};
     useEffect(() => {
         const fetchReportData = async () => {
           if (user && user.userName) { // Check if user and userName are not null
@@ -145,6 +182,17 @@ const User = () => {
         <p className={styles.totalincome}>Total Income : {calculateTotalDeductedAmount()}</p>
       </div>
     </div>
+
+    <div className={styles.selecttype}>
+                <select value={playType} onChange={(e) => handlePlayTypeChange(e.target.value)} className={styles.selectoption}>
+                    <option value="default">Default</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button onClick={handleCreateOrUpdate}>Create</button>
+                <button onClick={handleUpdate}>Update</button>
+            </div>
         </div>
     );
 };

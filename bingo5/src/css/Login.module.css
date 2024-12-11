@@ -1,0 +1,97 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-right: 100px;
+}
+.logo{
+    width: 450px;
+    height: 450px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.x{
+    font-size: 100px;
+    font-weight: bold;
+}
+.bingo{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.cont{
+    width: 450px;
+    height: 450px;
+    background: white;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.4);
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    font-size: 20px;
+}
+.form{
+    height: 40%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.form input{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.button{
+    margin-top: 30px;
+    height: 8%;
+    width: 70%;
+    border-radius: 20px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background: rgb(41, 43, 42);
+}
+.button:hover{
+    background: rgb(40, 151, 136);
+}
+.ask{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.ask p:hover{
+    color: rgb(40, 151, 136);
+}
+.error{
+    color: red;
+}
+
+@media(max-width:500px){
+    .cont{
+        height: 400px;
+        width: 400px;
+    }
+    .form{
+        width: 90%;
+    }
+}

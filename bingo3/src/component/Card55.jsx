@@ -35,7 +35,7 @@ function Card55() {
       I: [24, 16, 30, 18, 28],
       N: [41, 35, 'free', 32, 44],
       G: [58, 51, 48, 52, 50],
-      O: [61, 68, 64, 64, 67]
+      O: [61, 68, 64, 69, 67]
     };
 
     // Set the center cell as a free space
@@ -47,25 +47,25 @@ function Card55() {
   const checkWin = () => {
     const winConditions = [
       // Rows
-    ['B4', 'B7', 'B6', 'B15', 'B8'], // First row (B)
-    ['I30', 'I28', 'I19', 'I24', 'I18'], // Second row (I)
-    ['N31', 'N43', 'Nfree', 'N34', 'N41'], // Third row (N)
-    ['G59', 'G47', 'G55', 'G56', 'G58'], // Fourth row (G)
-    ['O74', 'O73', 'O61', 'O67', 'O70'], // Fifth row (O)
+    ['B3', 'B10', 'B4', 'B2', 'B1'], // First row (B)
+    ['I24', 'I16', 'I30', 'I18', 'I28'], // Second row (I)
+    ['N41', 'N35', 'Nfree', 'N32', 'N44'], // Third row (N)
+    ['G58', 'G51', 'G48', 'G52', 'G50'], // Fourth row (G)
+    ['O61', 'O68', 'O64', 'O69', 'O67'], // Fifth row (O)
 
     // Columns
-    ['B4', 'I30', 'N31', 'G59', 'O74'], // First column
-    ['B7', 'I28', 'N43', 'G47', 'O73'], // Second column
-    ['B6', 'I19', 'Nfree', 'G55', 'O61'], // Third column
-    ['B15', 'I24', 'N34', 'G56', 'O67'], // Fourth column
-    ['B8', 'I18', 'N41', 'G58', 'O70'], // Fifth column
+    ['B3', 'I24', 'N41', 'G58', 'O61'], // First column
+    ['B10', 'I16', 'N35', 'G51', 'O68'], // Second column
+    ['B4', 'I30', 'Nfree', 'G48', 'O64'], // Third column
+    ['B2', 'I18', 'N32', 'G52', 'O69'], // Fourth column
+    ['B1', 'I28', 'N44', 'G50', 'O67'], // Fifth column
 
     // Diagonals
-    ['B4', 'I28', 'Nfree', 'G56', 'O70'], // Top-left to bottom-right diagonal
-    ['B8', 'I24', 'Nfree', 'G47', 'O74'], // Top-right to bottom-left diagonal
+    ['B3', 'I16', 'Nfree', 'G52', 'O67'], // Top-left to bottom-right diagonal
+    ['B1', 'I18', 'Nfree', 'G48', 'O61'], // Top-right to bottom-left diagonal
 
     // Corners
-    ['B4', 'B8', 'O74', 'O70'] // Corners
+    ['B3', 'B1', 'O61', 'O67'] // Corners
     ];
 
     const winningLines = [];
@@ -114,10 +114,10 @@ function Card55() {
 };
 
   const isFourCornersWinning =
-  winningNumbers.includes('B4') &&
-  winningNumbers.includes('B8') &&
-  winningNumbers.includes('O74') &&
-  winningNumbers.includes('O70');
+  winningNumbers.includes('B3') &&
+  winningNumbers.includes('B1') &&
+  winningNumbers.includes('O61') &&
+  winningNumbers.includes('O67');
   return (
     <div className={styles.container}>
       <div className={styles.current11}>

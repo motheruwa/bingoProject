@@ -926,12 +926,15 @@ const StartBingo = () => {
     };
     // eslint-disable-next-line
   }, []); // Empty dependency array to run only on mount
-
+  let previousBalance = null;
   const handleClick = async () => {
     try {
         console.log(userName);
         setCreatingReport(true);
-        const newBalance = fetchedUser.balance - deductedAmount;
+
+        // Save the previous balance before deducting the amount
+        previousBalance = fetchedUser.balance;
+        const newBalance = previousBalance - deductedAmount;
 
         if (newBalance < 0) {
             alert('Insufficient funds');
@@ -950,6 +953,16 @@ const StartBingo = () => {
         await createReport();
     } catch (error) {
         console.error('Report creation failed:', error);
+        
+        // Rollback the balance to the previous value
+        const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, previousBalance });
+
+        if (response.status === 200) {
+            console.log('Balance rolled back successfully');
+        } else {
+            console.error('Failed to rollback balance');
+        }
+
         // Handle the error, e.g., show a message to the user
     }
 };
