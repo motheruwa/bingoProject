@@ -16,7 +16,6 @@ const Login = () => {
       setErrorMessage('Username not found');
       return;
     }
-
     await login(userName, password);
   };
 
