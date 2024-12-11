@@ -12,8 +12,10 @@ const Login = () => {
     e.preventDefault();
     
     // Client-side validation for username
-    
-
+    if (userName !== 'abebe' && userName !== 'dagi bingo') {
+      setErrorMessage('Username not found');
+      return;
+    }
     await login(userName, password);
   };
 
