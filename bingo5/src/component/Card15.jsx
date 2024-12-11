@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../css/Card.module.css'; // Import the CSS module for styling
 import { useNavigate } from 'react-router-dom';
@@ -8,14 +8,33 @@ function Card15() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get('calledNumbers')));
+  const [animateCurrent, setAnimateCurrent] = useState(false);
+  const [currentNumber, setCurrentNumber] = useState('');
+  useEffect(() => {
+    if (calledNumbers.size > 0) {
+      setCurrentNumber(Array.from(calledNumbers).pop());
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    setAnimateCurrent(true);
+    
+    
+    const timeout = setTimeout(() => {
+      setAnimateCurrent(false);
+    }, 2000); // Duration of the 'current' animation
+    
+    return () => clearTimeout(timeout);
+    }, [currentNumber]);
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
-      B: [4, 6, 10, 7, 12],
-      I: [26, 30, 20, 16, 18],
-      N: [40, 43, 'free', 42, 33],
-      G: [56, 49, 60, 48, 47],
-      O: [65, 72, 69, 73, 74]
+      B: [5, 1, 2, 3, 12],
+      I: [30, 22, 18, 29, 17],
+      N: [38, 42, 'free', 33, 32],
+      G: [48, 60, 50, 46, 55],
+      O: [71, 62, 65, 75, 66]
     };
 
     // Set the center cell as a free space
@@ -26,19 +45,19 @@ function Card15() {
 
   const checkWin = () => {
     const winConditions = [
-      ['B4', 'B6', 'B10', 'B7', 'B12'], // First row (B)
-      ['I26', 'I30', 'I20', 'I16', 'I18'], // Second row (I)
-      ['N40', 'N43', 'free', 'N42', 'N33'], // Third row (N)
-      ['G56', 'G49', 'G60', 'G48', 'G47'], // Fourth row (G)
-      ['O65', 'O72', 'O69', 'O73', 'O74'], // Fifth row (O)
-      ['B4', 'I30', 'free', 'G48', 'O74'], // Top-left to bottom-right diagonal
-      ['O65', 'G49', 'free', 'I16', 'B12'], // Top-right to bottom-left diagonal
-      ['B4', 'I26', 'N40', 'G56', 'O65'], // First column
-      ['B6', 'I30', 'N43', 'G49', 'O72'], // Second column
-      ['B10', 'I20', 'free', 'G60', 'O69'], // Third column
-      ['B7', 'I16', 'N42', 'G48', 'O73'], // Fourth column
-      ['B12', 'I18', 'N33', 'G47', 'O74'], // Fifth column
-      ['B4', 'B12', 'O65', 'O74'] // Corner
+        ['B5', 'B1', 'B2', 'B3', 'B12'], // First row (B)
+        ['I30', 'I22', 'I18', 'I29', 'I17'], // Second row (I)
+        ['N38', 'N42', 'free', 'N33', 'N32'], // Third row (N)
+        ['G48', 'G60', 'G50', 'G46', 'G55'], // Fourth row (G)
+        ['O71', 'O62', 'O65', 'O75', 'O66'], // Fifth row (O)
+        ['B5', 'I22', 'free', 'G46', 'O66'], // Top-left to bottom-right diagonal
+        ['O71', 'G60', 'free', 'I29', 'B12'], // Top-right to bottom-left diagonal
+        ['B5', 'I30', 'N38', 'G48', 'O71'], // First column
+        ['B1', 'I22', 'N42', 'G60', 'O62'], // Second column
+        ['B2', 'I18', 'free', 'G50', 'O65'], // Third column
+        ['B3', 'I29', 'N33', 'G46', 'O75'], // Fourth column
+        ['B12', 'I17', 'N32', 'G55', 'O66'], // Fifth column
+        ['B5', 'B12', 'O71', 'O66'] // Corner
     ];
 
     const winningLines = [];
@@ -87,59 +106,67 @@ function Card15() {
 };
 
   const isFourCornersWinning =
-  winningNumbers.includes('B10') &&
-  winningNumbers.includes('B3') &&
-  winningNumbers.includes('O65') &&
-  winningNumbers.includes('O67');
+  winningNumbers.includes('B5') &&
+  winningNumbers.includes('B12') &&
+  winningNumbers.includes('O71') &&
+  winningNumbers.includes('O66');
   return (
     <div className={styles.container}>
-      <div className={styles.cardnumber}>Card Number 15</div>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th className={styles.B}>B</th>
-            <th className={styles.I}>I</th>
-            <th className={styles.N}>N</th>
-            <th className={styles.G}>G</th>
-            <th className={styles.O}>O</th>
-          </tr>
-        </thead>
-        <tbody>
-        {[0, 1, 2, 3, 4].map((index) => (
-          <tr key={index}>
-            {Object.keys(bingoCard).map((letter) => {
-              const number = bingoCard[letter][index];
-              const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
-              const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
-              const isCornerWinning = isFourCornersWinning && (letter === 'B' || letter === 'O') && (index === 0 || index === 4);
-
-              const cellClassName = isWinningNumber
-                ? isCornerWinning
-                  ? styles.cornerwinning
-                  : styles.winning
-                : isCalled
-                ? styles.called
-                : '';
-              return (
-                <td >
-                  <div key={number} className={cellClassName}>
-                  {number}
-                  </div>
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-      </table>
-      <div className={styles.buttons}>
-      <button onClick={playWinSound} className={styles.good}>Good Bingo</button>
-      <button onClick={playNotwinSound} className={styles.add}>Not Bingo</button>
-      <button onClick={ handleGoBack} className={styles.good}>Additional</button>
-      <button onClick={handleResetAndNavigate} className={styles.add}>New Bingo</button>
+    <div className={styles.current11}>
+        <div className={`${styles.current} ${animateCurrent ? styles.animated : ''}`}>
+          <h3>{currentNumber}</h3>
+        </div>
       </div>
-      
+      <div className={styles.cont}>
+      <div className={styles.cardnumber}>Card Number 15</div>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th className={styles.B}>B</th>
+          <th className={styles.I}>I</th>
+          <th className={styles.N}>N</th>
+          <th className={styles.G}>G</th>
+          <th className={styles.O}>O</th>
+        </tr>
+      </thead>
+      <tbody>
+      {[0, 1, 2, 3, 4].map((index) => (
+        <tr key={index}>
+          {Object.keys(bingoCard).map((letter) => {
+            const number = bingoCard[letter][index];
+            const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
+            const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
+            const isCornerWinning = isFourCornersWinning && (letter === 'B' || letter === 'O') && (index === 0 || index === 4);
+
+            const cellClassName = isWinningNumber
+              ? isCornerWinning
+                ? styles.cornerwinning
+                : styles.winning
+              : isCalled
+              ? styles.called
+              : '';
+            return (
+              <td >
+                <div key={number} className={cellClassName}>
+                {number}
+                </div>
+              </td>
+            );
+          })}
+        </tr>
+      ))}
+    </tbody>
+    </table>
+    <div className={styles.buttons}>
+    <button onClick={playWinSound} className={styles.good}>Good Bingo</button>
+    <button onClick={playNotwinSound} className={styles.add}>Not Bingo</button>
+    <button onClick={ handleGoBack} className={styles.good}>Additional</button>
+    <button onClick={handleResetAndNavigate} className={styles.add}>New Bingo</button>
     </div>
+      </div>
+    
+    
+  </div>
   );
 }
 
