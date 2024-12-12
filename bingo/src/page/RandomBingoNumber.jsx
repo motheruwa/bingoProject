@@ -8,6 +8,10 @@ function RandomBingoNumber() {
     const savedName = localStorage.getItem('selectedName');
     return savedName ? savedName : 'Xbingo';
   });
+  const [playType, setPlayType] = useState(() => {
+    const storedPlayType = localStorage.getItem('playType');
+    return storedPlayType || 'default';
+  });
   const [currentNumber, setCurrentNumber] = useState('');
   const [calledNumbers, setCalledNumbers] = useState(() => {
     const cachedCalledNumbers = JSON.parse(localStorage.getItem('calledNumbers'));
@@ -76,9 +80,9 @@ function RandomBingoNumber() {
     setCurrentNumber(newRandomNumber);
   };
 // eslint-disable-next-line
-  const sequentialGenerateBingoNumber = () => {
+  const GenerateBingoNumber1 = () => {
     const sequence = [
-      'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'B14', 'B15',
+      'B11', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B1', 'B12', 'B13', 'B14', 'B15',
       'I16', 'I17', 'I18', 'I19', 'I20', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I27', 'I28', 'I29', 'I30',
       'N31', 'N32', 'N33', 'N34', 'N35', 'N36', 'N37', 'N38', 'N39', 'N40', 'N41', 'N42', 'N43', 'N44', 'N45',
       'G46', 'G47', 'G48', 'G49', 'G50', 'G51', 'G52', 'G53', 'G54', 'G55', 'G56', 'G57', 'G58', 'G59', 'G60',
@@ -114,7 +118,17 @@ function RandomBingoNumber() {
 
     if (isPlaying) {
       interval = setInterval(() => {
-        generateRandomBingoNumber();
+        switch (playType) {
+          case 'default':
+            generateRandomBingoNumber();
+            break;
+          case '1':
+            GenerateBingoNumber1();
+            break;
+          default:
+            generateRandomBingoNumber();
+            break;
+        }
       }, secondsInterval * 1000);
     }
 

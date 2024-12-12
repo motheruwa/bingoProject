@@ -22,6 +22,7 @@ const StartBingo = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [userName, setUserName] = useState('');
   const [creatingReport, setCreatingReport] = useState(false);
+  const [playType, setPlayType] = useState(null);
   const navigate = useNavigate();
   const {user} = useAuthContext()
 
@@ -914,19 +915,34 @@ const StartBingo = () => {
     // eslint-disable-next-line
   }, [registeredNumbers, selectedAmount, totalAmount]);
   useEffect(() => {
-    const audio = new Audio(startAudio);
-    audio.load(); // Preload the audio
+    if (userName) {
+      fetchPlayTypeByUsername(userName);
+    }
+  }, [userName]); // Empty dependency array to run only on mount
 
-    return () => {
-      // Clean up the audio element
-      audio.pause();
-      audio.removeAttribute('src');
-      audio.load();
-      
-    };
-    // eslint-disable-next-line
-  }, []); // Empty dependency array to run only on mount
+  const fetchPlayTypeByUsername = async (username) => {
+    try {
+        const { data, error } = await supabase
+            .from('algorithm')
+            .select('playType')
+            .eq('userName', username)
+            .single();
+        
+        if (error) {
+            throw error;
+        }
 
+        if (data) {
+            const fetchedPlayType = data.playType;
+            setPlayType(fetchedPlayType);
+
+            // Save the fetched playType to localStorage
+            localStorage.setItem('playType', fetchedPlayType);
+        }
+    } catch (error) {
+        console.error('Error fetching playType by username:', error.message);
+    }
+};
   const handleClick = async () => {
     try {
       console.log(userName)
