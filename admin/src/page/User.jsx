@@ -128,7 +128,7 @@ const handleUpdate = async () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/user/${username}`);
+                const response = await axios.get(`https://bingoproject-3.onrender.com/api/user/${username}`);
                 setUser(response.data);
                 console.log(response.data)
             } catch (error) {
@@ -141,7 +141,7 @@ const handleUpdate = async () => {
 
     const handlePermissionUpdate = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/api/user/`, { userName: user.userName, permission:newPermission });
+            const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/`, { userName: user.userName, permission:newPermission });
             setUser({ ...user, permission: newPermission }); // Update the user's permission in the local state
             console.log(response.data);
         } catch (error) {
