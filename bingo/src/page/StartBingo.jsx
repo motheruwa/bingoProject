@@ -22,6 +22,7 @@ const StartBingo = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [userName, setUserName] = useState('');
   const [creatingReport, setCreatingReport] = useState(false);
+  // eslint-disable-next-line
   const [playType, setPlayType] = useState(null);
   const navigate = useNavigate();
   const {user} = useAuthContext()

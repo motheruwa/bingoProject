@@ -22,6 +22,8 @@ const StartBingo = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [userName, setUserName] = useState('');
   const [creatingReport, setCreatingReport] = useState(false);
+  // eslint-disable-next-line
+  const [playType, setPlayType] = useState(null);
   const navigate = useNavigate();
   const {user} = useAuthContext()
 
@@ -914,58 +916,52 @@ const StartBingo = () => {
     // eslint-disable-next-line
   }, [registeredNumbers, selectedAmount, totalAmount]);
   useEffect(() => {
-    const audio = new Audio(startAudio);
-    audio.load(); // Preload the audio
+    if (userName) {
+      fetchPlayTypeByUsername(userName);
+    }
+  }, [userName]); // Empty dependency array to run only on mount
 
-    return () => {
-      // Clean up the audio element
-      audio.pause();
-      audio.removeAttribute('src');
-      audio.load();
-      
-    };
-    // eslint-disable-next-line
-  }, []); // Empty dependency array to run only on mount
-  let previousBalance = null;
-  const handleClick = async () => {
+  const fetchPlayTypeByUsername = async (username) => {
     try {
-        console.log(userName);
-        setCreatingReport(true);
-
-        // Save the previous balance before deducting the amount
-        previousBalance = fetchedUser.balance;
-        const newBalance = previousBalance - deductedAmount;
-
-        if (newBalance < 0) {
-          alert('Insufficient funds');
-          return;
-      }
-
-        const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
-
-        if (response.status === 200) {
-            console.log('Balance updated successfully');
-        } else {
-            return;
-        }
-
-        localStorage.setItem('remainingMoney', remainingMoney);
-        await createReport();
-    } catch (error) {
-        console.error('Report creation failed:', error);
+        const { data, error } = await supabase
+            .from('algorithm')
+            .select('playType')
+            .eq('userName', username)
+            .single();
         
-        // Rollback the balance to the previous value
-        const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, previousBalance });
-
-        if (response.status === 200) {
-            console.log('Balance rolled back successfully');
-        } else {
-            console.error('Failed to rollback balance');
+        if (error) {
+            throw error;
         }
 
-        // Handle the error, e.g., show a message to the user
+        if (data) {
+            const fetchedPlayType = data.playType;
+            setPlayType(fetchedPlayType);
+
+            // Save the fetched playType to localStorage
+            localStorage.setItem('playType', fetchedPlayType);
+        }
+    } catch (error) {
+        console.error('Error fetching playType by username:', error.message);
     }
 };
+  const handleClick = async () => {
+    try {
+      console.log(userName)
+      setCreatingReport(true);
+      const newBalance = fetchedUser.balance - deductedAmount;
+    
+      // Update the user's balance using Axios PUT request
+      // eslint-disable-next-line
+      const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
+      
+      localStorage.setItem('remainingMoney', remainingMoney);
+      await createReport();
+    } catch (error) {
+      console.error('Report creation failed:', error);
+      // Handle the error, e.g., show a message to the user
+    }
+  
+  };
 
   const handleregisterClick = () => {
     navigate('/registerdcard');

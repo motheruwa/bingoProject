@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../css/Card.module.css'; // Import the CSS module for styling
 import { useNavigate } from 'react-router-dom';
@@ -9,25 +9,6 @@ function Card50() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get('calledNumbers')));
-  const [animateCurrent, setAnimateCurrent] = useState(false);
-  const [currentNumber, setCurrentNumber] = useState('');
-  useEffect(() => {
-    if (calledNumbers.size > 0) {
-      setCurrentNumber(Array.from(calledNumbers).pop());
-    }
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    setAnimateCurrent(true);
-    
-    
-    const timeout = setTimeout(() => {
-      setAnimateCurrent(false);
-    }, 2000); // Duration of the 'current' animation
-    
-    return () => clearTimeout(timeout);
-    }, [currentNumber]);
   const navigate = useNavigate();
 
   const generateBingoCard = () => {
@@ -83,6 +64,7 @@ function Card50() {
   const handleResetAndNavigate = () => {
     localStorage.removeItem('calledNumbers');
     localStorage.removeItem('registeredNumbers');
+    localStorage.removeItem('sequenceIndex');
 
     navigate('/registerdcard');
   };
@@ -113,13 +95,7 @@ function Card50() {
   
   return (
     <div className={styles.container}>
-      <div className={styles.current11}>
-          <div className={`${styles.current} ${animateCurrent ? styles.animated : ''}`}>
-            <h3>{currentNumber}</h3>
-          </div>
-        </div>
-        <div className={styles.cont}>
-        <div className={styles.cardnumber}>Card Number 50</div>
+      <div className={styles.cardnumber}>Card Number 50</div>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -131,42 +107,48 @@ function Card50() {
           </tr>
         </thead>
         <tbody>
-        {[0, 1, 2, 3, 4].map((index) => (
-          <tr key={index}>
-            {Object.keys(bingoCard).map((letter) => {
-              const number = bingoCard[letter][index];
-              const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
-              const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
-              const isCornerWinning = isFourCornersWinning && (letter === 'B' || letter === 'O') && (index === 0 || index === 4);
+          {[0, 1, 2, 3, 4].map((index) => (
+            <tr key={index}>
+              {Object.keys(bingoCard).map((letter) => {
+                const number = bingoCard[letter][index];
+                const isCalled = calledNumbers.has(`${letter}${number}`) || (number === 'free' && calledNumbers.has('free'));
+                const isWinningNumber = winningNumbers.includes(`${letter}${number}`) || (number === 'free' && winningNumbers.includes('free'));
+                const isCornerWinning = isFourCornersWinning && (letter === 'B' || letter === 'O') && (index === 0 || index === 4);
 
-              const cellClassName = isWinningNumber
-                ? isCornerWinning
-                  ? styles.cornerwinning
-                  : styles.winning
-                : isCalled
-                ? styles.called
-                : '';
-              return (
-                <td >
+                const cellClassName = isWinningNumber
+                  ? isCornerWinning
+                    ? styles.cornerwinning
+                    : styles.winning
+                  : isCalled
+                  ? styles.called
+                  : '';
+
+                return (
+                  <td >
                   <div key={number} className={cellClassName}>
                   {number}
                   </div>
                 </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
       </table>
       <div className={styles.buttons}>
-      <button onClick={playWinSound} className={styles.good}>Good Bingo</button>
-      <button onClick={playNotwinSound} className={styles.add}>Not Bingo</button>
-      <button onClick={ handleGoBack} className={styles.good}>Additional</button>
-      <button onClick={handleResetAndNavigate} className={styles.add}>New Bingo</button>
+        <button onClick={playWinSound} className={styles.good}>
+          Good Bingo
+        </button>
+        <button onClick={playNotwinSound} className={styles.add}>
+          Not Bingo
+        </button>
+        <button onClick={handleGoBack} className={styles.good}>
+          Additional
+        </button>
+        <button onClick={handleResetAndNavigate} className={styles.add}>
+          New Bingo
+        </button>
       </div>
-        </div>
-      
-      
     </div>
   );
 }

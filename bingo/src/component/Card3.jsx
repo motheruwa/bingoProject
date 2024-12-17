@@ -68,7 +68,7 @@ function Card3() {
     navigate('/registerdcard');
   };
 
-  
+
   const handleGoBack = () => {
     navigate(-1); // Go back one step in the history stack
   };

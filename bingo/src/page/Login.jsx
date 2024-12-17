@@ -22,6 +22,7 @@ const Login = () => {
     // Check for calledNumbers and registeredNumbers in localStorage and remove them if found
     const calledNumbers = localStorage.getItem('calledNumbers');
     const registeredNumbers = localStorage.getItem('registeredNumbers');
+    const sequenceIndex = localStorage.getItem('sequenceIndex');
 
     if (calledNumbers) {
       localStorage.removeItem('calledNumbers');
@@ -30,6 +31,11 @@ const Login = () => {
     if (registeredNumbers) {
       localStorage.removeItem('registeredNumbers');
     }
+
+    if (sequenceIndex) {
+      localStorage.removeItem('sequenceIndex');
+    }
+
   }, []); // Empty dependency array to run this effect only once when the component mounts
 
   return (

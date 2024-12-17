@@ -34,7 +34,7 @@ function Card24() {
       ['B9', 'I26', 'free', 'G49', 'O73'], // Top-left to bottom-right diagonal
       ['O75', 'G48', 'free', 'I20', 'B12'], // Top-right to bottom-left diagonal
       ['B9', 'I19', 'N40', 'G46', 'O75'], // First column
-      ['B8', 'I26', 'N41', 'G48', 'O67'], // Second column
+      ['B8', 'I26', 'N31', 'G48', 'O67'], // Second column
       ['B1', 'I24', 'free', 'G59', 'O65'], // Third column
       ['B7', 'I20', 'N39', 'G49', 'O70'], // Fourth column
       ['B12', 'I27', 'N43', 'G57', 'O73'], // Fifth column
