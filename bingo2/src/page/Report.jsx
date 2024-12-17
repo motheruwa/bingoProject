@@ -87,6 +87,7 @@ const Report = () => {
           onChange={handleDateChange}
         />
         <button onClick={handleShowData}>Show Data</button>
+        
       </div>
 
       <table>
