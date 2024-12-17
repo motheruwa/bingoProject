@@ -31,7 +31,7 @@ const User = () => {
   const handleCreateOrUpdate = async () => {
     try {
       // eslint-disable-next-line
-        const { data, error } = await supabase5
+        const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' ? supabase5 : null)
             .from('algorithm')
             .insert([{ userName: user.userName, playType }]);
         
@@ -46,7 +46,7 @@ const User = () => {
 };
 const handleUpdate = async () => {
   try {
-    const { data, error } = await supabase5
+    const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' ? supabase5 : null)
       .from('algorithm')
       .update({ playType })
       .eq('userName', user.userName);
