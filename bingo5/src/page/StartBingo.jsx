@@ -1032,7 +1032,7 @@ const StartBingo = () => {
       {remainingMoney} ብር ወሳጅ
       </div>
       <div  className={styles.button}>
-      <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.lowbutton}>
+      <button onClick={handleClick} disabled={registeredNumbers.length <= 1 || creatingReport} className={styles.lowbutton}>
         Start
       </button>
       <div onClick={handlepewzew} className={styles.pewzew}>ፐውዘው</div>

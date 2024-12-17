@@ -8,7 +8,7 @@ const AdminPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/user');
+                const response = await axios.get('https://bingoproject-3.onrender.com/api/user');
                 setUsers(response.data);
                 console.log(response.data);
             } catch (error) {

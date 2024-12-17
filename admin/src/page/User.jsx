@@ -46,20 +46,23 @@ const User = () => {
 };
 const handleUpdate = async () => {
   try {
-    // eslint-disable-next-line
-      const { data, error } = await supabase5
-          .from('algorithm')
-          .update({ playType })
-          .eq('userName', user.userName);
+    const { data, error } = await supabase5
+      .from('algorithm')
+      .update({ playType })
+      .eq('userName', user.userName);
 
-      if (error) {
-          throw error;
-      }
+    if (error) {
+      throw error;
+    }
 
-      console.log('succesfuly updated');
+    console.log('Successfully updated');
+
+    if (data) {
+      alert('Successfully updated');
+    }
 
   } catch (error) {
-      console.error('Error updating in algorithm table:', error.message);
+    console.error('Error updating in algorithm table:', error.message);
   }
 };
     useEffect(() => {

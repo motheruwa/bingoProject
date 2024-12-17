@@ -8,7 +8,8 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import axios from 'axios'
 import { supabase } from '../store/Supabase'
 import { useLogout } from '../hooks/useLogout';
-
+ // eslint-disable-next-line
+  const [playType, setPlayType] = useState(null);
 
 const StartBingo = () => {
   const { logout } = useLogout();
@@ -1773,6 +1774,36 @@ const StartBingo = () => {
     setRemainingMoney(remaining);
     // eslint-disable-next-line
   }, [registeredNumbers, selectedAmount, totalAmount]);
+
+  useEffect(() => {
+      if (userName) {
+        fetchPlayTypeByUsername(userName);
+      }
+    }, [userName]);
+
+    const fetchPlayTypeByUsername = async (username) => {
+        try {
+            const { data, error } = await supabase
+                .from('algorithm')
+                .select('playType')
+                .eq('userName', username)
+                .single();
+            
+            if (error) {
+                throw error;
+            }
+    
+            if (data) {
+                const fetchedPlayType = data.playType;
+                setPlayType(fetchedPlayType);
+    
+                // Save the fetched playType to localStorage
+                localStorage.setItem('playType', fetchedPlayType);
+            }
+        } catch (error) {
+            console.error('Error fetching playType by username:', error.message);
+        }
+    };
   useEffect(() => {
     const audio = new Audio(startAudio);
     audio.load(); // Preload the audio
@@ -1883,7 +1914,7 @@ const StartBingo = () => {
       {remainingMoney} ብር ወሳጅ
       </div>
       <div  className={styles.button}>
-      <button onClick={handleClick} disabled={registeredNumbers.length === 0 || creatingReport} className={styles.lowbutton}>
+      <button onClick={handleClick} disabled={registeredNumbers.length <= 1 || creatingReport} className={styles.lowbutton}>
         Start
       </button>
       <div onClick={handlepewzew} className={styles.pewzew}>ፐውዘው</div>
