@@ -46,6 +46,7 @@ const User = () => {
 };
 const handleUpdate = async () => {
   try {
+    // eslint-disable-next-line
     const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' ? supabase5 : null)
       .from('algorithm')
       .update({ playType })
@@ -55,11 +56,7 @@ const handleUpdate = async () => {
       throw error;
     }
 
-    console.log('Successfully updated');
-
-    if (data) {
-      alert('Successfully updated');
-    }
+    alert('Successfully updated');
 
   } catch (error) {
     console.error('Error updating in algorithm table:', error.message);
