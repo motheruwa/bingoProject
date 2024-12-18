@@ -35,7 +35,7 @@ function Card97() {
       I: [29, 25, 28, 21, 26],
       N: [43, 37, 'free', 32, 41],
       G: [60, 56, 55, 47, 46],
-      O: [75, 65, 72, 65, 73]
+      O: [75, 67, 72, 65, 73]
     };
 
     // Set the center cell as a free space
@@ -51,11 +51,11 @@ function Card97() {
     ['I29', 'I25', 'I28', 'I21', 'I26'], // Second row (I)
     ['N43', 'N37', 'Nfree', 'N32', 'N41'], // Third row (N)
     ['G60', 'G56', 'G55', 'G47', 'G46'], // Fourth row (G)
-    ['O75', 'O65', 'O72', 'O65', 'O73'], // Fifth row (O)
+    ['O75', 'O67', 'O72', 'O65', 'O73'], // Fifth row (O)
 
     // Columns
     ['B15', 'I29', 'N43', 'G60', 'O75'], // First column
-    ['B13', 'I25', 'N37', 'G56', 'O65'], // Second column
+    ['B13', 'I25', 'N37', 'G56', 'O67'], // Second column
     ['B12', 'I28', 'Nfree', 'G55', 'O72'], // Third column
     ['B6', 'I21', 'N32', 'G47', 'O65'], // Fourth column
     ['B14', 'I26', 'N41', 'G46', 'O73'], // Fifth column
