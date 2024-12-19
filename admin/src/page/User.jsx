@@ -31,7 +31,7 @@ const User = () => {
   const handleCreateOrUpdate = async () => {
     try {
       // eslint-disable-next-line
-        const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
+        const { data, error } = await (user.userName === 'addis3' ? supabase2 : user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
             .from('algorithm')
             .insert([{ userName: user.userName, playType }]);
         
@@ -47,7 +47,7 @@ const User = () => {
 const handleUpdate = async () => {
   try {
     // eslint-disable-next-line
-    const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
+    const { data, error } = await (user.userName === 'addis3' ? supabase2 : user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
       .from('algorithm')
       .update({ playType })
       .eq('userName', user.userName);
@@ -66,7 +66,7 @@ const handleUpdate = async () => {
         const fetchReportData = async () => {
           if (user && user.userName) { // Check if user and userName are not null
             try {
-              const { data, error } = await (user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
+              const { data, error } = await (user.userName === 'addis3' ? supabase2 : user.userName === 'abebe' ? supabase3 : user.userName === 'dagi bingo' || user.userName === 'dani bingo' ? supabase5 : null)
                 .from('report')
                 .select()
                 .eq('userName', user.userName);
