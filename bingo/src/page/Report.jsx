@@ -10,6 +10,7 @@ const Report = () => {
   const [reportData, setReportData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [filteredReportData, setFilteredReportData] = useState([]);
+  // eslint-disable-next-line
   const [fetchedUser, setFetchedUser] = useState([]);
   // eslint-disable-next-line
   const [userName, setUserName] = useState('');
