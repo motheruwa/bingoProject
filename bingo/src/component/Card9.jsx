@@ -11,11 +11,11 @@ function Card9() {
   const navigate = useNavigate();
   const generateBingoCard = () => {
     const bingoCard = {
-      B: [5, 2, 1, 9, 13],
-      I: [26, 18, 29, 22, 17],
-      N: [33, 39, 'free', 44, 42],
-      G: [56, 54, 58, 57, 55],
-      O: [75, 62, 72, 68, 67]
+      B: [3, 1, 2, 8, 6],
+      I: [25, 21, 28, 24, 16],
+      N: [34, 35, 'free', 31, 32],
+      G: [60, 52, 59, 53, 51],
+      O: [63, 61, 64, 67, 69]
     };
 
     // Set the center cell as a free space
@@ -26,19 +26,19 @@ function Card9() {
 
   const checkWin = () => {
     const winConditions = [
-        ['B5', 'B2', 'B1', 'B9', 'B13'], // First row (B)
-    ['I26', 'I18', 'I29', 'I22', 'I17'], // Second row (I)
-    ['N33', 'N39', 'free', 'N44', 'N42'], // Third row (N)
-    ['G56', 'G54', 'G58', 'G57', 'G55'], // Fourth row (G)
-    ['O75', 'O62', 'O72', 'O68', 'O67'], // Fifth row (O)
-    ['B5', 'I18', 'free', 'G57', 'O67'], // Top-left to bottom-right diagonal
-    ['O75', 'G54', 'free', 'I22', 'B13'], // Top-right to bottom-left diagonal
-    ['B5', 'I26', 'N33', 'G56', 'O75'], // First column
-    ['B2', 'I18', 'N39', 'G54', 'O62'], // Second column
-    ['B1', 'I29', 'free', 'G58', 'O72'], // Third column
-    ['B9', 'I22', 'N44', 'G57', 'O68'], // Fourth column
-    ['B13', 'I17', 'N42', 'G55', 'O67'], // Fifth column
-    ['B5', 'B13', 'O75', 'O67'] // Corner
+      ['B3', 'B1', 'B2', 'B8', 'B6'], // First row (B)
+      ['I25', 'I21', 'I28', 'I24', 'I16'], // Second row (I)
+      ['N34', 'N35', 'free', 'N31', 'N32'], // Third row (N)
+      ['G60', 'G52', 'G59', 'G53', 'G51'], // Fourth row (G)
+      ['O63', 'O61', 'O64', 'O67', 'O69'], // Fifth row (O)
+      ['B3', 'I21', 'free', 'G53', 'O69'], // Top-left to bottom-right diagonal
+      ['O63', 'G52', 'free', 'I24', 'B6'], // Top-right to bottom-left diagonal
+      ['B3', 'I25', 'N34', 'G60', 'O63'], // First column
+      ['B1', 'I21', 'N35', 'G52', 'O61'], // Second column
+      ['B2', 'I28', 'free', 'G59', 'O64'], // Third column
+      ['B8', 'I24', 'N31', 'G53', 'O67'], // Fourth column
+      ['B6', 'I16', 'N32', 'G51', 'O69'], // Fifth column
+      ['B3', 'B6', 'O63', 'O69'] // Corner
     ];
 
     const winningLines = [];
@@ -63,7 +63,6 @@ function Card9() {
   const handleResetAndNavigate = () => {
     localStorage.removeItem('calledNumbers');
     localStorage.removeItem('registeredNumbers');
-    localStorage.removeItem('sequenceIndex');
 
     navigate('/registerdcard');
   };
@@ -88,9 +87,9 @@ function Card9() {
 };
 
   const isFourCornersWinning =
-  winningNumbers.includes('B5') &&
-  winningNumbers.includes('B13') &&
-  winningNumbers.includes('O75') &&
+  winningNumbers.includes('B10') &&
+  winningNumbers.includes('B3') &&
+  winningNumbers.includes('O65') &&
   winningNumbers.includes('O67');
   return (
     <div className={styles.container}>

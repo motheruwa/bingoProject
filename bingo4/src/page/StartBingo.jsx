@@ -913,30 +913,12 @@ const StartBingo = () => {
     setRemainingMoney(remaining);
     // eslint-disable-next-line
   }, [registeredNumbers, selectedAmount, totalAmount]);
-  useEffect(() => {
-    const audio = new Audio(startAudio);
-    audio.load(); // Preload the audio
-
-    return () => {
-      // Clean up the audio element
-      audio.pause();
-      audio.removeAttribute('src');
-      audio.load();
-      
-    };
-    // eslint-disable-next-line
-  }, []); // Empty dependency array to run only on mount
 
   const handleClick = async () => {
     try {
         console.log(userName);
         setCreatingReport(true);
         const newBalance = fetchedUser.balance - deductedAmount;
-
-        if (newBalance < 0) {
-            alert('Insufficient funds');
-            return;
-        }
 
         const response = await axios.put(`https://bingoproject-3.onrender.com/api/user/update`, { userName, newBalance });
 
