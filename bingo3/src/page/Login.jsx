@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     
     // Client-side validation for username
-    if (userName !== 'abebe' && userName !== 'dagi bingo') {
+    if (userName !== 'abebe' && userName !== 'abebe1') {
       setErrorMessage('Username not found');
       return;
     }
