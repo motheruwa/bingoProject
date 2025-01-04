@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Client-side validation for username
-    if (userName !== 'miki' && userName !=='mule bingo' && userName !=='blen') {
+    if (userName !== 'miki' && userName !=='fish' && userName !=='blen') {
       setErrorMessage('Username not found');
       return;
     }
