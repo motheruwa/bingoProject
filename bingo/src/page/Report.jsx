@@ -105,7 +105,9 @@ const Report = () => {
           onChange={handleDateChange}
         />
         <button onClick={handleShowData}>Show Data</button>
-        
+        <div className={styles.balance}>
+          <span>balance :</span> {fetchedUser.balance}
+        </div>
       </div>
 
       <table>
