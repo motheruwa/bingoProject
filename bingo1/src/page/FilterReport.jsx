@@ -10,7 +10,6 @@ const FilterReport = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
-
   useEffect(() => {
     const fetchReportData = async () => {
       if (user && user.userName) {
