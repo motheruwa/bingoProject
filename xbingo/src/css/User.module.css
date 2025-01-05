@@ -1,0 +1,164 @@
+.select{
+    display: flex;
+}
+.selectoption{
+    width: 100px;
+}
+.total{
+    display: flex;
+}
+.totalincome{
+    background: rgb(7, 87, 153);
+    color: white;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .container{
+    background: white;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.date{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.home{
+    position: absolute;
+    left: 10px;
+    background: rgb(7, 87, 153);
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    height: 25px;
+    color: white;
+}
+.enterdate{
+    font-weight: bold;
+}
+
+.t{
+    font-weight: bold;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th{
+    background: rgb(7, 87, 153);
+    padding: 8px;
+    color: white;
+  }
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  .filterreport{
+    margin-top: 30px;
+    border-top: 3px solid rgb(7, 87, 153);
+    padding-top: 10px;
+  }
+  .total{
+    display: flex;
+    width: 200px;
+  }
+  .totalincome{
+    background: rgb(7, 87, 153);
+    color: white;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .balance{
+    position: absolute;
+    right: 10px;
+    background: rgb(7, 87, 153);
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    height: 25px;
+    color: white;
+}
+.nav{
+  width: 100%;
+  height: 60px;
+  background: rgb(7, 87, 153);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+}
+.setpermision{
+  width: 150px;
+  height: 30px;
+}
+.perbutton{
+  width: 150px;
+  height: 30px;
+  background: rgb(11, 33, 104);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.perbutton:hover{
+  background: rgb(7, 87, 153);
+}
+.bala{
+  display: flex;
+}
+.balanceinput{
+  width: 150px;
+  height: 25px;
+}
+.back{
+  position: absolute;
+  height: 30px;
+  width:70px;
+  top: 10px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.back:hover{
+  color: rgb(182, 180, 180);
+}
+@media(max-width:600px){
+  .balance{
+    position: absolute;
+    right: 5px;
+    background: rgb(7, 87, 153);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.balance span{
+  display: none;
+}
+.home{
+  position: absolute;
+  left: 5px;
+}
+}
+
