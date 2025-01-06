@@ -1,12 +1,13 @@
 .container{
     background: white;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
 }
 .date{
     padding-top: 10px;
     margin-bottom: 10px;
     width: 100%;
+    gap: 2px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -20,6 +21,17 @@
     text-decoration: none;
     height: 25px;
     color: white;
+}
+.showdata{
+  background: rgb(7, 87, 153);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.showdata:hover{
+  background: white;
+  color: rgb(7, 87, 153);
+  border: 1px solid rgb(7, 87, 153);
 }
 .enterdate{
     font-weight: bold;
@@ -36,6 +48,7 @@ table {
     background: rgb(7, 87, 153);
     padding: 8px;
     color: white;
+    border: 1px solid white;
   }
 td {
     border: 1px solid black;
@@ -68,16 +81,18 @@ td {
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
-    height: 25px;
+    height: 22px;
     color: white;
 }
 @media(max-width:600px){
   .balance{
     position: absolute;
     right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
     background: rgb(7, 87, 153);
-    padding-left: 10px;
-    padding-right: 10px;
 }
 .balance span{
   display: none;

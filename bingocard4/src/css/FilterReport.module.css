@@ -1,5 +1,6 @@
 .select{
     display: flex;
+    gap: 2px;
 }
 .selectoption{
     width: 100px;
@@ -8,6 +9,17 @@
     display: flex;
     gap: 20px;
 }
+.showdata{
+    background: rgb(7, 87, 153);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .showdata:hover{
+    background: white;
+    color: rgb(7, 87, 153);
+    border: 1px solid rgb(7, 87, 153);
+  }
 .totalincome{
     background: rgb(7, 87, 153);
     color: white;
@@ -18,3 +30,21 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+  .custom{
+    font-weight: bold;
+    display: flex;
+    gap: 2px;
+  }
+  @media(max-width:500px){
+    .custom{
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-left: 10px;
+      }
+      .showdata{
+        height: 30px;
+        margin-left: 10px;
+      }
+}

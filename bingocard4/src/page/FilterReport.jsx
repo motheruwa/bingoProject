@@ -111,7 +111,7 @@ const FilterReport = () => {
             />
           </div>
         )}
-        <button onClick={filterData}>Show Data</button>
+        <button onClick={filterData} className={styles.showdata}>Show Data</button>
       </div>
 
       <div className={styles.total}>

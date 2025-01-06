@@ -41,12 +41,13 @@
   }
   /*26843029*/
   .registered {
-    background-color: rgb(6, 209, 148);
+    background-color: rgb(6, 136, 97);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    font-weight: bold;
     font-size: 40px;
     width: 70%;
     height: 50px;
@@ -55,6 +56,7 @@
   .unregistered {
     background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
     border-radius: 50%;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +67,7 @@
     height: 50px;
   }
   .unregistered:hover{
-    background-image: radial-gradient(rgb(6, 209, 148),rgb(6, 209, 148));
+    background-image: radial-gradient(rgb(6, 209, 148),rgb(6, 136, 97));
   }
   .playoption{
     display: flex;
@@ -91,12 +93,13 @@
   }
   .renumber ul li{
     border-radius: 50%;
-    border: 2px solid rgb(201, 201, 34);
-    background-color: rgb(6, 209, 148);
+    border: 2px solid rgb(222, 227, 230);
+    background-color: rgb(6, 136, 97);
     color: white;
+    font-weight: bold;
     font-size: 40px;
-    width: 95%;
-    height: 70px;
+    width: 90%;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,7 +135,7 @@
     color: white;
   }
   .button:hover{
-    background: rgb(6, 209, 148);
+    background: rgb(6, 136, 97);
     color: white;
   }
   .round{
