@@ -81,13 +81,10 @@ const Report = () => {
   const handleShowData = () => {
     const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
 
-    // Filter the reportData array based on the selected date
-    const filteredData = selectedDate
-      ? reportData.filter((report) => {
-          const formattedCreatedAt = new Date(report.createdAt).toISOString().slice(0, 10);
-          return formattedCreatedAt === formattedSelectedDate;
-        })
-      : reportData;
+    const filteredData = reportData.filter((report) => {
+      const formattedCreatedAt = new Date(report.created_at).toISOString().slice(0, 10);
+      return formattedCreatedAt === formattedSelectedDate;
+    }).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by created_at in ascending order
 
     setFilteredReportData(filteredData);
 };
