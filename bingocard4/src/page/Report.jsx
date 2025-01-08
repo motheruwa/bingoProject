@@ -82,9 +82,9 @@ const Report = () => {
     const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
 
     const filteredData = reportData.filter((report) => {
-      const formattedCreatedAt = new Date(report.created_at).toISOString().slice(0, 10);
+      const formattedCreatedAt = new Date(report.createdAt).toISOString().slice(0, 10);
       return formattedCreatedAt === formattedSelectedDate;
-    }).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by created_at in ascending order
+    }).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // Sort by created_at in ascending order
 
     setFilteredReportData(filteredData);
 };
