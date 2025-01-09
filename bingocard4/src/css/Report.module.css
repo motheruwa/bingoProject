@@ -1,7 +1,7 @@
 .container{
     background: white;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 .date{
     padding-top: 10px;
