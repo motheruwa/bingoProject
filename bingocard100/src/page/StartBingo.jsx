@@ -1778,46 +1778,47 @@ const StartBingo = () => {
   let previousBalance = null;
   const handleClick = async () => {
     try {
-      console.log(userName);
+      console.log(parseInt(fetchedUser.balance))
+      console.log(parseInt(deductedAmount))
       setCreatingReport(true);
-
       // Save the previous balance before deducting the amount
-      previousBalance = fetchedUser.balance;
-      const newBalance = previousBalance - deductedAmount;
-
-      if (newBalance < 0) {
-        alert("Insufficient funds");
-        return;
-      }
-
+      previousBalance = parseInt(fetchedUser.balance); // Ensure it's an integer
+      const deductedAmountInt = parseInt(deductedAmount); // Ensure it's an integer
+      const newBalance = previousBalance - deductedAmountInt;
+  
+       if (newBalance <= 0) {
+         alert("Insufficient funds");
+         return;
+       }
+  
       const response = await axios.put(
         `https://bin.zaahirahtravels.com/api/user/update`,
         { userName, newBalance }
       );
-
+  
       if (response.status === 200) {
         console.log("Balance updated successfully");
       } else {
         return;
       }
-
+  
       localStorage.setItem("remainingMoney", remainingMoney);
       await createReport();
     } catch (error) {
       console.error("Report creation failed:", error);
-
+  
       // Rollback the balance to the previous value
       const response = await axios.put(
         `https://bin.zaahirahtravels.com/api/user/update`,
         { userName, previousBalance }
       );
-
+  
       if (response.status === 200) {
         console.log("Balance rolled back successfully");
       } else {
         console.error("Failed to rollback balance");
       }
-
+  
       // Handle the error, e.g., show a message to the user
     }
   };
