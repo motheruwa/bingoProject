@@ -1055,10 +1055,10 @@ const StartBingo = () => {
       previousBalance = fetchedUser.balance;
       const newBalance = previousBalance - deductedAmount;
 
-      // if (newBalance < 0) {
-      //   alert("Insufficient funds");
-      //   return;
-      // }
+      if (newBalance < 0) {
+        alert("Insufficient funds");
+        return;
+      }
 
       const response = await axios.put(
         `https://bin.zaahirahtravels.com/api/user/update`,
