@@ -11,12 +11,14 @@ import { useLogout } from "../hooks/useLogout";
 const StartBingo = () => {
   const { logout } = useLogout();
   const [registeredNumbers, setRegisteredNumbers] = useState([]);
+  // eslint-disable-next-line
   const [fetchedUser, setFetchedUser] = useState([]);
   const [selectedAmount, setSelectedAmount] = useState(1);
   const [round, setRound] = useState(1);
   const [remainingMoney, setRemainingMoney] = useState(0);
   // eslint-disable-next-line
-  const [deductedAmount, setDeductedAmount] = useState(0);
+  const [deductedAmount, setDeductedAmount] = useState(null);
+  const [previousBalance, setPreviousBalance] = useState(null);;
   const [totalAmount, setTotalAmount] = useState(0);
   const [userName, setUserName] = useState("");
   const [creatingReport, setCreatingReport] = useState(false);
@@ -34,6 +36,7 @@ const StartBingo = () => {
       );
       console.log("Fetched user by username:", response.data);
       setFetchedUser(response.data);
+      setPreviousBalance(response.data.balance);
       localStorage.setItem("playType", response.data.playType);
       // Handle the fetched user data as needed
     } catch (error) {
@@ -1775,14 +1778,15 @@ const StartBingo = () => {
       // eslint-disable-next-line
     }, [registeredNumbers, selectedAmount, totalAmount]);
 
-  let previousBalance = null;
   const handleClick = async () => {
     try {
-      console.log(parseInt(fetchedUser.balance))
+      if (previousBalance === null || deductedAmount === null) {
+        return; // Return early if either previousBalance or deductedAmount is null
+      }
+      console.log(previousBalance);
       console.log(parseInt(deductedAmount))
       setCreatingReport(true);
       // Save the previous balance before deducting the amount
-      previousBalance = parseInt(fetchedUser.balance); // Ensure it's an integer
       const deductedAmountInt = parseInt(deductedAmount); // Ensure it's an integer
       const newBalance = previousBalance - deductedAmountInt;
   
