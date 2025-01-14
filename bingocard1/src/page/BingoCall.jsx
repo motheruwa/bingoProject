@@ -231,27 +231,20 @@ import OOO74 from "../audio/OOO74.mp4";
 import OOO75 from "../audio/OOO75.mp4";
 export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
   const [animateCurrent, setAnimateCurrent] = useState(false);
-
+  const [audioInstances, setAudioInstances] = useState([]);
   useEffect(() => {
-    preloadAudio();
-  }, []);
-  const preloadAudio = () => {
-    const audioFiles = [
-      B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15 /* Add more audio file variables here */
-    ];
-
-    // Preload all audio files
-    audioFiles.forEach((audioFile) => {
-      const audio = new Audio(audioFile);
-      audio.preload = "auto"; // Preload the audio
-      audio.load(); // Load the audio
-
-      // Handle errors in loading the audio
-      audio.addEventListener("error", () => {
-        console.log(`Error loading ${audio.src}`);
-      });
+    const audioFiles = [BBB1, BBB2,BBB3,BBB4,BBB5,BBB6,BBB7,BBB8,BBB9,BBB10,BBB11,BBB12,BBB13,BBB14,BBB15];
+    const instances = audioFiles.map((file) => {
+      const audio = new Audio(file);
+      audio.preload = 'auto';
+      audio.load();
+      return audio;
     });
-  };
+
+    setAudioInstances(instances);
+    console.log("Preloaded audio instances:", instances);
+  }, []);
+
   useEffect(() => {
     setAnimateCurrent(true);
 
@@ -286,10 +279,10 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
 
     switch (number) {
       case "B1":
-        audio = new Audio(BBB1);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB1"));
         break;
       case "B2":
-        audio = new Audio(BBB2);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB2"));
         break;
       case "B3":
         audio = new Audio(BBB3);
