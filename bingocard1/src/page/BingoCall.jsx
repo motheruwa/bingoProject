@@ -285,43 +285,43 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
         audio = audioInstances.find((instance) => instance.src.includes("BBB2"));
         break;
       case "B3":
-        audio = new Audio(BBB3);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB3"));
         break;
       case "B4":
-        audio = new Audio(BBB4);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB4"));
         break;
       case "B5":
-        audio = new Audio(BBB5);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB5"));
         break;
       case "B6":
-        audio = new Audio(BBB6);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB6"));
         break;
       case "B7":
-        audio = new Audio(BBB7);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB7"));
         break;
       case "B8":
-        audio = new Audio(BBB8);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB8"));
         break;
       case "B9":
-        audio = new Audio(BBB9);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB9"));
         break;
       case "B10":
-        audio = new Audio(BBB10);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB10"));
         break;
       case "B11":
-        audio = new Audio(BBB11);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB11"));
         break;
       case "B12":
-        audio = new Audio(BBB12);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB12"));
         break;
       case "B13":
-        audio = new Audio(BBB13);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB13"));
         break;
       case "B14":
-        audio = new Audio(BBB14);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB14"));
         break;
       case "B15":
-        audio = new Audio(BBB15);
+        audio = audioInstances.find((instance) => instance.src.includes("BBB15"));
         break;
       case "I16":
         audio = new Audio(III16);
