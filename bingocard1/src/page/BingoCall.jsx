@@ -272,6 +272,7 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
       default:
         playAudioForNumber(currentNumber);
     }
+    // eslint-disable-next-line
   }, [currentNumber]);
 
   const playAudioForNumberBereket = (number) => {
