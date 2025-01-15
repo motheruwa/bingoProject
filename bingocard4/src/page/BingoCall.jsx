@@ -276,8 +276,6 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
           break;
   
       }
-      
-      
       const instances = audioFiles.map((file) => {
         const audio = new Audio(file);
         audio.preload = 'auto';
@@ -287,6 +285,7 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
   
       setAudioInstances(instances);
       console.log("Preloaded audio instances:", instances);
+      // eslint-disable-next-line
     }, []);
   
     useEffect(() => {
