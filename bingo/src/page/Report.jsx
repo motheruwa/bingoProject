@@ -65,30 +65,13 @@ const Report = () => {
   const handleShowData = () => {
     const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
 
-    // Filter out duplicates based on date and round
-    const uniqueReports = [];
-    const seen = new Set();
-
-    reportData.forEach((report) => {
+    const filteredData = reportData.filter((report) => {
       const formattedCreatedAt = new Date(report.created_at).toISOString().slice(0, 10);
-      const key = formattedCreatedAt + report.round; // Unique key based on date and round
-
-      if (!seen.has(key)) {
-        seen.add(key);
-        uniqueReports.push(report);
-      }
-    });
-
-    // Reapply the previous filter if a date was previously selected
-    const filteredData = selectedDate
-      ? uniqueReports.filter((report) => {
-          const formattedCreatedAt = new Date(report.created_at).toISOString().slice(0, 10);
-          return formattedCreatedAt === formattedSelectedDate;
-        })
-      : uniqueReports;
+      return formattedCreatedAt === formattedSelectedDate;
+    }).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by created_at in ascending order
 
     setFilteredReportData(filteredData);
-  };
+};
 
   const totalDeductedAmount = filteredReportData.reduce((acc, curr) => acc + curr.deductedAmount, 0);
 
