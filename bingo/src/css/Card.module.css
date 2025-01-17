@@ -1,5 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@keyframes current {
+  0% {
+    width: 47%;
+    height: 47%;
+    font-size: 40px;
+  }
+ 
+  50% {
+    width: 55%;
+    height: 55%;
+    font-size: 40px;
+  }
+ 
+  100% {
+    width: 40%;
+    height: 40%;
+    font-size: 40px;
+  }
+}
+
+.animated {
+  animation: current 2s ease;
+}
+.current {
+  display: flex;
+background: white;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.current11{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 19%;
+border-radius: 50%;
+height: 250px;
+border: 10px solid white;
+display: flex;
+align-items: center;
+justify-content: center;
+background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
+}
 .container{
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,6 +55,14 @@
   justify-content: center;
   flex-direction: column;
   background-image: linear-gradient(to right, rgb(1, 2, 8),rgb(6, 18, 58),rgb(20, 109, 145), rgb(11, 33, 104),rgb(6, 18, 58),rgb(1, 2, 8));
+}
+.cont{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .cardnumber{
   width: 50%;
