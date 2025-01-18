@@ -232,61 +232,61 @@ import OOO75 from "../audio/OOO75.mp4";
 export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
   const [animateCurrent, setAnimateCurrent] = useState(false);
 
-  const [audioInstances, setAudioInstances] = useState([]);
-    useEffect(() => {
-      const savedName = localStorage.getItem("selectedName");
-      let audioFiles = [];
-      // Call the appropriate function based on the selected name
-      switch (savedName) {
-        case "ngus":
-           audioFiles = [
-            BB1, BB2,BB3,BB4,BB5,BB6,BB7,BB8,BB9,BB10,BB11,BB12,BB13,BB14,BB15,
-            II16, II17, II18, II19, II20, II21, II22, II23, II24, II25, II26, II27, II28, II29, II30,
-            NN31, NN32, NN33, NN34, NN35, NN36, NN37, NN38, NN39, NN40, NN41, NN42, NN43, NN44, NN45,
-            GG46, GG47, GG48, GG49, GG50, GG51, GG52, GG53, GG54, GG55, GG56, GG57, GG58, GG59, GG60,
-            OO61, OO62, OO63, OO64, OO65, OO66, OO67, OO68, OO69, OO70, OO71, OO72, OO73, OO74, OO75,
+  // const [audioInstances, setAudioInstances] = useState([]);
+  //   useEffect(() => {
+  //     const savedName = localStorage.getItem("selectedName");
+  //     let audioFiles = [];
+  //     // Call the appropriate function based on the selected name
+  //     switch (savedName) {
+  //       case "ngus":
+  //          audioFiles = [
+  //           BB1, BB2,BB3,BB4,BB5,BB6,BB7,BB8,BB9,BB10,BB11,BB12,BB13,BB14,BB15,
+  //           II16, II17, II18, II19, II20, II21, II22, II23, II24, II25, II26, II27, II28, II29, II30,
+  //           NN31, NN32, NN33, NN34, NN35, NN36, NN37, NN38, NN39, NN40, NN41, NN42, NN43, NN44, NN45,
+  //           GG46, GG47, GG48, GG49, GG50, GG51, GG52, GG53, GG54, GG55, GG56, GG57, GG58, GG59, GG60,
+  //           OO61, OO62, OO63, OO64, OO65, OO66, OO67, OO68, OO69, OO70, OO71, OO72, OO73, OO74, OO75,
             
-          ];
-          break;
-        case "bereket":
-           audioFiles = [BBB1, BBB2,BBB3,BBB4,BBB5,BBB6,BBB7,BBB8,BBB9,BBB10,BBB11,BBB12,BBB13,BBB14,BBB15,
-            III16,III17,III18,III19,III20,III21,III22,III23,III24,III25,III26,III27,III28,III29,III30,
-            NNN31, NNN32, NNN33, NNN34, NNN35, NNN36, NNN37, NNN38, NNN39, NNN40, NNN41, NNN42, NNN43, NNN44, NNN45,
-            GGG46, GGG47, GGG48, GGG49, GGG50, GGG51, GGG52, GGG53, GGG54, GGG55, GGG56, GGG57, GGG58, GGG59, GGG60,
-            OOO61, OOO62, OOO63, OOO64, OOO65, OOO66, OOO67, OOO68, OOO69, OOO70, OOO71, OOO72, OOO73, OOO74, OOO75,
-          ];
-          break;
-        case "Xbingo":
-          audioFiles = [
-            B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,
-            I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28, I29, I30,
-            N31, N32, N33, N34, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45,
-            G46, G47, G48, G49, G50, G51, G52, G53, G54, G55, G56, G57, G58, G59, G60,
-            O61, O62, O63, O64, O65, O66, O67, O68, O69, O70, O71, O72, O73, O74, O75
-          ];
-          break;
-        default:
-          audioFiles = [
-            B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,
-                      I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28, I29, I30,
-                      N31, N32, N33, N34, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45,
-                      G46, G47, G48, G49, G50, G51, G52, G53, G54, G55, G56, G57, G58, G59, G60,
-                      O61, O62, O63, O64, O65, O66, O67, O68, O69, O70, O71, O72, O73, O74, O75
-          ];
-          break;
+  //         ];
+  //         break;
+  //       case "bereket":
+  //          audioFiles = [BBB1, BBB2,BBB3,BBB4,BBB5,BBB6,BBB7,BBB8,BBB9,BBB10,BBB11,BBB12,BBB13,BBB14,BBB15,
+  //           III16,III17,III18,III19,III20,III21,III22,III23,III24,III25,III26,III27,III28,III29,III30,
+  //           NNN31, NNN32, NNN33, NNN34, NNN35, NNN36, NNN37, NNN38, NNN39, NNN40, NNN41, NNN42, NNN43, NNN44, NNN45,
+  //           GGG46, GGG47, GGG48, GGG49, GGG50, GGG51, GGG52, GGG53, GGG54, GGG55, GGG56, GGG57, GGG58, GGG59, GGG60,
+  //           OOO61, OOO62, OOO63, OOO64, OOO65, OOO66, OOO67, OOO68, OOO69, OOO70, OOO71, OOO72, OOO73, OOO74, OOO75,
+  //         ];
+  //         break;
+  //       case "Xbingo":
+  //         audioFiles = [
+  //           B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,
+  //           I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28, I29, I30,
+  //           N31, N32, N33, N34, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45,
+  //           G46, G47, G48, G49, G50, G51, G52, G53, G54, G55, G56, G57, G58, G59, G60,
+  //           O61, O62, O63, O64, O65, O66, O67, O68, O69, O70, O71, O72, O73, O74, O75
+  //         ];
+  //         break;
+  //       default:
+  //         audioFiles = [
+  //           B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,
+  //                     I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28, I29, I30,
+  //                     N31, N32, N33, N34, N35, N36, N37, N38, N39, N40, N41, N42, N43, N44, N45,
+  //                     G46, G47, G48, G49, G50, G51, G52, G53, G54, G55, G56, G57, G58, G59, G60,
+  //                     O61, O62, O63, O64, O65, O66, O67, O68, O69, O70, O71, O72, O73, O74, O75
+  //         ];
+  //         break;
   
-      }
-      const instances = audioFiles.map((file) => {
-        const audio = new Audio(file);
-        audio.preload = 'auto';
-        audio.load();
-        return audio;
-      });
+  //     }
+  //     const instances = audioFiles.map((file) => {
+  //       const audio = new Audio(file);
+  //       audio.preload = 'auto';
+  //       audio.load();
+  //       return audio;
+  //     });
   
-      setAudioInstances(instances);
-      console.log("Preloaded audio instances:", instances);
-      // eslint-disable-next-line
-    }, []);
+  //     setAudioInstances(instances);
+  //     console.log("Preloaded audio instances:", instances);
+  //     // eslint-disable-next-line
+  //   }, []);
   
     useEffect(() => {
       setAnimateCurrent(true);
@@ -318,739 +318,739 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
       // eslint-disable-next-line
     }, [currentNumber]);
   
-    const playAudioForNumberBereket = (number) => {
-      let audio;
-  
-      switch (number) {
-        case "B1":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB1"));
-          break;
-        case "B2":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB2"));
-          break;
-        case "B3":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB3"));
-          break;
-        case "B4":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB4"));
-          break;
-        case "B5":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB5"));
-          break;
-        case "B6":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB6"));
-          break;
-        case "B7":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB7"));
-          break;
-        case "B8":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB8"));
-          break;
-        case "B9":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB9"));
-          break;
-        case "B10":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB10"));
-          break;
-        case "B11":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB11"));
-          break;
-        case "B12":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB12"));
-          break;
-        case "B13":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB13"));
-          break;
-        case "B14":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB14"));
-          break;
-        case "B15":
-          audio = audioInstances.find((instance) => instance.src.includes("BBB15"));
-          break;
-        case "I16":
-          audio = audioInstances.find((instance) => instance.src.includes("III16"));
-          break;
-        case "I17":
-          audio = audioInstances.find((instance) => instance.src.includes("III17"));
-          break;
-        case "I18":
-          audio = audioInstances.find((instance) => instance.src.includes("III18"));
-          break;
-        case "I19":
-          audio = audioInstances.find((instance) => instance.src.includes("III19"));
-          break;
-        case "I20":
-          audio = audioInstances.find((instance) => instance.src.includes("III20"));
-          break;
-        case "I21":
-          audio = audioInstances.find((instance) => instance.src.includes("III21"));
-          break;
-        case "I22":
-          audio = audioInstances.find((instance) => instance.src.includes("III22"));
-          break;
-        case "I23":
-          audio = audioInstances.find((instance) => instance.src.includes("III23"));
-          break;
-        case "I24":
-          audio = audioInstances.find((instance) => instance.src.includes("III24"));
-          break;
-        case "I25":
-          audio = audioInstances.find((instance) => instance.src.includes("III25"));
-          break;
-        case "I26":
-          audio = audioInstances.find((instance) => instance.src.includes("III26"));
-          break;
-        case "I27":
-          audio = audioInstances.find((instance) => instance.src.includes("III27"));
-          break;
-        case "I28":
-          audio = audioInstances.find((instance) => instance.src.includes("III28"));
-          break;
-        case "I29":
-          audio = audioInstances.find((instance) => instance.src.includes("III29"));
-          break;
-        case "I30":
-          audio = audioInstances.find((instance) => instance.src.includes("III30"));
-          break;
-        case "N31":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN31"));
-          break;
-        case "N32":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN32"));
-          break;
-        case "N33":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN33"));
-          break;
-        case "N34":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN34"));
-          break;
-        case "N35":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN35"));
-          break;
-        case "N36":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN36"));
-          break;
-        case "N37":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN37"));
-          break;
-        case "N38":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN38"));
-          break;
-        case "N39":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN39"));
-          break;
-        case "N40":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN40"));
-          break;
-        case "N41":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN41"));
-          break;
-        case "N42":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN42"));
-          break;
-        case "N43":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN43"));
-          break;
-        case "N44":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN44"));
-          break;
-        case "N45":
-          audio = audioInstances.find((instance) => instance.src.includes("NNN45"));
-          break;
-        case "G46":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG46"));
-          break;
-        case "G47":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG47"));
-          break;
-        case "G48":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG48"));
-          break;
-        case "G49":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG49"));
-          break;
-        case "G50":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG50"));
-          break;
-        case "G51":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG51"));
-          break;
-        case "G52":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG52"));
-          break;
-        case "G53":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG53"));
-          break;
-        case "G54":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG54"));
-          break;
-        case "G55":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG55"));
-          break;
-        case "G56":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG56"));
-          break;
-        case "G57":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG57"));
-          break;
-        case "G58":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG58"));
-          break;
-        case "G59":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG59"));
-          break;
-        case "G60":
-          audio = audioInstances.find((instance) => instance.src.includes("GGG60"));
-          break;
-        case "O61":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO61"));
-          break;
-        case "O62":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO62"));
-          break;
-        case "O63":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO63"));
-          break;
-        case "O64":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO64"));
-          break;
-        case "O65":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO65"));
-          break;
-        case "O66":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO66"));
-          break;
-        case "O67":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO67"));
-          break;
-        case "O68":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO68"));
-          break;
-        case "O69":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO69"));
-          break;
-        case "O70":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO70"));
-          break;
-        case "O71":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO71"));
-          break;
-        case "O72":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO72"));
-          break;
-        case "O73":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO73"));
-          break;
-        case "O74":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO74"));
-          break;
-        case "O75":
-          audio = audioInstances.find((instance) => instance.src.includes("OOO75"));
-          break;
-        default:
-          // Handle cases where no audio needs to be played
-          break;
-      }
-  
-      if (audio) {
-        audio.play();
-  
-        // Pause the audio after 3 seconds
-        setTimeout(() => {
-          audio.pause();
-          audio.currentTime = 0; // Reset audio to the beginning
-        }, 3000); // Duration of 3 seconds
-      }
-    };
-    const playAudioForNumberNgus = (number) => {
-      let audio;
-  
-      switch (number) {
-        case "B1":
-          audio = audioInstances.find((instance) => instance.src.includes("BB1"));
-          break;
-        case "B2":
-          audio = audioInstances.find((instance) => instance.src.includes("BB2"));
-          break;
-        case "B3":
-          audio = audioInstances.find((instance) => instance.src.includes("BB3"));
-          break;
-        case "B4":
-          audio = audioInstances.find((instance) => instance.src.includes("BB4"));
-          break;
-        case "B5":
-          audio = audioInstances.find((instance) => instance.src.includes("BB5"));
-          break;
-        case "B6":
-          audio = audioInstances.find((instance) => instance.src.includes("BB6"));
-          break;
-        case "B7":
-          audio = audioInstances.find((instance) => instance.src.includes("BB7"));
-          break;
-        case "B8":
-          audio = audioInstances.find((instance) => instance.src.includes("BB8"));
-          break;
-        case "B9":
-          audio = audioInstances.find((instance) => instance.src.includes("BB9"));
-          break;
-        case "B10":
-          audio = audioInstances.find((instance) => instance.src.includes("BB10"));
-          break;
-        case "B11":
-          audio = audioInstances.find((instance) => instance.src.includes("BB11"));
-          break;
-        case "B12":
-          audio = audioInstances.find((instance) => instance.src.includes("BB12"));
-          break;
-        case "B13":
-          audio = audioInstances.find((instance) => instance.src.includes("BB13"));
-          break;
-        case "B14":
-          audio = audioInstances.find((instance) => instance.src.includes("BB14"));
-          break;
-        case "B15":
-          audio = audioInstances.find((instance) => instance.src.includes("BB15"));
-          break;
-        case "I16":
-          audio = audioInstances.find((instance) => instance.src.includes("II16"));
-          break;
-        case "I17":
-          audio = audioInstances.find((instance) => instance.src.includes("II17"));
-          break;
-        case "I18":
-          audio = audioInstances.find((instance) => instance.src.includes("II18"));
-          break;
-        case "I19":
-          audio = audioInstances.find((instance) => instance.src.includes("II19"));
-          break;
-        case "I20":
-          audio = audioInstances.find((instance) => instance.src.includes("II20"));
-          break;
-        case "I21":
-          audio = audioInstances.find((instance) => instance.src.includes("II21"));
-          break;
-        case "I22":
-          audio = audioInstances.find((instance) => instance.src.includes("II22"));
-          break;
-        case "I23":
-          audio = audioInstances.find((instance) => instance.src.includes("II23"));
-          break;
-        case "I24":
-          audio = audioInstances.find((instance) => instance.src.includes("II24"));
-          break;
-        case "I25":
-          audio = audioInstances.find((instance) => instance.src.includes("II25"));
-          break;
-        case "I26":
-          audio = audioInstances.find((instance) => instance.src.includes("II26"));
-          break;
-        case "I27":
-          audio = audioInstances.find((instance) => instance.src.includes("II27"));
-          break;
-        case "I28":
-          audio = audioInstances.find((instance) => instance.src.includes("II28"));
-          break;
-        case "I29":
-          audio = audioInstances.find((instance) => instance.src.includes("II29"));
-          break;
-        case "I30":
-          audio = audioInstances.find((instance) => instance.src.includes("II30"));
-          break;
-        case "N31":
-          audio = audioInstances.find((instance) => instance.src.includes("NN31"));
-          break;
-        case "N32":
-          audio = audioInstances.find((instance) => instance.src.includes("NN32"));
-          break;
-        case "N33":
-          audio = audioInstances.find((instance) => instance.src.includes("NN33"));
-          break;
-        case "N34":
-          audio = audioInstances.find((instance) => instance.src.includes("NN34"));
-          break;
-        case "N35":
-          audio = audioInstances.find((instance) => instance.src.includes("NN35"));
-          break;
-        case "N36":
-          audio = audioInstances.find((instance) => instance.src.includes("NN36"));
-          break;
-        case "N37":
-          audio = audioInstances.find((instance) => instance.src.includes("NN37"));
-          break;
-        case "N38":
-          audio = audioInstances.find((instance) => instance.src.includes("NN38"));
-          break;
-        case "N39":
-          audio = audioInstances.find((instance) => instance.src.includes("NN39"));
-          break;
-        case "N40":
-          audio = audioInstances.find((instance) => instance.src.includes("NN40"));
-          break;
-        case "N41":
-          audio = audioInstances.find((instance) => instance.src.includes("NN41"));
-          break;
-        case "N42":
-          audio = audioInstances.find((instance) => instance.src.includes("NN42"));
-          break;
-        case "N43":
-          audio = audioInstances.find((instance) => instance.src.includes("NN43"));
-          break;
-        case "N44":
-          audio = audioInstances.find((instance) => instance.src.includes("NN44"));
-          break;
-        case "N45":
-          audio = audioInstances.find((instance) => instance.src.includes("NN45"));
-          break;
-        case "G46":
-          audio = audioInstances.find((instance) => instance.src.includes("GG46"));
-          break;
-        case "G47":
-          audio = audioInstances.find((instance) => instance.src.includes("GG47"));
-          break;
-        case "G48":
-          audio = audioInstances.find((instance) => instance.src.includes("GG48"));
-          break;
-        case "G49":
-          audio = audioInstances.find((instance) => instance.src.includes("GG49"));
-          break;
-        case "G50":
-          audio = audioInstances.find((instance) => instance.src.includes("GG50"));
-          break;
-        case "G51":
-          audio = audioInstances.find((instance) => instance.src.includes("GG51"));
-          break;
-        case "G52":
-          audio = audioInstances.find((instance) => instance.src.includes("GG52"));
-          break;
-        case "G53":
-          audio = audioInstances.find((instance) => instance.src.includes("GG53"));
-          break;
-        case "G54":
-          audio = audioInstances.find((instance) => instance.src.includes("GG54"));
-          break;
-        case "G55":
-          audio = audioInstances.find((instance) => instance.src.includes("GG55"));
-          break;
-        case "G56":
-          audio = audioInstances.find((instance) => instance.src.includes("GG56"));
-          break;
-        case "G57":
-          audio = audioInstances.find((instance) => instance.src.includes("GG57"));
-          break;
-        case "G58":
-          audio = audioInstances.find((instance) => instance.src.includes("GG58"));
-          break;
-        case "G59":
-          audio = audioInstances.find((instance) => instance.src.includes("GG59"));
-          break;
-        case "G60":
-          audio = audioInstances.find((instance) => instance.src.includes("GG60"));
-          break;
-        case "O61":
-          audio = audioInstances.find((instance) => instance.src.includes("OO61"));
-          break;
-        case "O62":
-          audio = audioInstances.find((instance) => instance.src.includes("OO62"));
-          break;
-        case "O63":
-          audio = audioInstances.find((instance) => instance.src.includes("OO63"));
-          break;
-        case "O64":
-          audio = audioInstances.find((instance) => instance.src.includes("OO64"));
-          break;
-        case "O65":
-          audio = audioInstances.find((instance) => instance.src.includes("OO65"));
-          break;
-        case "O66":
-          audio = audioInstances.find((instance) => instance.src.includes("OO66"));
-          break;
-        case "O67":
-          audio = audioInstances.find((instance) => instance.src.includes("OO67"));
-          break;
-        case "O68":
-          audio = audioInstances.find((instance) => instance.src.includes("OO68"));
-          break;
-        case "O69":
-          audio = audioInstances.find((instance) => instance.src.includes("OO69"));
-          break;
-        case "O70":
-          audio = audioInstances.find((instance) => instance.src.includes("OO70"));
-          break;
-        case "O71":
-          audio = audioInstances.find((instance) => instance.src.includes("OO71"));
-          break;
-        case "O72":
-          audio = audioInstances.find((instance) => instance.src.includes("OO72"));
-          break;
-        case "O73":
-          audio = audioInstances.find((instance) => instance.src.includes("OO73"));
-          break;
-        case "O74":
-          audio = audioInstances.find((instance) => instance.src.includes("OO74"));
-          break;
-        case "O75":
-          audio = audioInstances.find((instance) => instance.src.includes("OO75"));
-          break;
-        default:
-          // Handle cases where no audio needs to be played
-          break;
-      }
-  
-      if (audio) {
-        audio.play();
-  
-        // Pause the audio after 3 seconds
-        setTimeout(() => {
-          audio.pause();
-          audio.currentTime = 0; // Reset audio to the beginning
-        }, 3000); // Duration of 3 seconds
-      }
-    };
-  
-    const playAudioForNumber = (number) => {
-      let audio;
-  
-      switch (number) {
-        case "B1":
-          audio = audioInstances.find((instance) => instance.src.includes("B1"));
-          break;
-        case "B2":
-          audio = audioInstances.find((instance) => instance.src.includes("B2"));
-          break;
-        case "B3":
-          audio = audioInstances.find((instance) => instance.src.includes("B3"));
-          break;
-        case "B4":
-          audio = audioInstances.find((instance) => instance.src.includes("B4"));
-          break;
-        case "B5":
-          audio = audioInstances.find((instance) => instance.src.includes("B5"));
-          break;
-        case "B6":
-          audio = audioInstances.find((instance) => instance.src.includes("B6"));
-          break;
-        case "B7":
-          audio = audioInstances.find((instance) => instance.src.includes("B7"));
-          break;
-        case "B8":
-          audio = audioInstances.find((instance) => instance.src.includes("B8"));
-          break;
-        case "B9":
-          audio = audioInstances.find((instance) => instance.src.includes("B9"));
-          break;
-        case "B10":
-          audio = audioInstances.find((instance) => instance.src.includes("B10"));
-          break;
-        case "B11":
-          audio = audioInstances.find((instance) => instance.src.includes("B11"));
-          break;
-        case "B12":
-          audio = audioInstances.find((instance) => instance.src.includes("B12"));
-          break;
-        case "B13":
-          audio = audioInstances.find((instance) => instance.src.includes("B13"));
-          break;
-        case "B14":
-          audio = audioInstances.find((instance) => instance.src.includes("B14"));
-          break;
-        case "B15":
-          audio = audioInstances.find((instance) => instance.src.includes("B15"));
-          break;
-        case "I16":
-          audio = audioInstances.find((instance) => instance.src.includes("I16"));
-          break;
-        case "I17":
-          audio = audioInstances.find((instance) => instance.src.includes("I17"));
-          break;
-        case "I18":
-          audio = audioInstances.find((instance) => instance.src.includes("I18"));
-          break;
-        case "I19":
-          audio = audioInstances.find((instance) => instance.src.includes("I19"));
-          break;
-        case "I20":
-          audio = audioInstances.find((instance) => instance.src.includes("I20"));
-          break;
-        case "I21":
-          audio = audioInstances.find((instance) => instance.src.includes("I21"));
-          break;
-        case "I22":
-          audio = audioInstances.find((instance) => instance.src.includes("I22"));
-          break;
-        case "I23":
-          audio = audioInstances.find((instance) => instance.src.includes("I23"));
-          break;
-        case "I24":
-          audio = audioInstances.find((instance) => instance.src.includes("I24"));
-          break;
-        case "I25":
-          audio = audioInstances.find((instance) => instance.src.includes("I25"));
-          break;
-        case "I26":
-          audio = audioInstances.find((instance) => instance.src.includes("I26"));
-          break;
-        case "I27":
-          audio = audioInstances.find((instance) => instance.src.includes("I27"));
-          break;
-        case "I28":
-          audio = audioInstances.find((instance) => instance.src.includes("I28"));
-          break;
-        case "I29":
-          audio = audioInstances.find((instance) => instance.src.includes("I29"));
-          break;
-        case "I30":
-          audio = audioInstances.find((instance) => instance.src.includes("I30"));
-          break;
-        case "N31":
-          audio = audioInstances.find((instance) => instance.src.includes("N31"));
-          break;
-        case "N32":
-          audio = audioInstances.find((instance) => instance.src.includes("N32"));
-          break;
-        case "N33":
-          audio = audioInstances.find((instance) => instance.src.includes("N33"));
-          break;
-        case "N34":
-          audio = audioInstances.find((instance) => instance.src.includes("N34"));
-          break;
-        case "N35":
-          audio = audioInstances.find((instance) => instance.src.includes("N35"));
-          break;
-        case "N36":
-          audio = audioInstances.find((instance) => instance.src.includes("N36"));
-          break;
-        case "N37":
-          audio = audioInstances.find((instance) => instance.src.includes("N37"));
-          break;
-        case "N38":
-          audio = audioInstances.find((instance) => instance.src.includes("N38"));
-          break;
-        case "N39":
-          audio = audioInstances.find((instance) => instance.src.includes("N39"));
-          break;
-        case "N40":
-          audio = audioInstances.find((instance) => instance.src.includes("N40"));
-          break;
-        case "N41":
-          audio = audioInstances.find((instance) => instance.src.includes("N41"));
-          break;
-        case "N42":
-          audio = audioInstances.find((instance) => instance.src.includes("N42"));
-          break;
-        case "N43":
-          audio = audioInstances.find((instance) => instance.src.includes("N43"));
-          break;
-        case "N44":
-          audio = audioInstances.find((instance) => instance.src.includes("N44"));
-          break;
-        case "N45":
-          audio = audioInstances.find((instance) => instance.src.includes("N45"));
-          break;
-        case "G46":
-          audio = audioInstances.find((instance) => instance.src.includes("G46"));
-          break;
-        case "G47":
-          audio = audioInstances.find((instance) => instance.src.includes("G47"));
-          break;
-        case "G48":
-          audio = audioInstances.find((instance) => instance.src.includes("G48"));
-          break;
-        case "G49":
-          audio = audioInstances.find((instance) => instance.src.includes("G49"));
-          break;
-        case "G50":
-          audio = audioInstances.find((instance) => instance.src.includes("G50"));
-          break;
-        case "G51":
-          audio = audioInstances.find((instance) => instance.src.includes("G51"));
-          break;
-        case "G52":
-          audio = audioInstances.find((instance) => instance.src.includes("G52"));
-          break;
-        case "G53":
-          audio = audioInstances.find((instance) => instance.src.includes("G53"));
-          break;
-        case "G54":
-          audio = audioInstances.find((instance) => instance.src.includes("G54"));
-          break;
-        case "G55":
-          audio = audioInstances.find((instance) => instance.src.includes("G55"));
-          break;
-        case "G56":
-          audio = audioInstances.find((instance) => instance.src.includes("G56"));
-          break;
-        case "G57":
-          audio = audioInstances.find((instance) => instance.src.includes("G57"));
-          break;
-        case "G58":
-          audio = audioInstances.find((instance) => instance.src.includes("G58"));
-          break;
-        case "G59":
-          audio = audioInstances.find((instance) => instance.src.includes("G59"));
-          break;
-        case "G60":
-          audio = audioInstances.find((instance) => instance.src.includes("G60"));
-          break;
-        case "O61":
-          audio = audioInstances.find((instance) => instance.src.includes("O61"));
-          break;
-        case "O62":
-          audio = audioInstances.find((instance) => instance.src.includes("O62"));
-          break;
-        case "O63":
-          audio = audioInstances.find((instance) => instance.src.includes("O63"));
-          break;
-        case "O64":
-          audio = audioInstances.find((instance) => instance.src.includes("O64"));
-          break;
-        case "O65":
-          audio = audioInstances.find((instance) => instance.src.includes("O65"));
-          break;
-        case "O66":
-          audio = audioInstances.find((instance) => instance.src.includes("O66"));
-          break;
-        case "O67":
-          audio = audioInstances.find((instance) => instance.src.includes("O67"));
-          break;
-        case "O68":
-          audio = audioInstances.find((instance) => instance.src.includes("O68"));
-          break;
-        case "O69":
-          audio = audioInstances.find((instance) => instance.src.includes("O69"));
-          break;
-        case "O70":
-          audio = audioInstances.find((instance) => instance.src.includes("O70"));
-          break;
-        case "O71":
-          audio = audioInstances.find((instance) => instance.src.includes("O71"));
-          break;
-        case "O72":
-          audio = audioInstances.find((instance) => instance.src.includes("O72"));
-          break;
-        case "O73":
-          audio = audioInstances.find((instance) => instance.src.includes("O73"));
-          break;
-        case "O74":
-          audio = audioInstances.find((instance) => instance.src.includes("O74"));
-          break;
-        case "O75":
-          audio = audioInstances.find((instance) => instance.src.includes("O75"));
-          break;
-        default:
-          // Handle cases where no audio needs to be played
-          break;
-      }
-  
-      if (audio) {
-        audio.play();
-  
-        // Pause the audio after 3 seconds
-        setTimeout(() => {
-          audio.pause();
-          audio.currentTime = 0; // Reset audio to the beginning
-        }, 3000); // Duration of 3 seconds
-      }
-    };
+   const playAudioForNumberBereket = (number) => {
+        let audio;
+    
+        switch (number) {
+          case "B1":
+            audio = new Audio(BBB1);
+            break;
+          case "B2":
+            audio = new Audio(BBB2);
+            break;
+          case "B3":
+            audio = new Audio(BBB3);
+            break;
+          case "B4":
+            audio = new Audio(BBB4);
+            break;
+          case "B5":
+            audio = new Audio(BBB5);
+            break;
+          case "B6":
+            audio = new Audio(BBB6);
+            break;
+          case "B7":
+            audio = new Audio(BBB7);
+            break;
+          case "B8":
+            audio = new Audio(BBB8);
+            break;
+          case "B9":
+            audio = new Audio(BBB9);
+            break;
+          case "B10":
+            audio = new Audio(BBB10);
+            break;
+          case "B11":
+            audio = new Audio(BBB11);
+            break;
+          case "B12":
+            audio = new Audio(BBB12);
+            break;
+          case "B13":
+            audio = new Audio(BBB13);
+            break;
+          case "B14":
+            audio = new Audio(BBB14);
+            break;
+          case "B15":
+            audio = new Audio(BBB15);
+            break;
+          case "I16":
+            audio = new Audio(III16);
+            break;
+          case "I17":
+            audio = new Audio(III17);
+            break;
+          case "I18":
+            audio = new Audio(III18);
+            break;
+          case "I19":
+            audio = new Audio(III19);
+            break;
+          case "I20":
+            audio = new Audio(III20);
+            break;
+          case "I21":
+            audio = new Audio(III21);
+            break;
+          case "I22":
+            audio = new Audio(III22);
+            break;
+          case "I23":
+            audio = new Audio(III23);
+            break;
+          case "I24":
+            audio = new Audio(III24);
+            break;
+          case "I25":
+            audio = new Audio(III25);
+            break;
+          case "I26":
+            audio = new Audio(III26);
+            break;
+          case "I27":
+            audio = new Audio(III27);
+            break;
+          case "I28":
+            audio = new Audio(III28);
+            break;
+          case "I29":
+            audio = new Audio(III29);
+            break;
+          case "I30":
+            audio = new Audio(III30);
+            break;
+          case "N31":
+            audio = new Audio(NNN31);
+            break;
+          case "N32":
+            audio = new Audio(NNN32);
+            break;
+          case "N33":
+            audio = new Audio(NNN33);
+            break;
+          case "N34":
+            audio = new Audio(NNN34);
+            break;
+          case "N35":
+            audio = new Audio(NNN35);
+            break;
+          case "N36":
+            audio = new Audio(NNN36);
+            break;
+          case "N37":
+            audio = new Audio(NNN37);
+            break;
+          case "N38":
+            audio = new Audio(NNN38);
+            break;
+          case "N39":
+            audio = new Audio(NNN39);
+            break;
+          case "N40":
+            audio = new Audio(NNN40);
+            break;
+          case "N41":
+            audio = new Audio(NNN41);
+            break;
+          case "N42":
+            audio = new Audio(NNN42);
+            break;
+          case "N43":
+            audio = new Audio(NNN43);
+            break;
+          case "N44":
+            audio = new Audio(NNN44);
+            break;
+          case "N45":
+            audio = new Audio(NNN45);
+            break;
+          case "G46":
+            audio = new Audio(GGG46);
+            break;
+          case "G47":
+            audio = new Audio(GGG47);
+            break;
+          case "G48":
+            audio = new Audio(GGG48);
+            break;
+          case "G49":
+            audio = new Audio(GGG49);
+            break;
+          case "G50":
+            audio = new Audio(GGG50);
+            break;
+          case "G51":
+            audio = new Audio(GGG51);
+            break;
+          case "G52":
+            audio = new Audio(GGG52);
+            break;
+          case "G53":
+            audio = new Audio(GGG53);
+            break;
+          case "G54":
+            audio = new Audio(GGG54);
+            break;
+          case "G55":
+            audio = new Audio(GGG55);
+            break;
+          case "G56":
+            audio = new Audio(GGG56);
+            break;
+          case "G57":
+            audio = new Audio(GGG57);
+            break;
+          case "G58":
+            audio = new Audio(GGG58);
+            break;
+          case "G59":
+            audio = new Audio(GGG59);
+            break;
+          case "G60":
+            audio = new Audio(GGG60);
+            break;
+          case "O61":
+            audio = new Audio(OOO61);
+            break;
+          case "O62":
+            audio = new Audio(OOO62);
+            break;
+          case "O63":
+            audio = new Audio(OOO63);
+            break;
+          case "O64":
+            audio = new Audio(OOO64);
+            break;
+          case "O65":
+            audio = new Audio(OOO65);
+            break;
+          case "O66":
+            audio = new Audio(OOO66);
+            break;
+          case "O67":
+            audio = new Audio(OOO67);
+            break;
+          case "O68":
+            audio = new Audio(OOO68);
+            break;
+          case "O69":
+            audio = new Audio(OOO69);
+            break;
+          case "O70":
+            audio = new Audio(OOO70);
+            break;
+          case "O71":
+            audio = new Audio(OOO71);
+            break;
+          case "O72":
+            audio = new Audio(OOO72);
+            break;
+          case "O73":
+            audio = new Audio(OOO73);
+            break;
+          case "O74":
+            audio = new Audio(OOO74);
+            break;
+          case "O75":
+            audio = new Audio(OOO75);
+            break;
+          default:
+            // Handle cases where no audio needs to be played
+            break;
+        }
+    
+        if (audio) {
+          audio.play();
+    
+          // Pause the audio after 3 seconds
+          setTimeout(() => {
+            audio.pause();
+            audio.currentTime = 0; // Reset audio to the beginning
+          }, 3000); // Duration of 3 seconds
+        }
+      };
+      const playAudioForNumberNgus = (number) => {
+        let audio;
+    
+        switch (number) {
+          case "B1":
+            audio = new Audio(BB1);
+            break;
+          case "B2":
+            audio = new Audio(BB2);
+            break;
+          case "B3":
+            audio = new Audio(BB3);
+            break;
+          case "B4":
+            audio = new Audio(BB4);
+            break;
+          case "B5":
+            audio = new Audio(BB5);
+            break;
+          case "B6":
+            audio = new Audio(BB6);
+            break;
+          case "B7":
+            audio = new Audio(BB7);
+            break;
+          case "B8":
+            audio = new Audio(BB8);
+            break;
+          case "B9":
+            audio = new Audio(BB9);
+            break;
+          case "B10":
+            audio = new Audio(BB10);
+            break;
+          case "B11":
+            audio = new Audio(BB11);
+            break;
+          case "B12":
+            audio = new Audio(BB12);
+            break;
+          case "B13":
+            audio = new Audio(BB13);
+            break;
+          case "B14":
+            audio = new Audio(BB14);
+            break;
+          case "B15":
+            audio = new Audio(BB15);
+            break;
+          case "I16":
+            audio = new Audio(II16);
+            break;
+          case "I17":
+            audio = new Audio(II17);
+            break;
+          case "I18":
+            audio = new Audio(II18);
+            break;
+          case "I19":
+            audio = new Audio(II19);
+            break;
+          case "I20":
+            audio = new Audio(II20);
+            break;
+          case "I21":
+            audio = new Audio(II21);
+            break;
+          case "I22":
+            audio = new Audio(II22);
+            break;
+          case "I23":
+            audio = new Audio(II23);
+            break;
+          case "I24":
+            audio = new Audio(II24);
+            break;
+          case "I25":
+            audio = new Audio(II25);
+            break;
+          case "I26":
+            audio = new Audio(II26);
+            break;
+          case "I27":
+            audio = new Audio(II27);
+            break;
+          case "I28":
+            audio = new Audio(II28);
+            break;
+          case "I29":
+            audio = new Audio(II29);
+            break;
+          case "I30":
+            audio = new Audio(II30);
+            break;
+          case "N31":
+            audio = new Audio(NN31);
+            break;
+          case "N32":
+            audio = new Audio(NN32);
+            break;
+          case "N33":
+            audio = new Audio(NN33);
+            break;
+          case "N34":
+            audio = new Audio(NN34);
+            break;
+          case "N35":
+            audio = new Audio(NN35);
+            break;
+          case "N36":
+            audio = new Audio(NN36);
+            break;
+          case "N37":
+            audio = new Audio(NN37);
+            break;
+          case "N38":
+            audio = new Audio(NN38);
+            break;
+          case "N39":
+            audio = new Audio(NN39);
+            break;
+          case "N40":
+            audio = new Audio(NN40);
+            break;
+          case "N41":
+            audio = new Audio(NN41);
+            break;
+          case "N42":
+            audio = new Audio(NN42);
+            break;
+          case "N43":
+            audio = new Audio(NN43);
+            break;
+          case "N44":
+            audio = new Audio(NN44);
+            break;
+          case "N45":
+            audio = new Audio(NN45);
+            break;
+          case "G46":
+            audio = new Audio(GG46);
+            break;
+          case "G47":
+            audio = new Audio(GG47);
+            break;
+          case "G48":
+            audio = new Audio(GG48);
+            break;
+          case "G49":
+            audio = new Audio(GG49);
+            break;
+          case "G50":
+            audio = new Audio(GG50);
+            break;
+          case "G51":
+            audio = new Audio(GG51);
+            break;
+          case "G52":
+            audio = new Audio(GG52);
+            break;
+          case "G53":
+            audio = new Audio(GG53);
+            break;
+          case "G54":
+            audio = new Audio(GG54);
+            break;
+          case "G55":
+            audio = new Audio(GG55);
+            break;
+          case "G56":
+            audio = new Audio(GG56);
+            break;
+          case "G57":
+            audio = new Audio(GG57);
+            break;
+          case "G58":
+            audio = new Audio(GG58);
+            break;
+          case "G59":
+            audio = new Audio(GG59);
+            break;
+          case "G60":
+            audio = new Audio(GG60);
+            break;
+          case "O61":
+            audio = new Audio(OO61);
+            break;
+          case "O62":
+            audio = new Audio(OO62);
+            break;
+          case "O63":
+            audio = new Audio(OO63);
+            break;
+          case "O64":
+            audio = new Audio(OO64);
+            break;
+          case "O65":
+            audio = new Audio(OO65);
+            break;
+          case "O66":
+            audio = new Audio(OO66);
+            break;
+          case "O67":
+            audio = new Audio(OO67);
+            break;
+          case "O68":
+            audio = new Audio(OO68);
+            break;
+          case "O69":
+            audio = new Audio(OO69);
+            break;
+          case "O70":
+            audio = new Audio(OO70);
+            break;
+          case "O71":
+            audio = new Audio(OO71);
+            break;
+          case "O72":
+            audio = new Audio(OO72);
+            break;
+          case "O73":
+            audio = new Audio(OO73);
+            break;
+          case "O74":
+            audio = new Audio(OO74);
+            break;
+          case "O75":
+            audio = new Audio(OO75);
+            break;
+          default:
+            // Handle cases where no audio needs to be played
+            break;
+        }
+    
+        if (audio) {
+          audio.play();
+    
+          // Pause the audio after 3 seconds
+          setTimeout(() => {
+            audio.pause();
+            audio.currentTime = 0; // Reset audio to the beginning
+          }, 3000); // Duration of 3 seconds
+        }
+      };
+    
+      const playAudioForNumber = (number) => {
+        let audio;
+    
+        switch (number) {
+          case "B1":
+            audio = new Audio(B1);
+            break;
+          case "B2":
+            audio = new Audio(B2);
+            break;
+          case "B3":
+            audio = new Audio(B3);
+            break;
+          case "B4":
+            audio = new Audio(B4);
+            break;
+          case "B5":
+            audio = new Audio(B5);
+            break;
+          case "B6":
+            audio = new Audio(B6);
+            break;
+          case "B7":
+            audio = new Audio(B7);
+            break;
+          case "B8":
+            audio = new Audio(B8);
+            break;
+          case "B9":
+            audio = new Audio(B9);
+            break;
+          case "B10":
+            audio = new Audio(B10);
+            break;
+          case "B11":
+            audio = new Audio(B11);
+            break;
+          case "B12":
+            audio = new Audio(B12);
+            break;
+          case "B13":
+            audio = new Audio(B13);
+            break;
+          case "B14":
+            audio = new Audio(B14);
+            break;
+          case "B15":
+            audio = new Audio(B15);
+            break;
+          case "I16":
+            audio = new Audio(I16);
+            break;
+          case "I17":
+            audio = new Audio(I17);
+            break;
+          case "I18":
+            audio = new Audio(I18);
+            break;
+          case "I19":
+            audio = new Audio(I19);
+            break;
+          case "I20":
+            audio = new Audio(I20);
+            break;
+          case "I21":
+            audio = new Audio(I21);
+            break;
+          case "I22":
+            audio = new Audio(I22);
+            break;
+          case "I23":
+            audio = new Audio(I23);
+            break;
+          case "I24":
+            audio = new Audio(I24);
+            break;
+          case "I25":
+            audio = new Audio(I25);
+            break;
+          case "I26":
+            audio = new Audio(I26);
+            break;
+          case "I27":
+            audio = new Audio(I27);
+            break;
+          case "I28":
+            audio = new Audio(I28);
+            break;
+          case "I29":
+            audio = new Audio(I29);
+            break;
+          case "I30":
+            audio = new Audio(I30);
+            break;
+          case "N31":
+            audio = new Audio(N31);
+            break;
+          case "N32":
+            audio = new Audio(N32);
+            break;
+          case "N33":
+            audio = new Audio(N33);
+            break;
+          case "N34":
+            audio = new Audio(N34);
+            break;
+          case "N35":
+            audio = new Audio(N35);
+            break;
+          case "N36":
+            audio = new Audio(N36);
+            break;
+          case "N37":
+            audio = new Audio(N37);
+            break;
+          case "N38":
+            audio = new Audio(N38);
+            break;
+          case "N39":
+            audio = new Audio(N39);
+            break;
+          case "N40":
+            audio = new Audio(N40);
+            break;
+          case "N41":
+            audio = new Audio(N41);
+            break;
+          case "N42":
+            audio = new Audio(N42);
+            break;
+          case "N43":
+            audio = new Audio(N43);
+            break;
+          case "N44":
+            audio = new Audio(N44);
+            break;
+          case "N45":
+            audio = new Audio(N45);
+            break;
+          case "G46":
+            audio = new Audio(G46);
+            break;
+          case "G47":
+            audio = new Audio(G47);
+            break;
+          case "G48":
+            audio = new Audio(G48);
+            break;
+          case "G49":
+            audio = new Audio(G49);
+            break;
+          case "G50":
+            audio = new Audio(G50);
+            break;
+          case "G51":
+            audio = new Audio(G51);
+            break;
+          case "G52":
+            audio = new Audio(G52);
+            break;
+          case "G53":
+            audio = new Audio(G53);
+            break;
+          case "G54":
+            audio = new Audio(G54);
+            break;
+          case "G55":
+            audio = new Audio(G55);
+            break;
+          case "G56":
+            audio = new Audio(G56);
+            break;
+          case "G57":
+            audio = new Audio(G57);
+            break;
+          case "G58":
+            audio = new Audio(G58);
+            break;
+          case "G59":
+            audio = new Audio(G59);
+            break;
+          case "G60":
+            audio = new Audio(G60);
+            break;
+          case "O61":
+            audio = new Audio(O61);
+            break;
+          case "O62":
+            audio = new Audio(O62);
+            break;
+          case "O63":
+            audio = new Audio(O63);
+            break;
+          case "O64":
+            audio = new Audio(O64);
+            break;
+          case "O65":
+            audio = new Audio(O65);
+            break;
+          case "O66":
+            audio = new Audio(O66);
+            break;
+          case "O67":
+            audio = new Audio(O67);
+            break;
+          case "O68":
+            audio = new Audio(O68);
+            break;
+          case "O69":
+            audio = new Audio(O69);
+            break;
+          case "O70":
+            audio = new Audio(O70);
+            break;
+          case "O71":
+            audio = new Audio(O71);
+            break;
+          case "O72":
+            audio = new Audio(O72);
+            break;
+          case "O73":
+            audio = new Audio(O73);
+            break;
+          case "O74":
+            audio = new Audio(O74);
+            break;
+          case "O75":
+            audio = new Audio(O75);
+            break;
+          default:
+            // Handle cases where no audio needs to be played
+            break;
+        }
+    
+        if (audio) {
+          audio.play();
+    
+          // Pause the audio after 3 seconds
+          setTimeout(() => {
+            audio.pause();
+            audio.currentTime = 0; // Reset audio to the beginning
+          }, 3000); // Duration of 3 seconds
+        }
+      };
 
   const allPossibilities = [
     ...generatePossibilities("B", 1, 15),

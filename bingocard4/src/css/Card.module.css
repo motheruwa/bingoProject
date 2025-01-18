@@ -180,3 +180,20 @@ td {
     color: white;
     cursor: pointer;
   }
+  .replay{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background: white;
+    color: rgb(9, 138, 99);
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    height: 30px;
+  }
+  .replay:hover{
+    background: rgb(9, 138, 99);
+    color: white;
+  }

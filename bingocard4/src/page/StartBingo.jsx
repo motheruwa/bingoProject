@@ -1077,23 +1077,10 @@ const StartBingo = () => {
       }
   
       localStorage.setItem("remainingMoney", remainingMoney);
+      localStorage.setItem("deductedAmount", deductedAmount);
       await createReport();
     } catch (error) {
       console.error("Report creation failed:", error);
-  
-      // Rollback the balance to the previous value
-      const response = await axios.put(
-        `https://bin.zaahirahtravels.com/api/user/update`,
-        { userName, previousBalance }
-      );
-  
-      if (response.status === 200) {
-        console.log("Balance rolled back successfully");
-      } else {
-        console.error("Failed to rollback balance");
-      }
-  
-      // Handle the error, e.g., show a message to the user
     }
   };
 

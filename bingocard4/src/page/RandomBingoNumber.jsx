@@ -1170,11 +1170,7 @@ function RandomBingoNumber() {
  
   const handleCardNumberChange = () => {
     // Check if the entered card number is found in the registeredNumbers
-    if (
-      registeredNumbers.some((number) =>
-        String(number).includes(cardNumberInput)
-      )
-    ) {
+    if (registeredNumbers.includes(parseInt(cardNumberInput)))  {
       setCardNumber(cardNumberInput);
 
       // Use a switch statement to navigate to the corresponding Card component based on the card number
