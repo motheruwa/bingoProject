@@ -1807,6 +1807,7 @@ const StartBingo = () => {
       }
   
       localStorage.setItem("remainingMoney", remainingMoney);
+      localStorage.setItem("deductedAmount", deductedAmount);
       await createReport();
     } catch (error) {
       console.error("Report creation failed:", error);
