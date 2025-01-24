@@ -82,6 +82,8 @@ function Card2() {
       localStorage.removeItem('calledNumbers');
       localStorage.removeItem('registeredNumbers');
       localStorage.removeItem('remainingMoney');
+    localStorage.removeItem('sequenceIndex');
+
       navigate('/registerdcard');
     };
   
