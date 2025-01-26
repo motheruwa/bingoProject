@@ -222,6 +222,17 @@ const updateBalance = async (userName) => {
                     <option value="28">28</option>
                     <option value="29">29</option>
                     <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                    <option value="48">48</option>
+                    <option value="49">49</option>
+                    <option value="50">50</option>
                 </select>
                 <button onClick={()=>updatePlayType(user.userName)} className={styles.perbutton}>Set playType</button>
             </div>
