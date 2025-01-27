@@ -57,6 +57,26 @@ import Card47 from "./component/Card47";
 import Card48 from "./component/Card48";
 import Card49 from "./component/Card49";
 import Card50 from "./component/Card50";
+import Card51 from "./component/Card51";
+import Card52 from "./component/Card52";
+import Card53 from "./component/Card53";
+import Card54 from "./component/Card54";
+import Card55 from "./component/Card55";
+import Card56 from "./component/Card56";
+import Card57 from "./component/Card57";
+import Card58 from "./component/Card58";
+import Card59 from "./component/Card59";
+import Card60 from "./component/Card60";
+import Card61 from "./component/Card61";
+import Card62 from "./component/Card62";
+import Card63 from "./component/Card63";
+import Card64 from "./component/Card64";
+import Card65 from "./component/Card65";
+import Card66 from "./component/Card66";
+import Card67 from "./component/Card67";
+import Card68 from "./component/Card68";
+import Card69 from "./component/Card69";
+import Card70 from "./component/Card70";
 
 function App() {
   return (
@@ -118,6 +138,26 @@ function App() {
             <Route path="/card48" element={<Card48 />} />
             <Route path="/card49" element={<Card49 />} />
             <Route path="/card50" element={<Card50 />} />
+            <Route path="/card51" element={<Card51 />} />
+            <Route path="/card52" element={<Card52 />} />
+            <Route path="/card53" element={<Card53 />} />
+            <Route path="/card54" element={<Card54 />} />
+            <Route path="/card55" element={<Card55 />} />
+            <Route path="/card56" element={<Card56 />} />
+            <Route path="/card57" element={<Card57 />} />
+            <Route path="/card58" element={<Card58 />} />
+            <Route path="/card59" element={<Card59 />} />
+            <Route path="/card60" element={<Card60 />} />
+            <Route path="/card61" element={<Card61 />} />
+            <Route path="/card62" element={<Card62 />} />
+            <Route path="/card63" element={<Card63 />} />
+            <Route path="/card64" element={<Card64 />} />
+            <Route path="/card65" element={<Card65 />} />
+            <Route path="/card66" element={<Card66 />} />
+            <Route path="/card67" element={<Card67 />} />
+            <Route path="/card68" element={<Card68 />} />
+            <Route path="/card69" element={<Card69 />} />
+            <Route path="/card70" element={<Card70 />} />
 
             <Route path="/startbingo" element={<StartBingo />} />
             <Route path="/report" element={<Report />} />
