@@ -66,6 +66,7 @@ const StartBingo = () => {
     if (storedAmount) {
       setSelectedAmount(Number(storedAmount));
     }
+    if(user)
     setUserName(user.userName);
 
     resetRoundCountIfNewDay();

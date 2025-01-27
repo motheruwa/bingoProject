@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     padding: 30px;
     gap: 20px;

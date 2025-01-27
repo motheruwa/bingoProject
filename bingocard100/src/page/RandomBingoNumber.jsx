@@ -2982,6 +2982,7 @@ function RandomBingoNumber() {
     };
 
     // Update the playType to default when the user enters the page
+    if(user)
     updatePlayType(user.userName, 'default');
     // eslint-disable-next-line
 }, []);
