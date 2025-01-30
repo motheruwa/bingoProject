@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BingoCall } from "./BingoCall";
 import styles from "../css/RandomBingoNumber.module.css";
 import notRegisteredAudio from "../audio/NOTREGISTERD.mp4";
 import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
-
+import { AudioContext } from '../context/AudioContext';
 function RandomBingoNumber() {
+  const { changeSelectedName } = useContext(AudioContext);
   const [selectedName, setSelectedName] = useState(() => {
     const savedName = localStorage.getItem("selectedName");
     return savedName ? savedName : "Xbingo";
@@ -1540,6 +1541,7 @@ function RandomBingoNumber() {
   const handleNameChange = (e) => {
     const newName = e.target.value;
     setSelectedName(newName);
+    changeSelectedName(newName)
     localStorage.setItem("selectedName", newName);
   };
 
@@ -1562,6 +1564,7 @@ function RandomBingoNumber() {
     };
 
     // Update the playType to default when the user enters the page
+    if(user)
     updatePlayType(user.userName, 'default');
     // eslint-disable-next-line
 }, []);
