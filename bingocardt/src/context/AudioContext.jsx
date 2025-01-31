@@ -237,6 +237,7 @@ const AudioProvider = ({ children }) => {
     localStorage.setItem('selectedName', name);
   };
   useEffect(() => {
+    setSelectedName(localStorage.getItem('selectedName'));
     let audioFiles = [];
     if (selectedName === 'Xbingo') {
       audioFiles = [B1, B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,
@@ -273,9 +274,9 @@ const AudioProvider = ({ children }) => {
 
     setAudioInstances(instances);
     console.log(`Loaded audio for: ${selectedName}`, instances);
-  }, [selectedName]);
+  }, []);
 
-  return <AudioContext.Provider value={{ audioInstances, selectedName, changeSelectedName }}>{children}</AudioContext.Provider>;
+  return <AudioContext.Provider value={ audioInstances}>{children}</AudioContext.Provider>;
 };
 
 export { AudioContext, AudioProvider };

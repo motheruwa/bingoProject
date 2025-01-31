@@ -229,6 +229,81 @@ import OOO72 from "../audio/OOO72.mp4";
 import OOO73 from "../audio/OOO73.mp4";
 import OOO74 from "../audio/OOO74.mp4";
 import OOO75 from "../audio/OOO75.mp4";
+import BBBB1 from '../audio/BBBB1.mp4'
+import BBBB2 from '../audio/BBBB2.mp4'
+import BBBB3 from '../audio/BBBB3.mp4'
+import BBBB4 from '../audio/BBBB4.mp4'
+import BBBB5 from '../audio/BBBB5.mp4'
+import BBBB6 from '../audio/BBBB6.mp4'
+import BBBB7 from '../audio/BBBB7.mp4'
+import BBBB8 from '../audio/BBBB8.mp4'
+import BBBB9 from '../audio/BBBB9.mp4'
+import BBBB10 from '../audio/BBBB10.mp4'
+import BBBB11 from '../audio/BBBB11.mp4'
+import BBBB12 from '../audio/BBBB12.mp4'
+import BBBB13 from '../audio/BBBB13.mp4'
+import BBBB14 from '../audio/BBBB14.mp4'
+import BBBB15 from '../audio/BBBB15.mp4'
+import IIII16 from '../audio/IIII16.mp4'
+import IIII17 from '../audio/IIII17.mp4'
+import IIII18 from '../audio/IIII18.mp4'
+import IIII19 from '../audio/IIII19.mp4'
+import IIII20 from '../audio/IIII20.mp4'
+import IIII21 from '../audio/IIII21.mp4'
+import IIII22 from '../audio/IIII22.mp4'
+import IIII23 from '../audio/IIII23.mp4'
+import IIII24 from '../audio/IIII24.mp4'
+import IIII25 from '../audio/IIII25.mp4'
+import IIII26 from '../audio/IIII26.mp4'
+import IIII27 from '../audio/IIII27.mp4'
+import IIII28 from '../audio/IIII28.mp4'
+import IIII29 from '../audio/IIII29.mp4'
+import IIII30 from '../audio/IIII30.mp4'
+import NNNN31 from '../audio/NNNN31.mp4'
+import NNNN32 from '../audio/NNNN32.mp4'
+import NNNN33 from '../audio/NNNN33.mp4'
+import NNNN34 from '../audio/NNNN34.mp4'
+import NNNN35 from '../audio/NNNN35.mp4'
+import NNNN36 from '../audio/NNNN36.mp4'
+import NNNN37 from '../audio/NNNN37.mp4'
+import NNNN38 from '../audio/NNNN38.mp4'
+import NNNN39 from '../audio/NNNN39.mp4'
+import NNNN40 from '../audio/NNNN40.mp4'
+import NNNN41 from '../audio/NNNN41.mp4'
+import NNNN42 from '../audio/NNNN42.mp4'
+import NNNN43 from '../audio/NNNN43.mp4'
+import NNNN44 from '../audio/NNNN44.mp4'
+import NNNN45 from '../audio/NNNN45.mp4'
+import GGGG46 from '../audio/GGGG46.mp4'
+import GGGG47 from '../audio/GGGG47.mp4'
+import GGGG48 from '../audio/GGGG48.mp4'
+import GGGG49 from '../audio/GGGG49.mp4'
+import GGGG50 from '../audio/GGGG50.mp4'
+import GGGG51 from '../audio/GGGG51.mp4'
+import GGGG52 from '../audio/GGGG52.mp4'
+import GGGG53 from '../audio/GGGG53.mp4'
+import GGGG54 from '../audio/GGGG54.mp4'
+import GGGG55 from '../audio/GGGG55.mp4'
+import GGGG56 from '../audio/GGGG56.mp4'
+import GGGG57 from '../audio/GGGG57.mp4'
+import GGGG58 from '../audio/GGGG58.mp4'
+import GGGG59 from '../audio/GGGG59.mp4'
+import GGGG60 from '../audio/GGGG60.mp4'
+import OOOO61 from '../audio/OOOO61.mp4'
+import OOOO62 from '../audio/OOOO62.mp4'
+import OOOO63 from '../audio/OOOO63.mp4'
+import OOOO64 from '../audio/OOOO64.mp4'
+import OOOO65 from '../audio/OOOO65.mp4'
+import OOOO66 from '../audio/OOOO66.mp4'
+import OOOO67 from '../audio/OOOO67.mp4'
+import OOOO68 from '../audio/OOOO68.mp4'
+import OOOO69 from '../audio/OOOO69.mp4'
+import OOOO70 from '../audio/OOOO70.mp4'
+import OOOO71 from '../audio/OOOO71.mp4'
+import OOOO72 from '../audio/OOOO72.mp4'
+import OOOO73 from '../audio/OOOO73.mp4'
+import OOOO74 from '../audio/OOOO74.mp4'
+import OOOO75 from '../audio/OOOO75.mp4'
 export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
   const [animateCurrent, setAnimateCurrent] = useState(false);
 
@@ -256,6 +331,9 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
       case "Xbingo":
         playAudioForNumber(currentNumber);
         break;
+        case "aradaw":
+      playAudioForNumberaradaw(currentNumber);
+      break;
       default:
         playAudioForNumber(currentNumber);
     }
@@ -994,7 +1072,246 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
       }, 3000); // Duration of 3 seconds
     }
   };
-
+const playAudioForNumberaradaw = (number) => {
+        let audio;
+    
+        switch (number) {
+          case "B1":
+            audio = new Audio(BBBB1);
+            break;
+          case "B2":
+            audio = new Audio(BBBB2);
+            break;
+          case "B3":
+            audio = new Audio(BBBB3);
+            break;
+          case "B4":
+            audio = new Audio(BBBB4);
+            break;
+          case "B5":
+            audio = new Audio(BBBB5);
+            break;
+          case "B6":
+            audio = new Audio(BBBB6);
+            break;
+          case "B7":
+            audio = new Audio(BBBB7);
+            break;
+          case "B8":
+            audio = new Audio(BBBB8);
+            break;
+          case "B9":
+            audio = new Audio(BBBB9);
+            break;
+          case "B10":
+            audio = new Audio(BBBB10);
+            break;
+          case "B11":
+            audio = new Audio(BBBB11);
+            break;
+          case "B12":
+            audio = new Audio(BBBB12);
+            break;
+          case "B13":
+            audio = new Audio(BBBB13);
+            break;
+          case "B14":
+            audio = new Audio(BBBB14);
+            break;
+          case "B15":
+            audio = new Audio(BBBB15);
+            break;
+          case "I16":
+            audio = new Audio(IIII16);
+            break;
+          case "I17":
+            audio = new Audio(IIII17);
+            break;
+          case "I18":
+            audio = new Audio(IIII18);
+            break;
+          case "I19":
+            audio = new Audio(IIII19);
+            break;
+          case "I20":
+            audio = new Audio(IIII20);
+            break;
+          case "I21":
+            audio = new Audio(IIII21);
+            break;
+          case "I22":
+            audio = new Audio(IIII22);
+            break;
+          case "I23":
+            audio = new Audio(IIII23);
+            break;
+          case "I24":
+            audio = new Audio(IIII24);
+            break;
+          case "I25":
+            audio = new Audio(IIII25);
+            break;
+          case "I26":
+            audio = new Audio(IIII26);
+            break;
+          case "I27":
+            audio = new Audio(IIII27);
+            break;
+          case "I28":
+            audio = new Audio(IIII28);
+            break;
+          case "I29":
+            audio = new Audio(IIII29);
+            break;
+          case "I30":
+            audio = new Audio(IIII30);
+            break;
+          case "N31":
+            audio = new Audio(NNNN31);
+            break;
+          case "N32":
+            audio = new Audio(NNNN32);
+            break;
+          case "N33":
+            audio = new Audio(NNNN33);
+            break;
+          case "N34":
+            audio = new Audio(NNNN34);
+            break;
+          case "N35":
+            audio = new Audio(NNNN35);
+            break;
+          case "N36":
+            audio = new Audio(NNNN36);
+            break;
+          case "N37":
+            audio = new Audio(NNNN37);
+            break;
+          case "N38":
+            audio = new Audio(NNNN38);
+            break;
+          case "N39":
+            audio = new Audio(NNNN39);
+            break;
+          case "N40":
+            audio = new Audio(NNNN40);
+            break;
+          case "N41":
+            audio = new Audio(NNNN41);
+            break;
+          case "N42":
+            audio = new Audio(NNNN42);
+            break;
+          case "N43":
+            audio = new Audio(NNNN43);
+            break;
+          case "N44":
+            audio = new Audio(NNNN44);
+            break;
+          case "N45":
+            audio = new Audio(NNNN45);
+            break;
+          case "G46":
+            audio = new Audio(GGGG46);
+            break;
+          case "G47":
+            audio = new Audio(GGGG47);
+            break;
+          case "G48":
+            audio = new Audio(GGGG48);
+            break;
+          case "G49":
+            audio = new Audio(GGGG49);
+            break;
+          case "G50":
+            audio = new Audio(GGGG50);
+            break;
+          case "G51":
+            audio = new Audio(GGGG51);
+            break;
+          case "G52":
+            audio = new Audio(GGGG52);
+            break;
+          case "G53":
+            audio = new Audio(GGGG53);
+            break;
+          case "G54":
+            audio = new Audio(GGGG54);
+            break;
+          case "G55":
+            audio = new Audio(GGGG55);
+            break;
+          case "G56":
+            audio = new Audio(GGGG56);
+            break;
+          case "G57":
+            audio = new Audio(GGGG57);
+            break;
+          case "G58":
+            audio = new Audio(GGGG58);
+            break;
+          case "G59":
+            audio = new Audio(GGGG59);
+            break;
+          case "G60":
+            audio = new Audio(GGGG60);
+            break;
+          case "O61":
+            audio = new Audio(OOOO61);
+            break;
+          case "O62":
+            audio = new Audio(OOOO62);
+            break;
+          case "O63":
+            audio = new Audio(OOOO63);
+            break;
+          case "O64":
+            audio = new Audio(OOOO64);
+            break;
+          case "O65":
+            audio = new Audio(OOOO65);
+            break;
+          case "O66":
+            audio = new Audio(OOOO66);
+            break;
+          case "O67":
+            audio = new Audio(OOOO67);
+            break;
+          case "O68":
+            audio = new Audio(OOOO68);
+            break;
+          case "O69":
+            audio = new Audio(OOOO69);
+            break;
+          case "O70":
+            audio = new Audio(OOOO70);
+            break;
+          case "O71":
+            audio = new Audio(OOOO71);
+            break;
+          case "O72":
+            audio = new Audio(OOOO72);
+            break;
+          case "O73":
+            audio = new Audio(OOOO73);
+            break;
+          case "O74":
+            audio = new Audio(OOOO74);
+            break;
+          case "O75":
+            audio = new Audio(OOOO75);
+            break;
+          default:
+            // Handle cases where no audio needs to be played
+            break;
+        }
+    
+        if (audio) {
+          audio.play();
+    
+          
+        }
+      };
   const allPossibilities = [
     ...generatePossibilities("B", 1, 15),
     ...generatePossibilities("I", 16, 30),

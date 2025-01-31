@@ -2108,6 +2108,7 @@ function RandomBingoNumber() {
             <option value={"ngus"}>ngus</option>
             <option value={"bereket"}>bereket</option>
             <option value={"Xbingo"}>Xbingo</option>
+            <option value={"aradaw"}>Aradaw</option>
           </select>
         </div>
         <div className={styles.sliderContainer}>

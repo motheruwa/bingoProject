@@ -7,6 +7,7 @@ import pewwzew from "../audio/pewzew.mp4";
 import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
 import { useLogout } from "../hooks/useLogout";
+import BouncingBalls from "./BouncingBalls";
 
 const StartBingo = () => {
   const { logout } = useLogout();
@@ -1870,6 +1871,7 @@ const StartBingo = () => {
   };
   return (
     <div className={styles.container}>
+      <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
         <div onClickCapture={handleregisterClick}>RegisterCard</div>
         <div onClickCapture={handleReportClick}>Report</div>
