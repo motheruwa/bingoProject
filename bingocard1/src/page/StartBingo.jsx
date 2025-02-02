@@ -32,6 +32,7 @@ const StartBingo = () => {
   };
   const fetchUserByUsername = async (userName) => {
     try {
+      setCreatingReport(true);
       const response = await axios.get(
         `https://bin.zaahirahtravels.com/api/user/${userName}`
       );
@@ -39,6 +40,8 @@ const StartBingo = () => {
       setFetchedUser(response.data);
       setPreviousBalance(response.data.balance);
       localStorage.setItem("playType", response.data.playType);
+      setCreatingReport(false);
+
       // Handle the fetched user data as needed
     } catch (error) {
       console.error("Error fetching user by username:", error);
@@ -1792,11 +1795,9 @@ const StartBingo = () => {
       const deductedAmountInt = parseInt(deductedAmount); // Ensure it's an integer
       const newBalance = previousBalance - deductedAmountInt;
   
-       if (newBalance <= 0) {
-         alert("Insufficient funds");
-         return;
-       }
-  
+      if (newBalance <= 0 || isNaN(newBalance) || newBalance === null) {
+        return;
+      }
       const response = await axios.put(
         `https://bin.zaahirahtravels.com/api/user/update`,
         { userName, newBalance }
