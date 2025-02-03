@@ -13,10 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    if (userName !== 'esti' &&userName !== 'dani' &&userName !== 'saint' &&userName !== 'fish1' && userName !== 'addis' && userName !== 'blen1 xbingo') {
-      setError('User not found');
-      return;
-    }
+    
     setIsLoading(true);
     setError("");
 
