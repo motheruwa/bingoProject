@@ -114,6 +114,7 @@ td {
   height: 30px;
   background: rgb(11, 33, 104);
   color: white;
+  border: none;
   font-weight: bold;
   cursor: pointer;
 }
@@ -142,6 +143,11 @@ td {
 }
 .back:hover{
   color: rgb(182, 180, 180);
+}
+.custom{
+  font-weight: bold;
+  display: flex;
+  gap: 2px;
 }
 @media(max-width:600px){
   .balance{

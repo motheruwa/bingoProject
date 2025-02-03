@@ -240,7 +240,7 @@ const updateBalance = async (userName) => {
                 <div>
                     <input type="number" value={balanceInput} onChange={handleBalanceChange} placeholder='Enter The Balance' className={styles.balanceinput}/>
                 </div>
-                <button onClick={()=>updateBalance(user.userName)} className={styles.perbutton}>Fill Balance</button>
+                <button onClick={()=>updateBalance(user.userName)} className={styles.perbutton} disabled={!balanceInput}>Fill Balance</button>
             </div>
             <div className={styles.date}>
         <input

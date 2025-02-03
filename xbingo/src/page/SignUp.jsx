@@ -57,7 +57,7 @@ const SignUp = () => {
       </div>
       <div className={styles.cont}>
         <div className={styles.title}>
-          <h2>SIGN UP</h2>
+          <h2>Add User</h2>
         </div>
         <div className={styles.form}>
           <input type="text" placeholder="Your userName" onChange={(e) => setUserName(e.target.value)} value={userName} />
@@ -100,7 +100,7 @@ const SignUp = () => {
                 </div>
         </div>
         <button className={styles.nextbutton} disabled={isLoading} onClick={handleSubmit}>
-          Add
+          Add User
         </button>
         {error && <div className={styles.error}>{error}</div>}
         {success && <div className={styles.success}>{success}</div>}

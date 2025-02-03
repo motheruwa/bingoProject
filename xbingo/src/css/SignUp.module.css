@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104),rgb(7, 87, 153));
+    background: rgb(11, 33, 104);
     position:relative;
 }
 .back{
@@ -41,6 +41,7 @@
     justify-content: center;
     height: 10%;
     font-size: 20px;
+    color: rgb(11, 33, 104);
 }
 .form{
     height: 40%;
@@ -95,7 +96,8 @@
     color: white;
     align-items: center;
     justify-content: center;
-    background: rgb(7, 87, 153);
+    background: rgb(11, 33, 104);
+    border: none;
 }
 .button:hover{
     background: rgb(40, 151, 136);
