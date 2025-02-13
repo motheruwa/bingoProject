@@ -211,17 +211,17 @@ const StartBingo = () => {
     } else if (selectedAmount === 20  &&registeredNumbers.length >= 98 && registeredNumbers.length <= 100) {
         setDeductedAmount(430);
     }else if(selectedAmount === 30  && registeredNumbers.length <= 5 ){
-          setDeductedAmount(30);
+          setDeductedAmount(20);
         }else if(selectedAmount === 30  && registeredNumbers.length >= 6 &&registeredNumbers.length <= 7){
-          setDeductedAmount(40);
+          setDeductedAmount(30);
         }else if(selectedAmount === 30  && registeredNumbers.length >= 8 &&registeredNumbers.length <= 9){
-          setDeductedAmount(50);
+          setDeductedAmount(40);
         }else if(selectedAmount === 30  && registeredNumbers.length === 10){
-          setDeductedAmount(60);
+          setDeductedAmount(50);
         }else if(selectedAmount === 30  && registeredNumbers.length === 11){
-          setDeductedAmount(70);
+          setDeductedAmount(60);
         }else if(selectedAmount === 30  && registeredNumbers.length === 12){
-          setDeductedAmount(80);
+          setDeductedAmount(70);
         }else if(selectedAmount === 30  && registeredNumbers.length === 13){
           setDeductedAmount(90);
         }else if(selectedAmount === 30  && registeredNumbers.length === 14){
@@ -399,13 +399,13 @@ const StartBingo = () => {
     } else if (selectedAmount === 30  &&registeredNumbers.length === 100) {
         setDeductedAmount(960);
     }else if(selectedAmount === 40  && registeredNumbers.length <= 5){
-          setDeductedAmount(40);
+          setDeductedAmount(20);
         }else if(selectedAmount === 40  && registeredNumbers.length === 6){
-          setDeductedAmount(50);
+          setDeductedAmount(30);
         }else if(selectedAmount === 40  && registeredNumbers.length === 7){
-          setDeductedAmount(60);
+          setDeductedAmount(40);
         }else if(selectedAmount === 40  && registeredNumbers.length === 8){
-          setDeductedAmount(70);
+          setDeductedAmount(50);
         }else if (selectedAmount === 40  &&registeredNumbers.length === 9) {
           setDeductedAmount(80);
       } else if (selectedAmount === 40  &&registeredNumbers.length === 10) {
@@ -590,7 +590,11 @@ const StartBingo = () => {
       setDeductedAmount(980);
     } else if (selectedAmount === 40  &&registeredNumbers.length === 100) {
       setDeductedAmount(990);
-    }else if (selectedAmount === 50  &&registeredNumbers.length <= 5) {
+    }else if (selectedAmount === 50  &&registeredNumbers.length <= 3) {
+      setDeductedAmount(20);
+    }else if (selectedAmount === 50  &&registeredNumbers.length === 4) {
+      setDeductedAmount(30);
+    }else if (selectedAmount === 50  &&registeredNumbers.length === 5) {
       setDeductedAmount(50);
     }else if (selectedAmount === 50  &&registeredNumbers.length === 6) {
       setDeductedAmount(60);
@@ -782,8 +786,12 @@ const StartBingo = () => {
       setDeductedAmount(1730);
     } else if (selectedAmount === 50  &&registeredNumbers.length === 100) {
       setDeductedAmount(1750);
-    }else if (selectedAmount === 100  &&registeredNumbers.length <= 5) {
-      setDeductedAmount(100);
+    }else if (selectedAmount === 100  &&registeredNumbers.length <= 3) {
+      setDeductedAmount(20);
+    }else if (selectedAmount === 100  &&registeredNumbers.length === 4) {
+      setDeductedAmount(30);
+    }else if (selectedAmount === 100  &&registeredNumbers.length === 5) {
+      setDeductedAmount(50);
     }else if (selectedAmount === 100  &&registeredNumbers.length === 6) {
       setDeductedAmount(130);
     }else if (selectedAmount === 100  &&registeredNumbers.length === 7) {
@@ -975,19 +983,19 @@ const StartBingo = () => {
     } else if (selectedAmount === 100  &&registeredNumbers.length === 100) {
       setDeductedAmount(3000);
     } else if (selectedAmount === 200  &&registeredNumbers.length === 1) {
-      setDeductedAmount(90);
+      setDeductedAmount(30);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 2) {
-      setDeductedAmount(90);
+      setDeductedAmount(40);
     } else if (selectedAmount === 200  &&registeredNumbers.length === 3) {
-      setDeductedAmount(130);
+      setDeductedAmount(50);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 4) {
-      setDeductedAmount(200);
+      setDeductedAmount(60);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 5) {
-      setDeductedAmount(300);
+      setDeductedAmount(200);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 6) {
-      setDeductedAmount(360);
+      setDeductedAmount(260);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 7) {
-      setDeductedAmount(420);
+      setDeductedAmount(320);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 8) {
       setDeductedAmount(480);
     }else if (selectedAmount === 200  &&registeredNumbers.length === 9) {
