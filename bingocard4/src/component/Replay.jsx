@@ -66,7 +66,6 @@ const [fetchedUser, setFetchedUser] = useState([]);
   }, []);
 
   const handleClick = async () => {
-    localStorage.setItem("calledNumbers", null);
   
     try {
       if (previousBalance === null || deductedAmount === null) {
@@ -110,6 +109,7 @@ const [fetchedUser, setFetchedUser] = useState([]);
         audio.onended = () => {
           const roundsPlayed = JSON.parse(localStorage.getItem("roundsPlayed")) || 0;
           localStorage.setItem("roundsPlayed", roundsPlayed + 1);
+    localStorage.setItem("calledNumbers", null);
            navigate("/randombingonumber");
         };
         audio.play();
