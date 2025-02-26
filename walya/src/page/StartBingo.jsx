@@ -192,7 +192,6 @@ const StartBingo = () => {
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
       </div>
-      <div className={styles.remaining}>{remainingMoney} ብር ወሳጅ</div>
       <div className={styles.button}>
         <button
           onClick={handleClick}
