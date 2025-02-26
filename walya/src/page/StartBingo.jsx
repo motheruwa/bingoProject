@@ -20,6 +20,7 @@ const StartBingo = () => {
   // eslint-disable-next-line
   const [deductedAmount, setDeductedAmount] = useState(null);
   const [previousBalance, setPreviousBalance] = useState(null);
+  // eslint-disable-next-line
   const [totalAmount, setTotalAmount] = useState(0);
   const [userName, setUserName] = useState("");
   const [creatingReport, setCreatingReport] = useState(false);
