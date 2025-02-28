@@ -138,7 +138,7 @@ td {
   }
   
   .winning {
-    background-color: blue;
+    background-color: rgb(9, 151, 44);
     border-radius: 50%;
     color: white;
     font-weight: bold;

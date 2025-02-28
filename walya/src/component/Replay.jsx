@@ -66,8 +66,6 @@ const [fetchedUser, setFetchedUser] = useState([]);
   }, []);
 
   const handleClick = async () => {
-    
-  
     try {
       if (previousBalance === null || deductedAmount === null) {
         return;
