@@ -5,17 +5,12 @@ import { useLogin } from '../hooks/useLogin';
 const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  // eslint-disable-next-line
   const [errorMessage, setErrorMessage] = useState('');
   const { login, isLoading, error } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Client-side validation for username
-    if (userName !== 'abebe' && userName !== 'abebe1') {
-      setErrorMessage('Username not found');
-      return;
-    }
     await login(userName, password);
   };
 

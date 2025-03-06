@@ -1,90 +1,90 @@
 .container{
-    background: white;
-    width: 100vw;
-    height: 100%;
+  background: white;
+  width: 100vw;
+  height: 100%;
 }
 .date{
-    padding-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-.home{
-    position: absolute;
-    left: 10px;
-    background: rgb(7, 87, 153);
-    padding-left: 10px;
-    padding-right: 10px;
-    text-decoration: none;
-    height: 25px;
-    color: white;
-}
-.enterdate{
-    font-weight: bold;
-}
-
-.t{
-    font-weight: bold;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th{
-    background: rgb(7, 87, 153);
-    padding: 8px;
-    color: white;
-  }
-td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-  }
-  .filterreport{
-    margin-top: 30px;
-    border-top: 3px solid rgb(7, 87, 153);
-    padding-top: 10px;
-  }
-  .total{
-    display: flex;
-    width: 200px;
-  }
-  .totalincome{
-    background: rgb(7, 87, 153);
-    color: white;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .balance{
-    position: absolute;
-    right: 10px;
-    background: rgb(7, 87, 153);
-    padding-left: 10px;
-    padding-right: 10px;
-    text-decoration: none;
-    height: 25px;
-    color: white;
-}
-@media(max-width:600px){
-  .balance{
-    position: absolute;
-    right: 5px;
-    background: rgb(7, 87, 153);
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.balance span{
-  display: none;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 .home{
   position: absolute;
-  left: 5px;
+  left: 10px;
+  background: rgb(7, 87, 153);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  height: 25px;
+  color: white;
+}
+.enterdate{
+  font-weight: bold;
+}
+
+.t{
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th{
+  background: rgb(7, 87, 153);
+  padding: 8px;
+  color: white;
+}
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+.filterreport{
+  margin-top: 30px;
+  border-top: 3px solid rgb(7, 87, 153);
+  padding-top: 10px;
+}
+.total{
+  display: flex;
+  width: 200px;
+}
+.totalincome{
+  background: rgb(7, 87, 153);
+  color: white;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.balance{
+  position: absolute;
+  right: 10px;
+  background: rgb(7, 87, 153);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  height: 25px;
+  color: white;
+}
+@media(max-width:600px){
+.balance{
+  position: absolute;
+  right: 5px;
+  background: rgb(7, 87, 153);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.balance span{
+display: none;
+}
+.home{
+position: absolute;
+left: 5px;
 }
 }
 

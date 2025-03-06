@@ -80,206 +80,207 @@ function RandomBingoNumber() {
     setCalledNumbers(new Set(calledNumbers).add(newRandomNumber));
     setCurrentNumber(newRandomNumber);
   };
+// eslint-disable-next-line
+  const GenerateBingoNumber1 = () => {
+    const sequence = [
+      'B11', 'O64', 'I24', 'G53', 'O75', 'I16', 'N40', 'B8', 'G60', 'B10', 'O68', 'O73', 'B13', 'I28', 'G54',
+      'N37', 'I17', 'O66', 'G55', 'O72', 'N32', 'N43', 'I23', 'B3', 'G51', 'G56', 'N45', 'B14', 'I29', 'G46',
+      'N31', 'B15', 'O63', 'N34', 'I21', 'G57', 'B6', 'O61', 'O62', 'B7', 'N41', 'N42', 'I22', 'N44', 'I27',
+      'I30', 'B12', 'O71', 'O67', 'G50', 'B5', 'G52', 'B4', 'N35', 'I19', 'I26', 'N36', 'B2', 'O70', 'B9',
+       'I25', 'N33', 'G58', 'O65', 'I18', 'G49', 'B1', 'O69', 'N39', 'G48', 'I20', 'G47', 'O74', 'N38','G59'
+    ];
   
-const GenerateBingoNumber1 = () => {
-  const sequence = [
-    'B5', 'O64', 'I24', 'G53', 'O75', 'I16', 'N40', 'B8', 'G60', 'B10', 'O62', 'O73', 'B13', 'I28', 'G50',
-    'N34', 'I19', 'O66', 'G46', 'O72', 'N36', 'B12', 'I23', 'N38', 'B7', 'G56', 'N45', 'B14', 'I27', 'G55',
-    'N31', 'B2', 'O65', 'N37', 'I21', 'G57', 'B6', 'O61', 'O68', 'G51', 'I26', 'N42', 'N43', 'G59', 'I29',
-    'G52', 'I22', 'O71', 'O67', 'G54', 'B11', 'I30', 'B4', 'N35', 'I17', 'N41', 'N32', 'B15', 'O70', 'B9',
-     'I25', 'N33', 'G58', 'O63', 'I18', 'G49', 'B1', 'O69', 'N39', 'G48', 'I20', 'G47', 'O74', 'B3','N44'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
-const GenerateBingoNumber2 = () => {
-  const sequence = [
-    'B3', 'G49', 'I30', 'O65', 'G51', 'I26', 'O69', 'N40', 'G50', 'B9', 'N36', 'O73', 'G59', 'B6', 'G54',
-    'N35', 'I17', 'O66', 'G46', 'O72', 'I20', 'N41', 'G52', 'B5', 'O63', 'G47', 'N45', 'N31', 'I21', 'N38',
-    'B4', 'I24', 'O62', 'B1', 'B15', 'G57', 'I28', 'N33', 'G55', 'B7', 'N43', 'N42', 'G58', 'N44', 'O71',
-    'B11', 'N32', 'O75', 'O67', 'G60', 'I29', 'I23', 'B14', 'B8', 'I19', 'O68', 'I27', 'B2', 'B13', 'B10',
-    'O61', 'I25', 'N34', 'O70', 'G53', 'I18', 'O64', 'B12', 'N39', 'G48', 'N37', 'G56', 'O74', 'I16','I22'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
+  const GenerateBingoNumber2 = () => {
+    const sequence = [
+      'B5', 'G49', 'I30', 'O65', 'G51', 'I27', 'O69', 'N40', 'G60', 'B9', 'N36', 'O73', 'G59', 'B6', 'G54',
+      'N32', 'I17', 'O66', 'G55', 'O72', 'I20', 'N43', 'G52', 'B3', 'O75', 'G47', 'N45', 'N31', 'I29', 'I16',
+      'B14', 'I21', 'O63', 'B1', 'B15', 'G57', 'I28', 'N33', 'G46', 'B7', 'N41', 'N42', 'I22', 'N44', 'O62',
+      'I24', 'B12', 'O71', 'O67', 'G50', 'B11', 'I23', 'B4', 'B8', 'I19', 'O68', 'I26', 'B2', 'B13', 'B10',
+      'O61', 'I25', 'N34', 'G58', 'G53', 'I18', 'O64', 'N35', 'N39', 'G48', 'N37', 'G56', 'O74', 'N38','O70'
+    ];
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
-const GenerateBingoNumber3 = () => {
-  const sequence = [
-    'G60', 'I16', 'O64', 'B3', 'O62', 'I27', 'O69', 'N40', 'G50', 'B9', 'I26', 'O63', 'O74', 'B12', 'N34',
-    'I28', 'I17', 'O66', 'G55', 'O65', 'N33', 'N43', 'O72', 'G49', 'O71', 'N39', 'N45', 'B7', 'I29', 'G54',
-    'N31', 'I22', 'O73', 'N37', 'B5', 'G59', 'I20', 'B1', 'O70', 'B8', 'N41', 'G56', 'I18', 'N42', 'G51',
-    'B6', 'B13', 'O75', 'O67', 'B15', 'B11', 'G52', 'B4', 'B10', 'I19', 'O68', 'N36', 'B2', 'I24', 'B14',
-    'O61', 'I21', 'N32', 'G58', 'G53', 'I25', 'I30', 'G46', 'N44', 'G48', 'N35', 'G47', 'G57', 'N38','I23'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
+  const GenerateBingoNumber3 = () => {
+    const sequence = [
+      'G50', 'I16', 'O64', 'B3', 'O62', 'I27', 'O69', 'N40', 'G60', 'B9', 'I26', 'O63', 'O74', 'B13', 'N35',
+      'I28', 'I17', 'O66', 'G55', 'O65', 'N32', 'N43', 'O72', 'G49', 'O75', 'N44', 'N45', 'B14', 'I29', 'G46',
+      'N31', 'I21', 'O73', 'N37', 'B15', 'G57', 'I20', 'B1', 'O70', 'B10', 'N41', 'N42', 'I22', 'G56', 'G51',
+      'I24', 'B12', 'O71', 'O67', 'B5', 'B11', 'G52', 'B4', 'B8', 'I19', 'O68', 'N36', 'B2', 'B6', 'B7',
+      'O61', 'I25', 'N33', 'G58', 'G53', 'I18', 'I30', 'G54', 'N39', 'G48', 'N34', 'G47', 'G59', 'N38','I23'
+    ];
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
-const GenerateBingoNumber4 = () => {
-  const sequence = [
-    'O72', 'N35', 'O64', 'B2', 'I25', 'I27', 'B5', 'N36', 'N43', 'B9', 'G48', 'O63', 'N40', 'G50', 'N45',
-    'I28', 'O62', 'O65', 'I26', 'O66', 'O69', 'N44', 'I22', 'G49', 'O67', 'G56', 'I16', 'B14', 'B1', 'G46',
-    'G52', 'I21', 'O73', 'N38', 'I24', 'G57', 'I20', 'I29', 'O70', 'B7', 'N41', 'N42', 'I22', 'G55', 'B13',
-    'B6', 'B15', 'O71', 'O75', 'N32', 'B3', 'G54', 'B4', 'B8', 'I19', 'O68', 'O74', 'B11', 'G47', 'B10',
-     'I17', 'N33', 'G58', 'G53', 'I18', 'I30', 'O61', 'N31', 'N39', 'G60', 'N37', 'B12', 'G59', 'N34','G51'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
+  const GenerateBingoNumber4 = () => {
+    const sequence = [
+      'O72', 'N45', 'O64', 'B2', 'I25', 'I27', 'B5', 'N36', 'N44', 'B9', 'G48', 'O63', 'N40', 'G50', 'N35',
+      'I18', 'O62', 'O66', 'I26', 'O65', 'O69', 'N43', 'I23', 'G49', 'O75', 'G56', 'I16', 'B14', 'B1', 'G46',
+      'G54', 'I21', 'O73', 'N34', 'I24', 'G57', 'I20', 'I29', 'O70', 'B7', 'N41', 'N42', 'I22', 'G60', 'G51',
+      'B15', 'B12', 'O71', 'O67', 'N32', 'B11', 'G52', 'B4', 'B8', 'I19', 'O68', 'O74', 'B3', 'B6', 'B10',
+       'I17', 'N33', 'G58', 'G53', 'I28', 'I30', 'O61', 'N31', 'N39', 'G55', 'N37', 'G47', 'G59', 'N38','B13'
+    ];
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
-const GenerateBingoNumber5 = () => {
-  const sequence = [
-    'B1', 'G56', 'B10', 'O62', 'I25', 'O61', 'N40', 'I26', 'O75', 'N37', 'G49', 'B4', 'N41', 'G59', 'N35',
-    'I18', 'O73', 'I23', 'B9', 'O65', 'N36', 'G58', 'O66', 'G48', 'N32', 'G57', 'I16', 'B13', 'I29', 'G46',
-    'N39', 'I21', 'O70', 'B2', 'O72', 'G55', 'N42', 'O63', 'O74', 'B7', 'I20', 'B5', 'I22', 'O69', 'G51',
-    'G47', 'B12', 'O71', 'O67', 'N44', 'B11', 'G52', 'G60', 'B8', 'I19', 'O68', 'B15', 'B3', 'B6', 'O64',
-     'I17', 'N33', 'N43', 'G53', 'I28', 'I30', 'I27', 'G54', 'N31', 'N45', 'N34', 'I24', 'G50', 'N38','B14'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
+  const GenerateBingoNumber5 = () => {
+    const sequence = [
+      'B2', 'G55', 'B10', 'O72', 'I25', 'O61', 'N42', 'I26', 'O75', 'N37', 'G48', 'B1', 'N40', 'G59', 'N35',
+      'I18', 'O73', 'I23', 'B9', 'O65', 'N34', 'G58', 'O66', 'G49', 'N32', 'G56', 'I16', 'B13', 'I29', 'G46',
+      'N39', 'I21', 'O62', 'B4', 'O70', 'G57', 'N41', 'O63', 'O74', 'B7', 'I20', 'B5', 'I22', 'G60', 'G51',
+      'I24', 'B12', 'O71', 'O67', 'N44', 'B11', 'G52', 'O69', 'B8', 'I19', 'O68', 'B15', 'B3', 'B6', 'O64',
+       'I17', 'N33', 'N43', 'G53', 'I28', 'I30', 'I27', 'G54', 'N31', 'N45', 'N36', 'G47', 'G50', 'N38','B14'
+    ];
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
-const GenerateBingoNumber6 = () => {
-  const sequence = [
-    'I28', 'B11', 'O62', 'O72', 'I25', 'I21', 'G46', 'I26', 'G60', 'I18', 'N41', 'B1', 'N40', 'G59', 'I30',
-    'G53', 'O73', 'I20', 'B2', 'O65', 'N44', 'N43', 'O66', 'B6', 'N34', 'G56', 'I19', 'B14', 'I29', 'B13',
-    'N31', 'O61', 'G57', 'O68', 'B15', 'B10', 'I23', 'O63', 'O70', 'B7', 'G48', 'B5', 'I22', 'O75', 'G54',
-    'N33', 'B12', 'N35', 'O67', 'N32', 'G55', 'G52', 'B4', 'B8', 'I16', 'O69', 'O74', 'G49', 'I24', 'O64',
-     'I17', 'B3', 'G58', 'N37', 'B9', 'O71', 'I27', 'G51', 'N39', 'N45', 'N36', 'N42', 'G50', 'N38','G47'
-  ];
-  let sequenceIndex = localStorage.getItem('sequenceIndex');
-  if (sequenceIndex === null) {
-    sequenceIndex = 0;
-  } else {
-    sequenceIndex = parseInt(sequenceIndex, 10);
-  }
-
-  do {
-    const newNumber = sequence[sequenceIndex];
-    if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-      setCalledNumbers(new Set([...calledNumbers, newNumber]));
-      setCurrentNumber(newNumber);
-      setSequenceIndex(sequenceIndex + 1);
-      localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-      break;
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
+  const GenerateBingoNumber6 = () => {
+    const sequence = [
+      'I28', 'B11', 'O62', 'O72', 'I25', 'I21', 'G47', 'I26', 'G60', 'I18', 'N41', 'B1', 'N40', 'G59', 'I30',
+      'G53', 'O73', 'I20', 'B9', 'O65', 'N34', 'N43', 'O66', 'B3', 'N44', 'G56', 'I16', 'B14', 'I29', 'B13',
+      'N31', 'O61', 'G57', 'O69', 'B15', 'B10', 'I23', 'O63', 'O70', 'B7', 'G48', 'B5', 'I22', 'O75', 'G51',
+      'I24', 'B12', 'O71', 'O67', 'N32', 'G55', 'G52', 'B4', 'B8', 'I19', 'O68', 'O74', 'G49', 'B6', 'O64',
+       'I17', 'N33', 'G58', 'N37', 'B2', 'N35', 'I27', 'G54', 'N39', 'N45', 'N36', 'N42', 'G50', 'N38','G46'
+    ];
+    let sequenceIndex = localStorage.getItem('sequenceIndex');
+    if (sequenceIndex === null) {
+      sequenceIndex = 0;
     } else {
-      sequenceIndex += 1;
+      sequenceIndex = parseInt(sequenceIndex, 10);
     }
-  } while (sequenceIndex < sequence.length);
-
-  if (sequenceIndex === sequence.length) {
-    setIsPlaying(false);
-  }
-};
+  
+    do {
+      const newNumber = sequence[sequenceIndex];
+      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
+        setCalledNumbers(new Set([...calledNumbers, newNumber]));
+        setCurrentNumber(newNumber);
+        setSequenceIndex(sequenceIndex + 1);
+        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
+        break;
+      } else {
+        sequenceIndex += 1;
+      }
+    } while (sequenceIndex < sequence.length);
+  
+    if (sequenceIndex === sequence.length) {
+      setIsPlaying(false);
+    }
+  };
   const GenerateBingoNumber7 = () => {
     const sequence = [
       'G58', 'B15', 'B8', 'G50', 'O64', 'G49', 'I28', 'I21', 'G59', 'O68', 'N40', 'G48', 'G51', 'N36', 'I30',
       'O71', 'O73', 'G54', 'I23', 'O65', 'I19', 'N43', 'G46', 'B13', 'N44', 'G56', 'I16', 'B7', 'I29', 'O66',
-      'N31', 'O61', 'B10', 'G60', 'O72', 'G57',  'O63', 'B14', 'O70', 'B1', 'B3', 'G53', 'O75', 'N45','I26',
-      'O69', 'N34', 'I22', 'O67', 'N32', 'G55', 'G52', 'N41', 'O62', 'B4', 'I18', 'O74', 'B5', 'B6', 'I25',
-       'I17', 'N33', 'G47', 'N37', 'B2', 'N35', 'I27', 'I20', 'N39', 'N42', 'I24', 'B12', 'B11', 'N38','B9'
+      'N31', 'O61', 'B10', 'G60', 'O72', 'G57',  'O63', 'B14', 'O70', 'B1', 'B5', 'G53', 'O75', 'N42','B9',
+      'O69', 'B12', 'I22', 'O67', 'N32', 'G55', 'G52', 'N41', 'O62', 'B4', 'I18', 'O74', 'B3', 'B6', 'I25',
+       'I17', 'N33', 'G47', 'N37', 'B2', 'N35', 'I27', 'I20', 'N39', 'N45', 'I24', 'N34', 'B11', 'N38','I26'
     ];
     let sequenceIndex = localStorage.getItem('sequenceIndex');
     if (sequenceIndex === null) {
@@ -309,9 +310,9 @@ const GenerateBingoNumber6 = () => {
     const sequence = [
       'B7', 'O69', 'B8', 'N36', 'O64', 'I19', 'I28', 'O61', 'I26', 'B11', 'N40', 'N45', 'O67', 'G50', 'N39',
       'B2', 'G53', 'G54', 'N43', 'O65', 'G49', 'B13', 'O66', 'I23', 'N44', 'G56', 'I16', 'B14', 'I29', 'G46',
-      'G59', 'I21', 'B10', 'G60', 'O72', 'G57',  'O63', 'O70', 'O68', 'B4', 'B5', 'O73', 'O75', 'N42','G48',
-      'B15', 'B9', 'I22', 'G51', 'N32', 'G55', 'G52', 'N41', 'O62', 'B1', 'I30', 'O74', 'B3', 'B6', 'I25',
-       'I17', 'N33', 'G47', 'N37', 'O71', 'N35', 'I27', 'I20', 'B12', 'I18', 'I24', 'N34', 'G58', 'N38','N31'
+      'G59', 'I21', 'B10', 'G60', 'O72', 'G57',  'O63', 'O70', 'O68', 'B1', 'B5', 'O73', 'O75', 'N42','B9',
+      'B15', 'B12', 'I22', 'G51', 'N32', 'G55', 'G52', 'N41', 'O62', 'B4', 'I30', 'O74', 'B3', 'B6', 'I25',
+       'I17', 'N33', 'G47', 'N37', 'O71', 'N35', 'I27', 'I20', 'I18', 'G48', 'I24', 'N34', 'G58', 'N38','N31'
     ];
     let sequenceIndex = localStorage.getItem('sequenceIndex');
     if (sequenceIndex === null) {
@@ -341,9 +342,9 @@ const GenerateBingoNumber6 = () => {
     const sequence = [
       'N33', 'G55', 'B8', 'O62', 'G54', 'N44', 'B2', 'O72', 'N42', 'B11', 'N40', 'N45', 'O67', 'G50', 'N39',
       'I28', 'G53', 'O65', 'B13', 'I18', 'G49', 'N43', 'O66', 'I23', 'I19', 'G56', 'I16', 'B14', 'I29', 'G58',
-      'N31', 'I21', 'G57', 'G60', 'O61', 'B10',  'O63', 'O70', 'B5', 'N38', 'G46', 'O73', 'B15', 'I26','B9',
-      'O75', 'B12', 'I22', 'G51', 'N32', 'O69', 'G52', 'N41', 'N36', 'B4', 'I30', 'O74', 'B3', 'B6', 'I25',
-       'I17', 'B7', 'G47', 'N37', 'O71', 'N35', 'I27', 'I20', 'O64', 'G48', 'I24', 'N34', 'O68', 'B1','G59'
+      'N31', 'I21', 'G57', 'G60', 'O61', 'B10',  'O63', 'O70', 'B5', 'B1', 'G46', 'O73', 'O75', 'I26','B9',
+      'B15', 'B12', 'I22', 'G51', 'N32', 'O69', 'G52', 'N41', 'N36', 'B4', 'I30', 'O74', 'B3', 'B6', 'I25',
+       'I17', 'B7', 'G47', 'N37', 'O71', 'N35', 'I27', 'I20', 'O64', 'G48', 'I24', 'N34', 'O68', 'N38','G59'
     ];
     let sequenceIndex = localStorage.getItem('sequenceIndex');
     if (sequenceIndex === null) {
@@ -1041,358 +1042,6 @@ const GenerateBingoNumber6 = () => {
       setIsPlaying(false);
     }
   };
-  const GenerateBingoNumber40 = () => {
-    const sequence = [
-      'B14', 'N40', 'G59', 'B8', 'I26', 'I25', 'O62', 'O75', 'N31', 'I18', 'I28', 'G47', 'O67', 'B9', 'G56',
-      'I24', 'B6', 'G57', 'N33', 'I20', 'B11', 'N44', 'I27', 'G48', 'N38', 'G51', 'O73', 'I30', 'O69', 'G60',
-      'G53', 'I16', 'O61', 'N43', 'N37', 'B2',  'O65', 'N45', 'O63', 'N41', 'I17', 'N34', 'G55', 'N39','G49',
-      'B12', 'G54', 'N36', 'N42', 'O74', 'G50', 'B10', 'O70', 'N32', 'B3', 'B13', 'B5', 'I21', 'I23', 'O66',
-       'O72', 'G52', 'G58', 'O68', 'G46', 'B7', 'B1', 'O71', 'B4', 'I29', 'N35', 'I22', 'I19', 'O64','B15'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber41 = () => {
-    const sequence = [
-      'N31', 'N40', 'G59', 'B8', 'I18', 'I25', 'O62', 'O71', 'B13', 'I17', 'I28', 'G47', 'O69', 'B4', 'G56',
-      'I23', 'B6', 'G46', 'N33', 'I26', 'B11', 'N44', 'I20', 'G48', 'N38', 'G52', 'O73', 'I30', 'O67', 'G60',
-      'N43', 'I27', 'O61', 'N45', 'N37', 'B15',  'O65', 'G50', 'O64', 'N39', 'I16', 'I22', 'G55', 'N41','O75',
-      'G49', 'B14', 'N32', 'B2', 'O74', 'G53', 'B7', 'O70', 'N36', 'B3', 'G54', 'B5', 'I21', 'N34', 'O66',
-       'B12', 'G51', 'G58', 'O68', 'G57', 'I19', 'B1', 'O72', 'B9', 'I29', 'N35', 'I24', 'B10', 'O63','N42'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber42 = () => {
-    const sequence = [
-      'B13', 'N40', 'G59', 'B8', 'I16', 'I25', 'O62', 'O72', 'N31', 'I18', 'I23', 'G47', 'O69', 'B9', 'G56',
-      'I22', 'B7', 'G50', 'N33', 'I26', 'B11', 'N44', 'I27', 'G48', 'N38', 'G54', 'O73', 'I30', 'O67', 'G60',
-      'G58', 'I20', 'O65', 'N42', 'N32', 'B15',  'O66', 'N43', 'O64', 'N41', 'I17', 'I24', 'G55', 'O68','G49',
-      'B2', 'G51', 'N37', 'N45', 'O74', 'G53', 'I19', 'O70', 'N36', 'B3', 'B14', 'B5', 'I21', 'N34', 'O61',
-       'B12', 'G52', 'G57', 'N39', 'G46', 'B6', 'B1', 'O71', 'B4', 'I29', 'N35', 'I28', 'B10', 'O63','O75'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber43 = () => {
-    const sequence = [
-      'B4', 'G60', 'G59', 'B6', 'I18', 'I25', 'O62', 'O72', 'G54', 'I16', 'O66', 'G47', 'O67', 'B15', 'G58',
-      'I24', 'B8', 'G57', 'N43', 'I29', 'B11', 'N45', 'I27', 'G48', 'N38', 'G51', 'O73', 'I17', 'O69', 'N40',
-      'G55', 'I20', 'O71', 'N44', 'N35', 'B3',  'I28', 'N33', 'O64', 'N41', 'I30', 'I23', 'O70', 'N34','G49',
-      'B12', 'N31', 'N32', 'N42', 'O74', 'G53', 'I19', 'G50', 'N36', 'B9', 'B14', 'B5', 'I21', 'N39', 'O65',
-       'O75', 'G52', 'G56', 'O68', 'G46', 'B7', 'B1', 'O61', 'B13', 'I26', 'N37', 'I22', 'B10', 'O63','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber44 = () => {
-    const sequence = [
-      'B1', 'N44', 'G57', 'B8', 'I16', 'I25', 'O62', 'O73', 'N31', 'I19', 'G51', 'N36', 'O69', 'B9', 'G56',
-      'I27', 'B6', 'G53', 'N33', 'I26', 'B5', 'N42', 'I22', 'G48', 'N38', 'I28', 'O72', 'I30', 'O67', 'G60',
-      'G52', 'I20', 'O66', 'N45', 'N37', 'B15',  'O61', 'N43', 'O64', 'B14', 'I17', 'I24', 'G55', 'N39','G49',
-      'O74', 'G54', 'B7', 'N40', 'O75', 'G59', 'I18', 'O70', 'G47', 'B3', 'N41', 'B11', 'I21', 'N34', 'O65',
-       'B12', 'G50', 'G58', 'O68', 'G46', 'N32', 'B13', 'O71', 'B4', 'I29', 'N35', 'I23', 'B10', 'O63','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber45 = () => {
-    const sequence = [
-      'I18', 'N42', 'G60', 'B8', ' I19','I26', 'O65', 'O72', 'N31', 'B11', 'I28', 'G47', 'O64', 'B9', 'G52',
-      'I27', 'B4', 'G57', 'N33', 'I25', 'B13', 'N38', 'I22', 'G48', 'N44', 'G51', 'O73', 'I30', 'O67', 'G59',
-      'G50', 'I20', 'O61', 'N45', 'B2', 'B15',  'O66', 'N43', 'O69', 'N35', 'I17', 'I23', 'G55', 'N39','B7',
-      'O75', 'B1', 'N32', 'N40', 'O74', 'G53', 'I16', 'O70', 'N36', 'B3', 'B14', 'B5', 'I21', 'N34', 'O62',
-       'B12', 'G56', 'G58', 'O68', 'G46', 'G49', 'G54', 'O71', 'B6', 'I29', 'N41', 'I24', 'B10', 'O63','N37'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber46 = () => {
-    const sequence = [
-      'B5', 'N40', 'G56', 'B8', 'I16', 'I25', 'O62', 'O72', 'N31', 'I18', 'I28', 'G47', 'O69', 'B9', 'G59',
-      'I22', 'B6', 'G50', 'N33', 'I26', 'B1', 'N44', 'I29', 'G48', 'N38', 'G51', 'O73', 'I30', 'O67', 'G60',
-      'G55', 'I20', 'O61', 'N34', 'N37', 'B15',  'O66', 'N39', 'O64', 'N41', 'I17', 'N36', 'G57', 'O65','G46',
-      'O75', 'G54', 'N32', 'B10', 'O74', 'G53', 'I19', 'O70', 'I23', 'B3', 'B14', 'B13', 'I21', 'N45', 'N43',
-       'B12', 'G52', 'G58', 'O68', 'G49', 'B7', 'B11', 'O71', 'B4', 'I27', 'N35', 'I24', 'N42', 'O63','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber47 = () => {
-    const sequence = [
-      'B13', 'N40', 'G49', 'B9', 'I16', 'I26', 'O65', 'O72', 'N41', 'I19', 'I28', 'G48', 'O68', 'B3', 'G56',
-      'I23', 'B6', 'G57', 'N33', 'I25', 'B7', 'N44', 'I24', 'G60', 'N36', 'G51', 'O63', 'I30', 'O67', 'G50',
-      'G47', 'I20', 'O61', 'N45', 'N37', 'B15',  'O66', 'N43', 'O64', 'N31', 'B5', 'I22', 'G58', 'N39','G59',
-      'O75', 'G54', 'B12', 'N42', 'O74', 'G53', 'I18', 'O70', 'N38', 'B8', 'B14', 'I17', 'I21', 'N34', 'O62',
-       'N32', 'G52', 'G55', 'O69', 'G46', 'B11', 'B1', 'O71', 'B4', 'I29', 'N35', 'I27', 'B10', 'O73','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber48 = () => {
-    const sequence = [
-      'G58', 'N40', 'G56', 'B6', 'I16', 'I25', 'O62', 'O73', 'N31', 'I19', 'B5', 'G47', 'O69', 'B9', 'G59',
-      'I17', 'B8', 'G57', 'N33', 'I26', 'B11', 'N44', 'I29', 'G48', 'N34', 'G51', 'O75', 'I30', 'O66', 'G60',
-      'G50', 'I22', 'O72', 'N45', 'N37', 'B15',  'O67', 'N43', 'O61', 'N41', 'I24', 'I23', 'G55', 'N39','G49',
-      'O64', 'G54', 'B14', 'N42', 'O74', 'G53', 'I18', 'O70', 'N36', 'B3', 'N32', 'I28', 'I21', 'N38', 'O65',
-       'B12', 'G52', 'B13', 'O68', 'G46', 'B7', 'B1', 'O71', 'B4', 'I27', 'N35', 'I20', 'B10', 'O63','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber49 = () => {
-    const sequence = [
-      'B13', 'N40', 'G53', 'B8', 'I16', 'I25', 'O62', 'O72', 'N31', 'I18', 'I28', 'G47', 'O69', 'B9', 'G55',
-      'I22', 'B6', 'G57', 'N33', 'I26', 'B11', 'N44', 'I27', 'G48', 'N38', 'G51', 'O73', 'I30', 'O67', 'G60',
-      'G50', 'I24', 'O61', 'N45', 'N35', 'B15',  'O66', 'N43', 'O64', 'N41', 'I17', 'I23', 'G56', 'N39','G49',
-      'O71', 'G54', 'N32', 'N42', 'O63', 'G59', 'I19', 'O70', 'N36', 'B12', 'B14', 'B5', 'I21', 'N34', 'O65',
-       'B3', 'G52', 'G58', 'O68', 'G46', 'B7', 'B1', 'O75', 'B4', 'I29', 'N37', 'I20', 'B10', 'O74','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
-  const GenerateBingoNumber50 = () => {
-    const sequence = [
-      'G55', 'N40', 'G59', 'B8', 'I16', 'I25', 'N33', 'O72', 'N31', 'I18', 'I28', 'G57', 'O69', 'B9', 'G56',
-      'I24', 'B4', 'G47', 'O62', 'I26', 'B11', 'N44', 'I27', 'G48', 'N38', 'G51', 'O73', 'I30', 'O67', 'G60',
-      'G53', 'I20', 'O61', 'N45', 'N37', 'B14',  'O68', 'N42', 'O64', 'N41', 'I17', 'I19', 'B13', 'N39','G49',
-      'O74', 'G52', 'N32', 'N43', 'B7', 'G50', 'I23', 'O70', 'N36', 'B3', 'B15', 'B5', 'I21', 'N34', 'O65',
-       'B12', 'G54', 'G58', 'O66', 'G46', 'O75', 'B1', 'O71', 'B6', 'I29', 'N35', 'I22', 'B10', 'O63','B2'
-    ];
-    let sequenceIndex = localStorage.getItem('sequenceIndex');
-    if (sequenceIndex === null) {
-      sequenceIndex = 0;
-    } else {
-      sequenceIndex = parseInt(sequenceIndex, 10);
-    }
-  
-    do {
-      const newNumber = sequence[sequenceIndex];
-      if (!calledNumbers.has(newNumber) && calledNumbers.size < 76) {
-        setCalledNumbers(new Set([...calledNumbers, newNumber]));
-        setCurrentNumber(newNumber);
-        setSequenceIndex(sequenceIndex + 1);
-        localStorage.setItem('sequenceIndex', sequenceIndex + 1);
-        break;
-      } else {
-        sequenceIndex += 1;
-      }
-    } while (sequenceIndex < sequence.length);
-  
-    if (sequenceIndex === sequence.length) {
-      setIsPlaying(false);
-    }
-  };
   useEffect(() => {
     let interval;
 
@@ -1492,39 +1141,6 @@ const GenerateBingoNumber6 = () => {
           case '30':
               GenerateBingoNumber30();
               break;
-              case '40':
-                GenerateBingoNumber40();
-                break;
-              case '41':
-                GenerateBingoNumber41();
-                break;
-              case '42':
-                GenerateBingoNumber42();
-                break;
-              case '43':
-                GenerateBingoNumber43();
-                break;
-              case '44':
-                GenerateBingoNumber44();
-                break;
-              case '45':
-                GenerateBingoNumber45();
-                break;
-              case '46':
-                GenerateBingoNumber46();
-                break;
-              case '47':
-                GenerateBingoNumber47();
-                break;
-              case '48':
-                GenerateBingoNumber48();
-                break;
-              case '49':
-                GenerateBingoNumber49();
-                break;
-          case '50':
-                GenerateBingoNumber50();
-                break;
           default:
             generateRandomBingoNumber();
             break;
@@ -1701,7 +1317,157 @@ const GenerateBingoNumber6 = () => {
         break; 
         case '37':
         navigate(`/card37?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
-        break;                                                                                               
+        break; 
+        case '51':
+        navigate(`/card51?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '52':
+        navigate(`/card52?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '53':
+        navigate(`/card53?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '54':
+        navigate(`/card54?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '55':
+        navigate(`/card55?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '56':
+        navigate(`/card56?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '57':
+        navigate(`/card57?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '58':
+        navigate(`/card58?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '59':
+        navigate(`/card59?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '60':
+        navigate(`/card60?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '61':
+        navigate(`/card61?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '62':
+        navigate(`/card62?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '63':
+        navigate(`/card63?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '64':
+        navigate(`/card64?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '65':
+        navigate(`/card65?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '66':
+        navigate(`/card66?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '67':
+        navigate(`/card67?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '68':
+        navigate(`/card68?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '69':
+        navigate(`/card69?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '70':
+        navigate(`/card70?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '71':
+        navigate(`/card71?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '72':
+        navigate(`/card72?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '73':
+        navigate(`/card73?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '74':
+        navigate(`/card74?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '75':
+        navigate(`/card75?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break; 
+        case '76':
+        navigate(`/card76?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '77':
+        navigate(`/card77?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;                                                                                             
+        case '78':
+        navigate(`/card78?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '79':
+        navigate(`/card79?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '80':
+        navigate(`/card80?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '81':
+        navigate(`/card81?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '82':
+        navigate(`/card82?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '83':
+        navigate(`/card83?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '84':
+        navigate(`/card84?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '85':
+        navigate(`/card85?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '86':
+        navigate(`/card86?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '87':
+        navigate(`/card87?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '88':
+        navigate(`/card88?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '89':
+        navigate(`/card89?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '90':
+        navigate(`/card90?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '91':
+        navigate(`/card91?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '92':
+        navigate(`/card92?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '93':
+        navigate(`/card93?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '94':
+        navigate(`/card94?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '95':
+        navigate(`/card95?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '96':
+        navigate(`/card96?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '97':
+        navigate(`/card97?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '98':
+        navigate(`/card98?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '99':
+        navigate(`/card99?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
+        case '100':
+        navigate(`/card100?cardNumber=${cardNumberInput}&calledNumbers=${JSON.stringify([...calledNumbers])}`);
+        break;
         // Add cases for more card numbers as needed
         default:
           // Do nothing if the card number is not explicitly handled

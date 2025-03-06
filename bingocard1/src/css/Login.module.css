@@ -115,7 +115,17 @@
   .spinner div:nth-child(3) {
     animation-delay: -0.15s;
   }
-  
+  .link{
+    text-decoration: none;
+    color: black;
+    background:white;
+    height: 10%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
   @keyframes spinner {
     0% {
       transform: rotate(0deg);

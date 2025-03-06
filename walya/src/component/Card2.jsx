@@ -4,7 +4,7 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-import Replay from "./Replay";
+
 
 function Card2() {
   const location = useLocation();
@@ -114,7 +114,7 @@ function Card2() {
     winningNumbers.includes('O62');
   return (
     <div className={styles.container}>
-      <Replay/>
+      
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${

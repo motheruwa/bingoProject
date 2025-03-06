@@ -62,6 +62,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
+
       <div className={styles.logo}>
         <p className={styles.x}>X</p>
         <p className={styles.bingo}>Bingo</p>
@@ -101,6 +102,7 @@ const Login = () => {
   )}
 </div>
         {error && <div className={styles.error}>{error}</div>}
+      <a href='https://bingo33.netlify.app' className={styles.link}>Click Here</a>
       </div>
     </div>
   );

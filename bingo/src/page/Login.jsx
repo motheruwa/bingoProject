@@ -6,15 +6,11 @@ const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const { login, isLoading, error } = useLogin();
+  // eslint-disable-next-line
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Client-side validation for username
-    if (userName !== 'miki' && userName !=='fish1' && userName !=='blen') {
-      setErrorMessage('Username not found');
-      return;
-    }
     await login(userName, password);
   };
 

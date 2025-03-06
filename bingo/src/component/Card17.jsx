@@ -113,6 +113,7 @@ function Card17() {
     winningNumbers.includes('O70');
   return (
     <div className={styles.container}>
+      
                                           <div className={styles.current11}>
                                               <div className={`${styles.current} ${animateCurrent ? styles.animated : ''}`}>
                                                 <h3>{currentNumber}</h3>
