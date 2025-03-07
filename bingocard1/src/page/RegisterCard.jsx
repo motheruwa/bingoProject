@@ -9,6 +9,7 @@ const RegisterCard = () => {
   const { logout } = useLogout();
   const [registeredNumbers, setRegisteredNumbers] = useState([]);
   const [selectedAmount, setSelectedAmount] = useState(20);
+  // eslint-disable-next-line
   const [roundsPlayed, setRoundsPlayed] = useState(1);
   const navigate = useNavigate();
   const { user } = useAuthContext();
@@ -110,7 +111,6 @@ const RegisterCard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cont}>
-        <div className={styles.round}>Round {roundsPlayed}</div>
         <div className={styles.odd}>ካርድ ቁጥሮች</div>
 
         <div className={styles.numberscontainer}>
@@ -146,7 +146,7 @@ const RegisterCard = () => {
               value={selectedAmount}
               onChange={handleAmountChange}
             >
-             {userName !== "teda" ? (
+             {fetchedUser.userName !== "teda" ? (
                 <>
                   <option value={10}>በ 10</option>
                   <option value={20}>በ 20</option>
@@ -161,6 +161,7 @@ const RegisterCard = () => {
                 </>
               ) : (
                 <>
+                  <option value={10} disabled>በ 10</option>
                   <option value={20}>በ 20</option>
                   <option value={30}>በ 30</option>
                   <option value={40}>በ 40</option>
