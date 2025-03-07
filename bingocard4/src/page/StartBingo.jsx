@@ -1144,9 +1144,9 @@ const StartBingo = () => {
     <div className={styles.container}>
       <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
-        <div onClickCapture={handleregisterClick}>RegisterCard</div>
-        <div onClickCapture={handleReportClick}>Report</div>
-        <div onClick={handleLogOut}>Logout</div>
+      <div onClickCapture={handleregisterClick} disabled={creatingReport} >RegisterCard</div>
+        <div onClickCapture={handleReportClick} disabled={creatingReport} >Report</div>
+        <div onClick={handleLogOut} disabled={creatingReport} >Logout</div>
       </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
