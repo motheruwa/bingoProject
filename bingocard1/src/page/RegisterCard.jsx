@@ -146,16 +146,32 @@ const RegisterCard = () => {
               value={selectedAmount}
               onChange={handleAmountChange}
             >
-              <option value={10}>በ 10</option>
-              <option value={20}>በ 20</option>
-              <option value={30}>በ 30</option>
-              <option value={40}>በ 40</option>
-              <option value={50}>በ 50</option>
-              <option value={100}>በ 100</option>
-              <option value={200}>በ 200</option>
-              <option value={300}>በ 300</option>
-              <option value={400}>በ 400</option>
-              <option value={500}>በ 500</option>
+             {userName !== "teda" ? (
+                <>
+                  <option value={10}>በ 10</option>
+                  <option value={20}>በ 20</option>
+                  <option value={30}>በ 30</option>
+                  <option value={40}>በ 40</option>
+                  <option value={50}>በ 50</option>
+                  <option value={100}>በ 100</option>
+                  <option value={200}>በ 200</option>
+                  <option value={300}>በ 300</option>
+                  <option value={400}>በ 400</option>
+                  <option value={500}>በ 500</option>
+                </>
+              ) : (
+                <>
+                  <option value={20}>በ 20</option>
+                  <option value={30}>በ 30</option>
+                  <option value={40}>በ 40</option>
+                  <option value={50}>በ 50</option>
+                  <option value={100}>በ 100</option>
+                  <option value={200}>በ 200</option>
+                  <option value={300}>በ 300</option>
+                  <option value={400}>በ 400</option>
+                  <option value={500}>በ 500</option>
+                </>
+              )}
             </select>
           </div>
 
