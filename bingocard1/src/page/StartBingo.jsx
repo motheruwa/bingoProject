@@ -1883,9 +1883,9 @@ const StartBingo = () => {
     <div className={styles.container}>
       <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
-          <div onClickCapture={handleregisterClick} disabled={creatingReport} >RegisterCard</div>
-        <div onClickCapture={handleReportClick} disabled={creatingReport} >Report</div>
-        <div onClick={handleLogOut} disabled={creatingReport} >Logout</div>
+          <button onClickCapture={handleregisterClick} disabled={creatingReport} >RegisterCard</button>
+        <button onClickCapture={handleReportClick} disabled={creatingReport} >Report</button>
+        <button onClick={handleLogOut} disabled={creatingReport} >Logout</button>
       </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
