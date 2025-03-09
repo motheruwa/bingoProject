@@ -1822,6 +1822,7 @@ const StartBingo = () => {
       await createReport();
     } catch (error) {
       console.error("Report creation failed:", error);
+      setCreatingReport(false);
    // Handle the error, e.g., show a message to the user
     }
   };
@@ -1876,6 +1877,7 @@ const StartBingo = () => {
       }
     } catch (error) {
       console.error("Error creating report:", error);
+      setCreatingReport(false);
       // Handle errors
     }
   };
