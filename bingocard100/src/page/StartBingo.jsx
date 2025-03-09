@@ -1885,14 +1885,14 @@ const StartBingo = () => {
     <div className={styles.container}>
       <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
-          <button onClickCapture={handleregisterClick} >RegisterCard</button>
-        <button onClickCapture={handleReportClick} >Report</button>
-        <button onClick={handleLogOut}  >Logout</button>
+          <button onClickCapture={handleregisterClick} disabled={creatingReport} >RegisterCard</button>
+        <button onClickCapture={handleReportClick} disabled={creatingReport}>Report</button>
+        <button onClick={handleLogOut}  disabled={creatingReport}>Logout</button>
       </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
       </div>
-      <div className={styles.remaining}>{remainingMoney} ብር ወሳጅ</div>
+      <div className={styles.remaining}>{remainingMoney}ብር ወሳጅ</div>
       <div className={styles.button}>
         <button
           onClick={handleClick}
