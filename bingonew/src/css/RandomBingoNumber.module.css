@@ -1,0 +1,65 @@
+.randombingonumber{
+    padding-bottom: 20px;
+    height: 100vh;
+    width: 100vw;
+    gap: 10px;
+}
+
+.playcard{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 6%;
+}
+.playbutton{
+    background: rgb(4, 90, 4);
+    color: white;
+    width: 15%;
+    height: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.stopbutton{
+    background: red;
+    color: white;
+    width: 15%;
+    height: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.input{
+    width: 25%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+.input input{
+    width: 70%;
+    height: 100%;
+}
+.input input::placeholder {
+    color: #140404; /* Placeholder text color */
+    text-align: center;
+    font-size: 15px;
+  }
+.check{
+    width: 30%;
+    height: 100%;
+    background: rgb(4, 90, 4);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sliderContainer{
+    width: 15%;
+    color: white;
+}
+.sliderContainer input{
+    width: 100%;
+}

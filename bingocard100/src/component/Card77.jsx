@@ -91,6 +91,7 @@ function Card77() {
   const handleResetAndNavigate = () => {
     localStorage.removeItem('calledNumbers');
     localStorage.removeItem('registeredNumbers');
+    localStorage.removeItem('sequenceIndex');
 
     navigate('/registerdcard');
   };

@@ -1899,7 +1899,16 @@ const StartBingo = () => {
           disabled={registeredNumbers.length <= 1 || creatingReport}
           className={styles.lowbutton}
         >
-          Start
+          {creatingReport ? (
+                        <div className={styles.spinner}>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      ) : (
+                        'Start'
+                      )}
         </button>
         <div onClick={handlepewzew} className={styles.pewzew}>
           ፐውዘው

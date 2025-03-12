@@ -1,0 +1,239 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(rgb(76, 192, 120),rgb(6, 112, 32),rgb(4, 90, 4));
+    position: relative;
+}
+
+.cont1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 45%;
+    height: 550px;
+    padding: 1%;
+    gap: 3px;
+    background: white;
+}
+.cont1 img{
+    width: 98%;
+    height: 90%;
+}
+.remaining{
+    background: white;
+    width: 98%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    border: 2px solid white;
+    color: red;
+    padding-bottom: 10px;
+}
+.cont2{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cont3{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    display: flex;
+    gap: 3px;
+}
+.logout{
+    background: rgb(6, 112, 32);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border: 2px solid white;
+}
+.logout:hover{
+    background: white;
+    color: rgb(6, 112, 32);
+}
+.report{
+    background: rgb(6, 112, 32);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border: 2px solid white;
+}
+.report:hover{
+    background: white;
+    color: rgb(6, 112, 32);
+}
+.registercard{
+    width: 50%;
+    height: 60px;
+    background: rgb(6, 112, 32);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.registercard:hover{
+    background: white;
+    color: rgb(6, 112, 32);
+}
+.pewzew{
+    width: 50%;
+    background: rgb(6, 112, 32);
+    color: white;
+    border: 2px solid white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    height: 60px;
+}
+.pewzew:hover{
+    background: white;
+    color: rgb(6, 112, 32);
+}
+.lowbutton{
+    width: 80%;
+    background: rgb(6, 112, 32);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 60px;
+    border: 2px solid white;
+}
+.lowbutton:hover{
+    background: white;
+    color: rgb(6, 112, 32);
+}
+.bounce{
+    position: absolute;
+    width: 200px;
+    height: 500px;
+    height: auto;
+    left: 10px;
+}
+.x{
+    position: absolute;
+    width: 200px;
+    color: white;
+    display: flex;
+    font-size: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    font-weight: bold;
+    height: auto;
+    right: 10px;
+}
+.link{
+    width: 50%;
+    height: 8%;
+  background: rgb(4, 48, 85);
+  color: white;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.link button{
+  background: rgb(4, 48, 85);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+border: none;
+cursor: pointer;
+}
+
+.link button:hover{
+    border-bottom: 2px solid white;
+}
+.card{
+    width: 50%;
+    height: 60%;
+    background: white;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card img{
+    width: 85%;
+    height: 100%;
+    margin-top: 10px;
+    object-fit: cover;
+}
+.button{
+    width: 50%;
+    height: 8%;
+    background: white;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+    gap:2%;
+}
+
+@media(max-width:600px){
+    .cont1{
+        display: none;
+    }
+    .cont2{
+        width: 100%;
+    }
+    .link{
+        width: 90%;
+    }
+   .remaining{
+    width: 90%;
+    font-size: 30px;
+   }
+   .card{
+    width: 90%;
+   }
+   .button{
+    width: 90%;
+   }
+   .lowbutton{
+    font-size: 15px;
+   }
+   .pewzew{
+    font-size: 15px;
+   }
+  }

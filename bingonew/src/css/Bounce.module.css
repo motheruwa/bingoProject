@@ -1,0 +1,36 @@
+.container {
+    width: 200px;
+    height: 500px;
+    border: 2px solid #333;
+    overflow: hidden;
+    display: flex;
+    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    justify-content: space-evenly;
+  }
+  
+  .ball {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .x{
+    width: 200px;
+    background: transparent;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 300px;
+    font-weight: bold;
+  }
+ 
