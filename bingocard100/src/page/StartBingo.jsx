@@ -1885,9 +1885,9 @@ const StartBingo = () => {
     <div className={styles.container}>
       <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
-          <button onClickCapture={handleregisterClick} disabled={creatingReport} >RegisterCard</button>
-        <button onClickCapture={handleReportClick} disabled={creatingReport}>Report</button>
-        <button onClick={handleLogOut}  disabled={creatingReport}>Logout</button>
+          <button onClickCapture={handleregisterClick}  >RegisterCard</button>
+        <button onClickCapture={handleReportClick} >Report</button>
+        <button onClick={handleLogOut}  >Logout</button>
       </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
@@ -1899,16 +1899,7 @@ const StartBingo = () => {
           disabled={registeredNumbers.length <= 1 || creatingReport}
           className={styles.lowbutton}
         >
-          {creatingReport ? (
-                                  <div className={styles.spinner}>
-                                  <div></div>
-                                  <div></div>
-                                  <div></div>
-                                  <div></div>
-                                </div>
-                                ) : (
-                                  'Start'
-                                )}
+         Start
         </button>
         <div onClick={handlepewzew} className={styles.pewzew}>
           ፐውዘው
