@@ -32,7 +32,6 @@ const StartBingo = () => {
   };
   const fetchUserByUsername = async (userName) => {
     try {
-      setCreatingReport(true);
       const response = await axios.get(
         `https://bin.zaahirahtravels.com/api/user/${userName}`
       );
@@ -40,7 +39,6 @@ const StartBingo = () => {
       setFetchedUser(response.data);
       setPreviousBalance(response.data.balance);
       localStorage.setItem("playType", response.data.playType);
-      setCreatingReport(false);
 
       // Handle the fetched user data as needed
     } catch (error) {
@@ -1885,9 +1883,9 @@ const StartBingo = () => {
     <div className={styles.container}>
       <div className={styles.bounce}><BouncingBalls/></div>
       <div className={styles.link}>
-          <button onClickCapture={handleregisterClick} >RegisterCard</button>
-        <button onClickCapture={handleReportClick}  >Report</button>
-        <button onClick={handleLogOut}  >Logout</button>
+          <button onClickCapture={handleregisterClick} disabled={creatingReport}>RegisterCard</button>
+        <button onClickCapture={handleReportClick}  disabled={creatingReport}>Report</button>
+        <button onClick={handleLogOut}  disabled={creatingReport}>Logout</button>
       </div>
       <div className={styles.card}>
         <img src={BingoCard} alt="Bingo Card" />
@@ -1895,11 +1893,21 @@ const StartBingo = () => {
       <div className={styles.remaining}>{remainingMoney} ብር ወሳጅ</div>
       <div className={styles.button}>
         <button
-          onClick={handleClick}
-          disabled={registeredNumbers.length <= 1 || creatingReport}
+          disabled={registeredNumbers.length <= 1}
           className={styles.lowbutton}
         >
-          Start
+          {creatingReport ? (
+              <div className={styles.spinner}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            ) : (
+              <button className={styles.st} onClick={handleClick}
+              >Start</button>
+
+            )}
         </button>
         <div onClick={handlepewzew} className={styles.pewzew}>
           ፐውዘው

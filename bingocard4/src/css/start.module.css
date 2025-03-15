@@ -115,6 +115,15 @@ cursor: pointer;
     height: 100%;
     border: none;
 }
+.st{
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
 .lowbutton:hover{
     background: rgb(4, 76, 94);
 }
