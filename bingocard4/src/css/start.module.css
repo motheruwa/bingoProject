@@ -123,6 +123,7 @@ cursor: pointer;
   color: white;
   font-weight: bold;
   font-size: 25px;
+  cursor: pointer;
 }
 .lowbutton:hover{
     background: rgb(4, 76, 94);

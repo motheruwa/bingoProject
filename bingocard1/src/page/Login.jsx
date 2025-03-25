@@ -24,10 +24,10 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://bin.zaahirahtravels.com/api/user/login",
+        "https://binx.wabisecurityandcleaningservice.com/api/user/login",
         userData
       );
-
+     
       if (response.status === 200) {
         // update the auth context
         localStorage.setItem("Ruser", JSON.stringify(response.data));

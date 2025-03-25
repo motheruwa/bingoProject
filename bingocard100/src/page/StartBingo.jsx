@@ -32,15 +32,13 @@ const StartBingo = () => {
   };
   const fetchUserByUsername = async (userName) => {
     try {
-      setCreatingReport(true);
       const response = await axios.get(
-        `https://bin.zaahirahtravels.com/api/user/${userName}`
+        `https://binx.wabisecurityandcleaningservice.com/api/user/${userName}`
       );
       console.log("Fetched user by username:", response.data);
       setFetchedUser(response.data);
       setPreviousBalance(response.data.balance);
       localStorage.setItem("playType", response.data.playType);
-      setCreatingReport(false);
 
       // Handle the fetched user data as needed
     } catch (error) {
@@ -1807,7 +1805,7 @@ const StartBingo = () => {
         return;
       }
       const response = await axios.put(
-        `https://bin.zaahirahtravels.com/api/user/update`,
+        `https://binx.wabisecurityandcleaningservice.com/api/user/update`,
         { userName, newBalance }
       );
   
@@ -1849,7 +1847,7 @@ const StartBingo = () => {
 
   const createReport = async () => {
     try {
-      const response = await axios.post("https://bin.zaahirahtravels.com/api/report", {
+      const response = await axios.post("https://binx.wabisecurityandcleaningservice.com/api/report", {
         round: round,
         selectedAmount: selectedAmount,
         deductedAmount: deductedAmount,
@@ -1899,7 +1897,18 @@ const StartBingo = () => {
           disabled={registeredNumbers.length <= 1 || creatingReport}
           className={styles.lowbutton}
         >
-         Start
+         {creatingReport ? (
+                       <div className={styles.spinner}>
+                       <div></div>
+                       <div></div>
+                       <div></div>
+                       <div></div>
+                     </div>
+                     ) : (
+                       <button className={styles.st} onClick={handleClick}
+                       >Start</button>
+         
+                     )}
         </button>
         <div onClick={handlepewzew} className={styles.pewzew}>
           ፐውዘው
