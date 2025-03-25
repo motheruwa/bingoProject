@@ -33,7 +33,7 @@ const StartBingo = () => {
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
-        `https://binx.wabisecurityandcleaningservice.com/api/user/${userName}`
+        `https://bin.zaahirahtravels.com/api/user/${userName}`
       );
       console.log("Fetched user by username:", response.data);
       setFetchedUser(response.data);
@@ -1805,7 +1805,7 @@ const StartBingo = () => {
         return;
       }
       const response = await axios.put(
-        `https://binx.wabisecurityandcleaningservice.com/api/user/update`,
+        `https://bin.zaahirahtravels.com/api/user/update`,
         { userName, newBalance }
       );
   
@@ -1847,7 +1847,7 @@ const StartBingo = () => {
 
   const createReport = async () => {
     try {
-      const response = await axios.post("https://binx.wabisecurityandcleaningservice.com/api/report", {
+      const response = await axios.post("https://bin.zaahirahtravels.com/api/report", {
         round: round,
         selectedAmount: selectedAmount,
         deductedAmount: deductedAmount,
@@ -1897,18 +1897,8 @@ const StartBingo = () => {
           disabled={registeredNumbers.length <= 1 || creatingReport}
           className={styles.lowbutton}
         >
-          {creatingReport ? (
-                        <div className={styles.spinner}>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                      </div>
-                      ) : (
-                        <button className={styles.st} onClick={handleClick}
-                        >Start</button>
-          
-                      )}
+                   Start
+
         </button>
         <div onClick={handlepewzew} className={styles.pewzew}>
           ፐውዘው
