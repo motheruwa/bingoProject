@@ -26,7 +26,7 @@ const RegisterCard = () => {
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
-        `https://bin.zaahirahtravels.com/api/user/${userName}`
+        `https://binx3.wabisecurityandcleaningservice.com/api/user/${userName}`
       );
 
       // Check if the response status is successful
