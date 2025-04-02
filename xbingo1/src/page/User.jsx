@@ -36,7 +36,7 @@ const User = () => {
 };
 const updateBalance = async (userName) => {
   try {
-    const response = await axios.put(`https://binx.wabisecurityandcleaningservice.com/api/user/update`, { userName, newBalance });
+    const response = await axios.put(`https://binx2.wabisecurityandcleaningservice.com/api/user/update`, { userName, newBalance });
 
     if (response.status === 200) {
       console.log(response.data);
@@ -52,7 +52,7 @@ const updateBalance = async (userName) => {
 };
   const updatePlayType = async (userName) => {
     try {
-        const response = await axios.put(`https://binx.wabisecurityandcleaningservice.com/api/user/updateplayType`, { userName, playType });
+        const response = await axios.put(`https://binx2.wabisecurityandcleaningservice.com/api/user/updateplayType`, { userName, playType });
 
         if (response.status === 200) {
             console.log('playType updated successfully:', response.data);
@@ -70,7 +70,7 @@ const updateBalance = async (userName) => {
     useEffect(() => {
       const getReportsByUserName = async () => {
         try {
-            const response = await axios.get(`https://binx.wabisecurityandcleaningservice.com/api/report/${username}`);
+            const response = await axios.get(`https://binx2.wabisecurityandcleaningservice.com/api/report/${username}`);
       
             if (response.status === 200) {
                    setReportData(response.data);
@@ -129,7 +129,7 @@ const updateBalance = async (userName) => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`https://binx.wabisecurityandcleaningservice.com/api/user/${username}`);
+                const response = await axios.get(`https://binx2.wabisecurityandcleaningservice.com/api/user/${username}`);
                 setUser(response.data);
                 console.log(response.data)
             } catch (error) {
@@ -142,7 +142,7 @@ const updateBalance = async (userName) => {
 
     const handlePermissionUpdate = async () => {
         try {
-            const response = await axios.put(`https://binx.wabisecurityandcleaningservice.com/api/user/`, { userName: user.userName, permission:newPermission });
+            const response = await axios.put(`https://binx2.wabisecurityandcleaningservice.com/api/user/`, { userName: user.userName, permission:newPermission });
             setUser({ ...user, permission: newPermission }); // Update the user's permission in the local state
             console.log(response.data);
         } catch (error) {
