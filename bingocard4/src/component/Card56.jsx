@@ -48,20 +48,20 @@ function Card56() {
     const winConditions = [
         ["B14", "I27", "N42", "G52", "O62"],
   ["B12", "I24", "N35", "G47", "O63"],
-  ["B15", "I26", "Nfree", "G57", "O67"], // "free" is accessed via 'Nfree'
+  ["B15", "I26", "free", "G57", "O67"], // "free" is accessed via 'Nfree'
   ["B1", "I23", "N43", "G53", "O66"],
   ["B4", "I19", "N37", "G51", "O74"],
 
   // Columns
   ["B14", "B12", "B15", "B1", "B4"],
   ["I27", "I24", "I26", "I23", "I19"],
-  ["N42", "N35", "Nfree", "N43", "N37"], // "free" is accessed via 'Nfree'
+  ["N42", "N35", "free", "N43", "N37"], // "free" is accessed via 'Nfree'
   ["G52", "G47", "G57", "G53", "G51"],
   ["O62", "O63", "O67", "O66", "O74"],
 
   // Diagonals
-  ["B14", "I24", "Nfree", "G53", "O74"], // "free" is accessed via 'Nfree'
-  ["O62", "G47", "Nfree", "I23", "B4"], // "free" is accessed via 'Nfree'
+  ["B14", "I24", "free", "G53", "O74"], // "free" is accessed via 'Nfree'
+  ["O62", "G47", "free", "I23", "B4"], // "free" is accessed via 'Nfree'
 
   // Example of a 4 corner win condition
   ["B14", "B4", "O62", "O74"]

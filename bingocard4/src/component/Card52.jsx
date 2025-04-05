@@ -53,7 +53,7 @@ function Card52() {
   ["B7", "I17", "N34", "G53", "O69"],
   ["B11", "I27", "N32", "G54", "O64"],
 
-  // Vertical (Columns)
+  // Vertical (Columns)x
   ["B1", "B15", "B6", "B7", "B11"],
   ["I30", "I29", "I24", "I17", "I27"],
   ["N33", "N45", "free", "N34", "N32"], // Center column (with "free" space)

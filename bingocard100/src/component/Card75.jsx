@@ -49,20 +49,20 @@ function Card75() {
        // Rows
     ['B4', 'B5', 'B8', 'B11', 'B10'], // First row (B)
     ['I30', 'I28', 'I16', 'I21', 'I23'], // Second row (I)
-    ['N38', 'N40', 'Nfree', 'N31', 'N32'], // Third row (N)
+    ['N38', 'N40', 'free', 'N31', 'N32'], // Third row (N)
     ['G50', 'G51', 'G54', 'G57', 'G46'], // Fourth row (G)
     ['O64', 'O70', 'O68', 'O61', 'O74'], // Fifth row (O)
 
     // Columns
     ['B4', 'I30', 'N38', 'G50', 'O64'], // First column
     ['B5', 'I28', 'N40', 'G51', 'O70'], // Second column
-    ['B8', 'I16', 'Nfree', 'G54', 'O68'], // Third column
+    ['B8', 'I16', 'free', 'G54', 'O68'], // Third column
     ['B11', 'I21', 'N31', 'G57', 'O61'], // Fourth column
     ['B10', 'I23', 'N32', 'G46', 'O74'], // Fifth column
 
     // Diagonals
-    ['B4', 'I28', 'Nfree', 'G57', 'O74'], // Top-left to bottom-right diagonal
-    ['B10', 'I21', 'Nfree', 'G54', 'O64'], // Top-right to bottom-left diagonal
+    ['B4', 'I28', 'free', 'G57', 'O74'], // Top-left to bottom-right diagonal
+    ['B10', 'I21', 'free', 'G54', 'O64'], // Top-right to bottom-left diagonal
 
     // Corners
     ['B4', 'B10', 'O64', 'O74'] // Corners

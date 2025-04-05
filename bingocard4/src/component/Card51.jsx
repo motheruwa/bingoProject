@@ -52,19 +52,13 @@ function Card51() {
   ["B3", "I22", "free", "G52", "O69"], // Third row (Free space in center)
   ["B10", "I29", "N43", "G54", "O75"], // Fourth row
   ["B8", "I25", "N41", "G49", "O66"], // Fifth row
-
-  // Vertical (Columns)
   ["B6", "B13", "B3", "B10", "B8"], // "B" column
   ["I16", "I18", "I22", "I29", "I25"], // "I" column
   ["N40", "N37", "free", "N43", "N41"], // "N" column (Free space in center)
   ["G58", "G57", "G52", "G54", "G49"], // "G" column
   ["O61", "O70", "O69", "O75", "O66"], // "O" column
-
-  // Diagonal Wins
   ["B6", "I18", "free", "G54", "O66"], // Top-left to bottom-right diagonal
   ["O61", "G57", "free", "I29", "B8"], // Top-right to bottom-left diagonal
-
-  // Corner Win (Special Condition)
   ["B6", "B8", "O61", "O66"], // Four corners
     ];
 
