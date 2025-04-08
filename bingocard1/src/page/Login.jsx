@@ -3,6 +3,7 @@ import styles from "../css/Login.module.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -61,48 +62,50 @@ const Login = () => {
   }, []); // Empty dependency array to run this effect only once when the component mounts
 
   return (
-    <div className={styles.container}>
-      <div className={styles.logo}>
-        <p className={styles.x}>X</p>
-        <p className={styles.bingo}>Bingo</p>
-      </div>
-      <div className={styles.cont}>
-        <div className={styles.title}>
-          <h2>SIGN IN</h2>
-        </div>
-        <div className={styles.form}>
-          <input
-            type="text"
-            onChange={(e) => setUserName(e.target.value)}
-            value={userName}
-            placeholder="Your username"
-          />
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            placeholder="Your Password"
-          />
-        </div>
-        <div
-  className={styles.button}
-  onClick={handleSubmit}
-  disabled={isLoading}
->
-  {isLoading ? (
-    <div className={styles.spinner}>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  ) : (
-    'Sign In'
-  )}
-</div>
-        {error && <div className={styles.error}>{error}</div>}
-      </div>
-    </div>
+   <div className={styles.container}>
+         <div className={styles.phone1}><FaPhoneAlt />  09 00 38 04 76</div>
+         <div className={styles.phone}><FaPhoneAlt />  09 12 01 25 43</div>
+       <div className={styles.logo}>
+         <p className={styles.x}>X</p>
+         <p className={styles.bingo}>Bingo</p>
+       </div>
+       <div className={styles.cont}>
+         <div className={styles.title}>
+           <h2>SIGN IN</h2>
+         </div>
+         <div className={styles.form}>
+           <input
+             type="text"
+             onChange={(e) => setUserName(e.target.value)}
+             value={userName}
+             placeholder="Your username"
+           />
+           <input
+             type="password"
+             onChange={(e) => setPassword(e.target.value)}
+             value={password}
+             placeholder="Your Password"
+           />
+         </div>
+         <div
+   className={styles.button}
+   onClick={handleSubmit}
+   disabled={isLoading}
+   >
+   {isLoading ? (
+     <div className={styles.spinner}>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+   </div>
+   ) : (
+     'Sign In'
+   )}
+   </div>
+         {error && <div className={styles.error}>{error}</div>}
+       </div>
+     </div>
   );
 };
 
