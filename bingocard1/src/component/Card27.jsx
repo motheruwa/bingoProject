@@ -116,6 +116,21 @@ function Card27() {
     winningNumbers.includes("O74");
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${
