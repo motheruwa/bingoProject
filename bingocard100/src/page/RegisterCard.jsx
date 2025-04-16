@@ -116,7 +116,7 @@ const RegisterCard = () => {
                 <div className={styles.odd}>ካርድ ቁጥሮች</div>
         
                 <div className={styles.numberscontainer}>
-                  {[...Array(70).keys()].map((number) => (
+                  {[...Array(100).keys()].map((number) => (
                     <div
                       key={number + 1}
                       className={
