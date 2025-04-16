@@ -22,7 +22,7 @@ const [fetchedUser, setFetchedUser] = useState([]);
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
-        `https://bin.zaahirahtravels.com/api/user/${userName}`
+        `https://binx.wabisecurityandcleaningservice.com/api/user/${userName}`
       );
       setFetchedUser(response.data);
       setPreviousBalance(response.data.balance);
@@ -77,7 +77,7 @@ const [fetchedUser, setFetchedUser] = useState([]);
       const newBalance = previousBalance - deductedAmountInt;
   
       const response = await axios.put(
-        `https://bin.zaahirahtravels.com/api/user/update`,
+        `https://binx.wabisecurityandcleaningservice.com/api/user/update`,
         { userName, newBalance }
       );
   
@@ -95,7 +95,7 @@ const [fetchedUser, setFetchedUser] = useState([]);
 
   const createReport = async () => {
     try {
-      const response = await axios.post("https://bin.zaahirahtravels.com/api/report", {
+      const response = await axios.post("https://binx.wabisecurityandcleaningservice.com/api/report", {
         round: round,
         selectedAmount: selectedAmount,
         deductedAmount: deductedAmount,

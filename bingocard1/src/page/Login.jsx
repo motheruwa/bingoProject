@@ -33,7 +33,7 @@ const Login = () => {
         // update the auth context
         localStorage.setItem("Ruser", JSON.stringify(response.data));
         dispatch({ type: "LOGIN", payload: response.data });
-        console.log("login successfully!");
+        console.log("login successfully!",response.data);
         navigate("/startbingo");
       }
     } catch (error) {

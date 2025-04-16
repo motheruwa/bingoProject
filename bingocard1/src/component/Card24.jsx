@@ -4,13 +4,16 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card24() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
+  const [showCelebration, setShowCelebration] = useState(false);
+
   useEffect(() => {
     if (calledNumbers.size > 0) {
       setCurrentNumber(Array.from(calledNumbers).pop());
@@ -29,91 +32,105 @@ function Card24() {
   }, [currentNumber]);
   const navigate = useNavigate();
   const generateBingoCard = () => {
-      const bingoCard = {
-        B: [8, 14, 13, 12, 10],
-        I: [25, 17, 27, 19, 30],
-        N: [45, 36, 'free', 32, 37],
-        G: [56, 46, 58, 55, 51],
-        O: [74, 70, 68, 66, 72]
-      };
-  
-      // Set the center cell as a free space
-      bingoCard.N[2] = 'free';
-  
-      return bingoCard;
+    const bingoCard = {
+      B: [8, 14, 13, 12, 10],
+      I: [25, 17, 27, 19, 30],
+      N: [45, 36, "free", 32, 37],
+      G: [56, 46, 58, 55, 51],
+      O: [74, 70, 68, 66, 72],
     };
-  
-    const checkWin = () => {
-      const winConditions = [
-        ['B8', 'B14', 'B13', 'B12', 'B10'], // First row (B)
-      ['I25', 'I17', 'I27', 'I19', 'I30'], // Second row (I)
-      ['N45', 'N36', 'free', 'N32', 'N37'], // Third row (N)
-      ['G56', 'G46', 'G58', 'G55', 'G51'], // Fourth row (G)
-      ['O74', 'O70', 'O68', 'O66', 'O72'], // Fifth row (O)
-      ['B8', 'I17', 'free', 'G55', 'O72'], // Top-left to bottom-right diagonal
-      ['O74', 'G46', 'free', 'I19', 'B10'], // Top-right to bottom-left diagonal
-      ['B8', 'I25', 'N45', 'G56', 'O74'], // First column
-      ['B14', 'I17', 'N36', 'G46', 'O70'], // Second column
-      ['B13', 'I27', 'free', 'G58', 'O68'], // Third column
-      ['B12', 'I19', 'N32', 'G55', 'O66'], // Fourth column
-      ['B10', 'I30', 'N37', 'G51', 'O72'], // Fifth column
-      ['B8', 'B10', 'O74', 'O72'] // Corner 
-      ];
-  
-      const winningLines = [];
-      for (const condition of winConditions) {
-        if (condition.every(char => calledNumbers.has(char))) {
-          winningLines.push(condition);
-        }
-      }
-  
-      if (winningLines.length > 0) {
-        const winningNumbers = [...new Set(winningLines.flat())];
-        return winningNumbers;
-      }
-  
-      return [];
-    };
-  
-    const bingoCard = generateBingoCard();
-    const winningNumbers = checkWin();
-  
-  
-    const handleResetAndNavigate = () => {
-      localStorage.removeItem('calledNumbers');
-      localStorage.removeItem('registeredNumbers');
-      localStorage.removeItem('sequenceIndex');
-  
-      navigate('/registerdcard');
-    };
-  
-    
-    const handleGoBack = () => {
-      navigate(-1); // Go back one step in the history stack
-    };
-  
-    const audioWin = new Audio(Win);
-    const audioNotwin = new Audio(Notwin);
-  
-    const playWinSound = () => {
-      audioWin.play();
-    };
-  
-    const playNotwinSound = () => {
-      audioNotwin.play();
-      audioNotwin.onended = function() {
-          handleGoBack();
-      };
+
+    // Set the center cell as a free space
+    bingoCard.N[2] = "free";
+
+    return bingoCard;
   };
-  
-    const isFourCornersWinning =
-    winningNumbers.includes('B8') &&
-    winningNumbers.includes('B10') &&
-    winningNumbers.includes('O74') &&
-    winningNumbers.includes('O72');
+
+  const checkWin = () => {
+    const winConditions = [
+      ["B8", "B14", "B13", "B12", "B10"], // First row (B)
+      ["I25", "I17", "I27", "I19", "I30"], // Second row (I)
+      ["N45", "N36", "free", "N32", "N37"], // Third row (N)
+      ["G56", "G46", "G58", "G55", "G51"], // Fourth row (G)
+      ["O74", "O70", "O68", "O66", "O72"], // Fifth row (O)
+      ["B8", "I17", "free", "G55", "O72"], // Top-left to bottom-right diagonal
+      ["O74", "G46", "free", "I19", "B10"], // Top-right to bottom-left diagonal
+      ["B8", "I25", "N45", "G56", "O74"], // First column
+      ["B14", "I17", "N36", "G46", "O70"], // Second column
+      ["B13", "I27", "free", "G58", "O68"], // Third column
+      ["B12", "I19", "N32", "G55", "O66"], // Fourth column
+      ["B10", "I30", "N37", "G51", "O72"], // Fifth column
+      ["B8", "B10", "O74", "O72"], // Corner
+    ];
+
+    const winningLines = [];
+    for (const condition of winConditions) {
+      if (condition.every((char) => calledNumbers.has(char))) {
+        winningLines.push(condition);
+      }
+    }
+
+    if (winningLines.length > 0) {
+      const winningNumbers = [...new Set(winningLines.flat())];
+      return winningNumbers;
+    }
+
+    return [];
+  };
+
+  const bingoCard = generateBingoCard();
+  const winningNumbers = checkWin();
+
+  const handleResetAndNavigate = () => {
+    localStorage.removeItem("calledNumbers");
+    localStorage.removeItem("registeredNumbers");
+    localStorage.removeItem("sequenceIndex");
+
+    navigate("/registerdcard");
+  };
+
+  const handleGoBack = () => {
+    navigate("/randombingonumber"); // Go back one step in the history stack
+  };
+
+  const audioWin = new Audio(Win);
+  const audioNotwin = new Audio(Notwin);
+
+  const playWinSound = () => {
+    setShowCelebration(true);
+    audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
+  };
+
+  const playNotwinSound = () => {
+    audioNotwin.play();
+    audioNotwin.onended = function () {
+      handleGoBack();
+    };
+  };
+
+  const isFourCornersWinning =
+    winningNumbers.includes("B8") &&
+    winningNumbers.includes("B10") &&
+    winningNumbers.includes("O74") &&
+    winningNumbers.includes("O72");
   return (
     <div className={styles.container}>
-      
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${
