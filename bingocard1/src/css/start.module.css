@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104),rgb(4, 48, 85));
+  background-image: url('../images/bg1.jpg');
+  background-size: cover;
+  background-position: center; 
   position: relative;
 }
 .bounce{
@@ -32,11 +34,13 @@
 .link{
   width: 50%;
   height: 8%;
-background: rgb(4, 48, 85);
+  z-index: 1;
+  background: rgb(4, 48, 85);
+
 color: white;
-border-top: 2px solid white;
-border-left: 2px solid white;
-border-right: 2px solid white;
+border-top: 4px solid white;
+border-left: 4px solid white;
+border-right: 4px solid white;
 font-weight: bold;
 font-size: 20px;
 display: flex;
@@ -46,7 +50,7 @@ justify-content: center;
 cursor: pointer;
 }
 .link button{
-background: rgb(4, 48, 85);
+background: transparent;
 color: white;
 font-size: 20px;
 font-weight: bold;
@@ -54,7 +58,10 @@ border: none;
 cursor: pointer;
 }
 .remaining{
-  background: white;
+background-image: url('../images/bg.avif');
+background-size: cover;
+background-position: center; 
+  z-index: 1;
   width: 50%;
   height: 50px;
   display: flex;
@@ -62,7 +69,8 @@ cursor: pointer;
   justify-content: center;
   font-size: 50px;
   font-weight: bold;
-  border: 2px solid white;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
   color: rgb(4, 48, 85);
   padding-bottom: 10px;
 }
@@ -70,31 +78,37 @@ cursor: pointer;
   border-bottom: 2px solid white;
 }
 .card{
+  z-index: 1;
   width: 50%;
   height: 60%;
-  background: white;
-  border: 2px solid white;
+  background-image: url('../images/bg.avif');
+  background-size: cover;
+  background-position: center; 
+  border-left: 4px solid white;
+  border-right: 4px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .card img{
-  width: 85%;
+  width: 80%;
   height: 100%;
   margin-top: 10px;
   object-fit: cover;
 }
 .button{
-  width: 50%;
+  width: 50.2%;
   height: 8%;
+  z-index: 1;
   background: white;
   color: white;
   font-weight: bold;
   font-size: 25px;
-  border-bottom: 2px solid white;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
+  border-bottom: 4px solid white;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
   display: flex;
+overflow: hidden;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -105,6 +119,7 @@ cursor: pointer;
 .lowbutton{
   width: 79%;
   background: rgb(4, 48, 85);
+
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -131,6 +146,8 @@ cursor: pointer;
 .pewzew{
   width: 20%;
   background: rgb(4, 48, 85);
+
+
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -183,9 +200,7 @@ cursor: pointer;
   }
 }
 @media(max-width:600px){
-  .bounce{
-      display: none;
-  }
+  
   .link{
       width: 90%;
   }
@@ -194,6 +209,7 @@ cursor: pointer;
   font-size: 30px;
  }
  .card{
+  height: 40%;
   width: 90%;
  }
  .button{

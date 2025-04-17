@@ -5,6 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
 import { useLogout } from "../hooks/useLogout";
 import { FaPhoneAlt } from "react-icons/fa";
+import logo from "../images/logo.jpg";
 
 const RegisterCard = () => {
   const { logout } = useLogout();
@@ -34,7 +35,7 @@ const RegisterCard = () => {
       if (response.status === 200) {
         setFetchedUser(response.data);
         console.log(response.data);
-        if (response.data.permission === 'false') {
+        if (response.data.permission === "false") {
           handleLogOut();
         }
       } else {
@@ -110,63 +111,68 @@ const RegisterCard = () => {
   };
 
   return (
-   <div className={styles.container}>
-             <div className={styles.cont}>
-             <div className={styles.phone}> <div><FaPhoneAlt />  0900-380476 // 0912-012543</div></div>
-               <div className={styles.odd}>ካርድ ቁጥሮች</div>
-       
-               <div className={styles.numberscontainer}>
-                 {[...Array(70).keys()].map((number) => (
-                   <div
-                     key={number + 1}
-                     className={
-                       registeredNumbers.includes(number + 1)
-                         ? styles.registered
-                         : styles.unregistered
-                     }
-                     onClick={() => handleNumberClick(number + 1)}
-                   >
-                     {number + 1}
-                   </div>
-                 ))}
-               </div>
-             </div>
-       
-             {registeredNumbers.length > 0 && (
-               <div className={styles.playoption}>
-                 <div className={styles.memezgeb}>እባክዎ ቁጥሮት መመዝገቡን ያረጋግጡ</div>
-                 <div className={styles.renumber}>
-                   <ul>
-                     {registeredNumbers.map((number) => (
-                       <li key={number}>{number}</li>
-                     ))}
-                   </ul>
-                 </div>
-                 <div className={styles.select}>
-                   <select
-                     id="amount"
-                     value={selectedAmount}
-                     onChange={handleAmountChange}
-                   >
-                    <option value={10}>በ 10</option>
-                                  <option value={20}>በ 20</option>
-                                  <option value={30}>በ 30</option>
-                                  <option value={40}>በ 40</option>
-                                  <option value={50}>በ 50</option>
-                                  <option value={100}>በ 100</option>
-                                  <option value={200}>በ 200</option>
-                                  <option value={300}>በ 300</option>
-                                  <option value={400}>በ 400</option>
-                                  <option value={500}>በ 500</option>
-                   </select>
-                 </div>
-       
-                 <button className={styles.button} onClick={handlePlay}>
-                   Play
-                 </button>
-               </div>
-             )}
-           </div>
+    <div className={styles.container}>
+      <div className={styles.contact}>
+        <div className={styles.logo}>
+          <img src={logo} alt="MRX" />
+        </div>
+        <div className={styles.phone1}>የቢንጎ ሶፍትዌር ይፈልጋሉ ?</div>
+        <div className={styles.phone1}>
+          {" "}
+          <div>
+            <FaPhoneAlt /> 0900-380476
+          </div>
+        </div>
+        <div className={styles.phone2}>
+          {" "}
+          <div>
+            <FaPhoneAlt /> 0912-012543
+          </div>
+        </div>
+      </div>
+      <div className={styles.cont}>
+        <div className={styles.odd}>እባክዎ ካርድ ቁጥሮዎ መመዝገቡን ያረጋግጡ </div>
+        <div className={styles.numberscontainer}>
+          {[...Array(70).keys()].map((number) => (
+            <div
+              key={number + 1}
+              className={
+                registeredNumbers.includes(number + 1)
+                  ? styles.registered
+                  : styles.unregistered
+              }
+              onClick={() => handleNumberClick(number + 1)}
+            >
+              {number + 1}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.playoption}>
+        <select
+          id="amount"
+          value={selectedAmount}
+          onChange={handleAmountChange}
+          className={styles.select}
+        >
+          <option value={10}>በ 10</option>
+          <option value={20}>በ 20</option>
+          <option value={30}>በ 30</option>
+          <option value={40}>በ 40</option>
+          <option value={50}>በ 50</option>
+          <option value={100}>በ 100</option>
+          <option value={200}>በ 200</option>
+          <option value={300}>በ 300</option>
+          <option value={400}>በ 400</option>
+          <option value={500}>በ 500</option>
+        </select>
+
+        <button className={styles.button} onClick={handlePlay}>
+          Play
+        </button>
+      </div>
+    </div>
   );
 };
 

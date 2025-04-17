@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 const PreventBrowserNavigation = ({ children }) => {
   useEffect(() => {
     const handlePopstate = (event) => {

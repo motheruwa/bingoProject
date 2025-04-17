@@ -54,24 +54,32 @@ const FilterReport = () => {
   };
 
   const filterData = () => {
-    if (selectedOption === 'daily') {
+    if (selectedOption === "daily") {
       const currentDate = new Date().toISOString().slice(0, 10);
-      const filtered = reportData.filter(report => new Date(report.createdAt).toISOString().slice(0, 10) === currentDate);
+      const filtered = reportData.filter(
+        (report) =>
+          new Date(report.createdAt).toISOString().slice(0, 10) === currentDate
+      );
       setFilteredData(filtered);
-    } else if (selectedOption === 'weekly') {
+    } else if (selectedOption === "weekly") {
       const currentDate = new Date();
       const weekStart = new Date(currentDate);
       weekStart.setDate(currentDate.getDate() - 6); // Start from the current day and go back 6 days
-      const filtered = reportData.filter(report => {
+      const filtered = reportData.filter((report) => {
         const reportDate = new Date(report.createdAt);
-        return reportDate.toISOString().slice(0, 10) >= weekStart.toISOString().slice(0, 10) && reportDate.toISOString().slice(0, 10) <= currentDate.toISOString().slice(0, 10);
+        return (
+          reportDate.toISOString().slice(0, 10) >=
+            weekStart.toISOString().slice(0, 10) &&
+          reportDate.toISOString().slice(0, 10) <=
+            currentDate.toISOString().slice(0, 10)
+        );
       });
       setFilteredData(filtered);
-    } else if (selectedOption === 'custom') {
+    } else if (selectedOption === "custom") {
       const fromDateISO = new Date(fromDate).toISOString().slice(0, 10);
       const toDateISO = new Date(toDate).toISOString().slice(0, 10);
 
-      const filtered = reportData.filter(report => {
+      const filtered = reportData.filter((report) => {
         const reportDate = new Date(report.createdAt);
         const reportDateISO = reportDate.toISOString().slice(0, 10);
         return reportDateISO >= fromDateISO && reportDateISO <= toDateISO;
@@ -111,7 +119,9 @@ const FilterReport = () => {
             />
           </div>
         )}
-        <button onClick={filterData} className={styles.showdata}>Show Data</button>
+        <button onClick={filterData} className={styles.showdata}>
+          Show Data
+        </button>
       </div>
 
       <div className={styles.total}>
