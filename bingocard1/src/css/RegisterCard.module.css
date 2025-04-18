@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    padding: 30px;
     position: relative;
-    flex-direction: column;
     gap: 20px;
     align-items: center;
     background: rgb(43, 41, 41);
@@ -14,21 +13,34 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(20, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px;
     width: 100%;
-    height: 350px;
+    height: 80%;
   }
   .cont{
-    width: 100%;
-    height: 400px;
+    width: 60%;
+    height: 80%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     flex-direction: column;
     gap: 20px;
-    overflow: scroll;
+    margin-top: 5px;
+
   }
+  .phone{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
   .odd{
     height: 10%;
     font-weight: bold;
@@ -36,52 +48,17 @@
     text-align: left;
     color: white;
   }
-  .contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    height: 50px;
-    width: 100%;
-    background: white;
-  }
-  .logo{
-    height: 90%;
-    width: 80px;
-  }
-  .logo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-.phone1{
-  font-weight: bold;
-  font-size: 30px;
-  background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    background-image: radial-gradient(rgb(20, 109, 145), rgb(11, 33, 104));
-}
-.phone2{
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    background-image: radial-gradient(rgb(20, 109, 145), rgb(11, 33, 104));
-}
+
   .numberscontainer div {
     padding: 10px;
     border: 1px solid #ccc;
     text-align: center;
     cursor: pointer;
+    height: 60%;
   }
   /*26843029*/
   .registered {
-    background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
+    background-color: rgb(6, 136, 97);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -89,33 +66,35 @@
     color: white;
     font-weight: bold;
     font-size: 40px;
-    width: 40px;
-    height: 40px;
+    width: 70%;
+    height: 50px;
   }
   
   .unregistered {
-    background: rgb(161, 159, 159);
+    background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
     border-radius: 50%;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 40px;
-    color: rgb(88, 85, 85);
-    width: 40px;
-    height: 40px;
+    color: white;
+    width: 70%;
+
+    height: 50px;
   }
   .unregistered:hover{
-    background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
-    color: white;
+    background-image: radial-gradient(rgb(6, 209, 148),rgb(6, 136, 97));
   }
   .playoption{
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    width: 50%;
-    height: 60px;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
     gap: 20px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
   }
   .renumber{
     width: 100%;
@@ -132,7 +111,7 @@
   .renumber ul li{
     border-radius: 50%;
     border: 2px solid rgb(222, 227, 230);
-    background-color: rgb(11, 33, 104);
+    background-color: rgb(6, 136, 97);
     color: white;
     font-weight: bold;
     font-size: 40px;
@@ -149,9 +128,9 @@
     height: 8%;
   }
   .select{
-    height: 40px;
-    width: 250px;
-    
+    height: 7%;
+    width: 50%;
+    margin-top: 20px;
   }
   select{
     width: 100%;
@@ -163,8 +142,8 @@
     font-size: 20px;
   }
   .button{
-    width: 250px;
-    height: 50px;
+    width: 30%;
+    height: 7%;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
@@ -173,8 +152,8 @@
     color: white;
   }
   .button:hover{
-    background: white;
-    color: rgb(11, 33, 104);
+    background: rgb(6, 136, 97);
+    color: white;
   }
   .round{
     color: white;
@@ -182,37 +161,4 @@
     height: 7%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-  }
-  @media(max-width:600px){
-    .numberscontainer{
-      height: 200px;
-    grid-template-columns: repeat(10, 1fr);
-    }
-    .registered{
-      width: 4px;
-      height: 4px;
-      font-size: 10px;
-    }
-    .unregistered{
-      width: 4px;
-      font-size: 10px;
-      height: 4px;
-    }
-    .phone1{
-      display: none;
-    }
-    .phone2{
-      display: none;
-    }
-    .odd{
-      font-size: 15px;
-    }
-    .button{
-      height: 30px;
-      font-size: 15px;
-    }
-    .select{
-      height: 30px;
-      width: 100px;
-    }
   }
