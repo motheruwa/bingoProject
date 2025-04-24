@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/BingoCall.module.css";
 import Bingocard from "../images/bingocard.jpg";
+import logo from "../images/logo.jpg";
 import { MdOutlineStarRate } from "react-icons/md";
 import B1 from "../audio/B1.mp4";
 import B2 from "../audio/B2.mp4";
@@ -1340,72 +1341,74 @@ const playAudioForNumberaradaw = (number) => {
   const recentCalledNumbers = Array.from(calledNumbers).slice(-5);
 
   return (
-    <div className={styles.bingocall}>
-      <div className={styles.currentrecent}>
-        <div className={styles.current11}>
-          <div
-            className={`${styles.current} ${
-              animateCurrent ? styles.animated : ""
-            }`}
-          >
-            <h3>{currentNumber}</h3>
-          </div>
-        </div>
-
-        <div className={styles.img}>
-          <img src={Bingocard} alt="Well Bingo" />
-        </div>
-        {/* Display the five most recently called numbers */}
-        <div className={styles.recentCalledNumbers}>
-          <h4>Recent 5 Numbers:</h4>
-          <ul>
-            {recentCalledNumbers.reverse().map((number) => (
-              <li key={number} className={styles.recentNumber}>
-                {number.startsWith("free") ? (
-                  <MdOutlineStarRate size={"3rem"} />
-                ) : (
-                  number
-                )}{" "}
-                {/* Remove "free" if it exists */}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.derash}>
-          <div className={styles.de}>ደራሽ</div>
-          <div>{totalAmount}</div>
-          <div>ብር</div>
-        </div>
-      </div>
-
-      <div className={styles.bingoBoardcontainer}>
-        <div className={styles.bingoBoard}>
-          {Object.entries(rows).map(([letter, numbers]) => (
-            <div key={letter} className={styles.bingoRow}>
-              <h4 className={`${styles.letter} ${styles[letter]}`}>{letter}</h4>
-              <ul className={styles.ul}>
-                {numbers.map((number) => {
-                  const numWithoutLetter = number.slice(1); // Remove the first character (letter)
-                  return (
-                    <li
-                      key={number}
-                      className={
-                        calledNumbers.has(number)
-                          ? number === currentNumber
-                            ? `${styles.called} ${styles.animated}`
-                            : styles.called
-                          : styles.uncalled
-                      }
-                    >
-                      {numWithoutLetter}
-                    </li>
-                  );
-                })}
+     <div className={styles.bingocall}>
+          <div className={styles.currentrecent}>
+            <div className={styles.current11}>
+              <div
+                className={`${styles.current} ${
+                  animateCurrent ? styles.animated : ""
+                }`}
+              >
+                <h3>{currentNumber}</h3>
+              </div>
+            </div>
+    
+            <div className={styles.img}>
+              <img src={Bingocard} alt="Well Bingo" />
+            </div>
+            {/* Display the five most recently called numbers */}
+            <div className={styles.recentCalledNumbers}>
+              <div className={styles.rectext}>Recent 5 Numbers:</div>
+              <ul>
+                {recentCalledNumbers.reverse().map((number) => (
+                  <li key={number} className={styles.recentNumber}>
+                    {number.startsWith("free") ? (
+                      <MdOutlineStarRate size={"4rem"} color={"#09184B"} />
+                    ) : (
+                      <div className={styles.no}>{number}</div>
+                    )}{" "}
+                    {/* Remove "free" if it exists */}
+                  </li>
+                ))}
               </ul>
             </div>
-          ))}
+            <div className={styles.derash}>
+              <div className={styles.logo}>
+                <img src={logo} alt="MRX" />
+              </div>
+              <div className={styles.de}>ደራሽ</div>
+              <div>{totalAmount} ብር</div>
+            </div>
+          </div>
+    
+          <div className={styles.bingoBoardcontainer}>
+            <div className={styles.bingoBoard}>
+              {Object.entries(rows).map(([letter, numbers]) => (
+                <div key={letter} className={styles.bingoRow}>
+                  <h4 className={`${styles.letter} ${styles[letter]}`}>{letter}</h4>
+                  <ul className={styles.ul}>
+                    {numbers.map((number) => {
+                      const numWithoutLetter = number.slice(1); // Remove the first character (letter)
+                      return (
+                        <li
+                          key={number}
+                          className={
+                            calledNumbers.has(number)
+                              ? number === currentNumber
+                                ? `${styles.called} ${styles.animated}`
+                                : styles.called
+                              : styles.uncalled
+                          }
+                        >
+                          {numWithoutLetter}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
   );
 };

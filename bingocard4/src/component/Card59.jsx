@@ -4,12 +4,14 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card59() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
   const [animateCurrent, setAnimateCurrent] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   useEffect(() => {
     if (calledNumbers.size > 0) {
@@ -46,26 +48,26 @@ function Card59() {
 
   const checkWin = () => {
     const winConditions = [
-        // Rows
-  ["B13", "I26", "N44", "G54", "O66"],
-  ["B8", "I29", "N33", "G60", "O70"],
-  ["B15", "I19", "free", "G56", "O68"],
-  ["B5", "I28", "N36", "G48", "O73"],
-  ["B4", "I16", "N40", "G58", "O63"],
+      // Rows
+      ["B13", "I26", "N44", "G54", "O66"],
+      ["B8", "I29", "N33", "G60", "O70"],
+      ["B15", "I19", "free", "G56", "O68"],
+      ["B5", "I28", "N36", "G48", "O73"],
+      ["B4", "I16", "N40", "G58", "O63"],
 
-  // Columns
-  ["B13", "B8", "B15", "B5", "B4"],
-  ["I26", "I29", "I19", "I28", "I16"],
-  ["N44", "N33", "free", "N36", "N40"],
-  ["G54", "G60", "G56", "G48", "G58"],
-  ["O66", "O70", "O68", "O73", "O63"],
+      // Columns
+      ["B13", "B8", "B15", "B5", "B4"],
+      ["I26", "I29", "I19", "I28", "I16"],
+      ["N44", "N33", "free", "N36", "N40"],
+      ["G54", "G60", "G56", "G48", "G58"],
+      ["O66", "O70", "O68", "O73", "O63"],
 
-  // Diagonals
-  ["B13", "I29", "free", "G48", "O63"],
-  ["B4", "I28", "free", "G60", "O66"],
+      // Diagonals
+      ["B13", "I29", "free", "G48", "O63"],
+      ["B4", "I28", "free", "G60", "O66"],
 
-  // 4 corners
-  ["B13", "B4", "O66", "O63"]
+      // 4 corners
+      ["B13", "B4", "O66", "O63"],
     ];
 
     const winningLines = [];
@@ -102,7 +104,9 @@ function Card59() {
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -120,6 +124,21 @@ function Card59() {
 
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${

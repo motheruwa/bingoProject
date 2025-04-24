@@ -54,7 +54,17 @@ background-image: radial-gradient(rgb(20, 109, 145),rgb(11, 33, 104));
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, rgb(1, 2, 8),rgb(6, 18, 58),rgb(20, 109, 145), rgb(11, 33, 104),rgb(6, 18, 58),rgb(1, 2, 8));
+  background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    background-position: center; 
+}
+.celeb{
+  position: absolute;
+  right: 30px;
+  top: 40%;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
 }
 .cont{
   width: 100vw;

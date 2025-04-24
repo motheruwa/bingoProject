@@ -4,11 +4,13 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card56() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
+  const [showCelebration, setShowCelebration] = useState(false);
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   useEffect(() => {
@@ -46,25 +48,25 @@ function Card56() {
 
   const checkWin = () => {
     const winConditions = [
-        ["B14", "I27", "N42", "G52", "O62"],
-  ["B12", "I24", "N35", "G47", "O63"],
-  ["B15", "I26", "free", "G57", "O67"], // "free" is accessed via 'Nfree'
-  ["B1", "I23", "N43", "G53", "O66"],
-  ["B4", "I19", "N37", "G51", "O74"],
+      ["B14", "I27", "N42", "G52", "O62"],
+      ["B12", "I24", "N35", "G47", "O63"],
+      ["B15", "I26", "free", "G57", "O67"], // "free" is accessed via 'free'
+      ["B1", "I23", "N43", "G53", "O66"],
+      ["B4", "I19", "N37", "G51", "O74"],
 
-  // Columns
-  ["B14", "B12", "B15", "B1", "B4"],
-  ["I27", "I24", "I26", "I23", "I19"],
-  ["N42", "N35", "free", "N43", "N37"], // "free" is accessed via 'Nfree'
-  ["G52", "G47", "G57", "G53", "G51"],
-  ["O62", "O63", "O67", "O66", "O74"],
+      // Columns
+      ["B14", "B12", "B15", "B1", "B4"],
+      ["I27", "I24", "I26", "I23", "I19"],
+      ["N42", "N35", "free", "N43", "N37"], // "free" is accessed via 'free'
+      ["G52", "G47", "G57", "G53", "G51"],
+      ["O62", "O63", "O67", "O66", "O74"],
 
-  // Diagonals
-  ["B14", "I24", "free", "G53", "O74"], // "free" is accessed via 'Nfree'
-  ["O62", "G47", "free", "I23", "B4"], // "free" is accessed via 'Nfree'
+      // Diagonals
+      ["B14", "I24", "free", "G53", "O74"], // "free" is accessed via 'free'
+      ["O62", "G47", "free", "I23", "B4"], // "free" is accessed via 'free'
 
-  // Example of a 4 corner win condition
-  ["B14", "B4", "O62", "O74"]
+      // Example of a 4 corner win condition
+      ["B14", "B4", "O62", "O74"],
     ];
 
     const winningLines = [];
@@ -101,7 +103,9 @@ function Card56() {
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -119,6 +123,21 @@ function Card56() {
 
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${

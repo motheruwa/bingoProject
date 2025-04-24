@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import styles from "../css/Card.module.css"; // Import the CSS module for styling
+import styles from "../css/Card.module.css";
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 
 function Card1() {
   const location = useLocation();
@@ -11,6 +13,8 @@ function Card1() {
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
+  const [showCelebration, setShowCelebration] = useState(false);
+
   useEffect(() => {
     if (calledNumbers.size > 0) {
       setCurrentNumber(Array.from(calledNumbers).pop());
@@ -20,14 +24,14 @@ function Card1() {
 
   useEffect(() => {
     setAnimateCurrent(true);
-
     const timeout = setTimeout(() => {
       setAnimateCurrent(false);
-    }, 2000); // Duration of the 'current' animation
-
+    }, 2000);
     return () => clearTimeout(timeout);
   }, [currentNumber]);
+
   const navigate = useNavigate();
+
   const generateBingoCard = () => {
     const bingoCard = {
       B: [15, 11, 12, 3, 10],
@@ -36,28 +40,25 @@ function Card1() {
       G: [59, 51, 56, 60, 53],
       O: [66, 68, 67, 72, 64],
     };
-
-    // Set the center cell as a free space
     bingoCard.N[2] = "free";
-
     return bingoCard;
   };
 
   const checkWin = () => {
     const winConditions = [
-      ["B15", "B11", "B12", "B3", "B10"], // First row (B)
-      ["I16", "I28", "I20", "I30", "I24"], // Second row (I)
-      ["N39", "N40", "free", "N35", "N37"], // Third row (N)
-      ["G59", "G51", "G56", "G60", "G53"], // Fourth row (G)
-      ["O66", "O68", "O67", "O72", "O64"], // Fifth row (O)
-      ["B15", "I28", "free", "G60", "O64"], // Top-left to bottom-right diagonal
-      ["O66", "G51", "free", "I30", "B10"], // Top-right to bottom-left diagonal
-      ["B15", "I16", "N39", "G59", "O66"], // First column
-      ["B11", "I28", "N40", "G51", "O68"], // Second column
-      ["B12", "I20", "free", "G56", "O67"], // Third column
-      ["B3", "I30", "N35", "G60", "O72"], // Fourth column
-      ["B10", "I24", "N37", "G53", "O64"], // Fifth column
-      ["B15", "B10", "O66", "O64"], // Corner
+      ["B15", "B11", "B12", "B3", "B10"],
+      ["I16", "I28", "I20", "I30", "I24"],
+      ["N39", "N40", "free", "N35", "N37"],
+      ["G59", "G51", "G56", "G60", "G53"],
+      ["O66", "O68", "O67", "O72", "O64"],
+      ["B15", "I28", "free", "G60", "O64"],
+      ["O66", "G51", "free", "I30", "B10"],
+      ["B15", "I16", "N39", "G59", "O66"],
+      ["B11", "I28", "N40", "G51", "O68"],
+      ["B12", "I20", "free", "G56", "O67"],
+      ["B3", "I30", "N35", "G60", "O72"],
+      ["B10", "I24", "N37", "G53", "O64"],
+      ["B15", "B10", "O66", "O64"],
     ];
 
     const winningLines = [];
@@ -71,7 +72,6 @@ function Card1() {
       const winningNumbers = [...new Set(winningLines.flat())];
       return winningNumbers;
     }
-
     return [];
   };
 
@@ -82,19 +82,20 @@ function Card1() {
     localStorage.removeItem("calledNumbers");
     localStorage.removeItem("registeredNumbers");
     localStorage.removeItem("sequenceIndex");
-
     navigate("/registerdcard");
   };
 
   const handleGoBack = () => {
-    navigate(-1); // Go back one step in the history stack
+    navigate(-1);
   };
 
   const audioWin = new Audio(Win);
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -109,9 +110,24 @@ function Card1() {
     winningNumbers.includes("B10") &&
     winningNumbers.includes("O66") &&
     winningNumbers.includes("O64");
+
   return (
     <div className={styles.container}>
-      
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${
@@ -156,6 +172,7 @@ function Card1() {
                     : isCalled
                     ? styles.called
                     : "";
+
                   return (
                     <td>
                       <div key={number} className={cellClassName}>

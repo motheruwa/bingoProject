@@ -4,11 +4,13 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card64() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
+  const [showCelebration, setShowCelebration] = useState(false);
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   useEffect(() => {
@@ -46,26 +48,26 @@ function Card64() {
 
   const checkWin = () => {
     const winConditions = [
-  // Rows
-  ["B13", "I20", "N38", "G52", "O73"],
-  ["B5", "I22", "N43", "G50", "O67"],
-  ["B7", "I24", "free", "G54", "O65"],
-  ["B9", "I18", "N40", "G48", "O69"],
-  ["B3", "I28", "N39", "G58", "O63"],
+      // Rows
+      ["B13", "I20", "N38", "G52", "O73"],
+      ["B5", "I22", "N43", "G50", "O67"],
+      ["B7", "I24", "free", "G54", "O65"],
+      ["B9", "I18", "N40", "G48", "O69"],
+      ["B3", "I28", "N39", "G58", "O63"],
 
-  // Columns
-  ["B13", "B5", "B7", "B9", "B3"],
-  ["I20", "I22", "I24", "I18", "I28"],
-  ["N38", "N43", "free", "N40", "N39"],
-  ["G52", "G50", "G54", "G48", "G58"],
-  ["O73", "O67", "O65", "O69", "O63"],
+      // Columns
+      ["B13", "B5", "B7", "B9", "B3"],
+      ["I20", "I22", "I24", "I18", "I28"],
+      ["N38", "N43", "free", "N40", "N39"],
+      ["G52", "G50", "G54", "G48", "G58"],
+      ["O73", "O67", "O65", "O69", "O63"],
 
-  // Diagonals
-  ["B13", "I22", "free", "G48", "O63"],
-  ["B3", "I18", "free", "G50", "O73"],
+      // Diagonals
+      ["B13", "I22", "free", "G48", "O63"],
+      ["B3", "I18", "free", "G50", "O73"],
 
-  // 4 corners
-  ["B13", "B3", "O73", "O63"]
+      // 4 corners
+      ["B13", "B3", "O73", "O63"],
     ];
 
     const winningLines = [];
@@ -102,7 +104,9 @@ function Card64() {
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -120,6 +124,21 @@ function Card64() {
 
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${

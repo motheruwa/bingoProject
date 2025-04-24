@@ -4,11 +4,13 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card51() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
+  const [showCelebration, setShowCelebration] = useState(false);
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   useEffect(() => {
@@ -47,19 +49,25 @@ function Card51() {
   const checkWin = () => {
     const winConditions = [
       // Horizontal (Rows)
-  ["B6", "I16", "N40", "G58", "O61"], // First row
-  ["B13", "I18", "N37", "G57", "O70"], // Second row
-  ["B3", "I22", "free", "G52", "O69"], // Third row (Free space in center)
-  ["B10", "I29", "N43", "G54", "O75"], // Fourth row
-  ["B8", "I25", "N41", "G49", "O66"], // Fifth row
-  ["B6", "B13", "B3", "B10", "B8"], // "B" column
-  ["I16", "I18", "I22", "I29", "I25"], // "I" column
-  ["N40", "N37", "free", "N43", "N41"], // "N" column (Free space in center)
-  ["G58", "G57", "G52", "G54", "G49"], // "G" column
-  ["O61", "O70", "O69", "O75", "O66"], // "O" column
-  ["B6", "I18", "free", "G54", "O66"], // Top-left to bottom-right diagonal
-  ["O61", "G57", "free", "I29", "B8"], // Top-right to bottom-left diagonal
-  ["B6", "B8", "O61", "O66"], // Four corners
+      ["B6", "I16", "N40", "G58", "O61"], // First row
+      ["B13", "I18", "N37", "G57", "O70"], // Second row
+      ["B3", "I22", "free", "G52", "O69"], // Third row (Free space in center)
+      ["B10", "I29", "N43", "G54", "O75"], // Fourth row
+      ["B8", "I25", "N41", "G49", "O66"], // Fifth row
+
+      // Vertical (Columns)
+      ["B6", "B13", "B3", "B10", "B8"], // "B" column
+      ["I16", "I18", "I22", "I29", "I25"], // "I" column
+      ["N40", "N37", "free", "N43", "N41"], // "N" column (Free space in center)
+      ["G58", "G57", "G52", "G54", "G49"], // "G" column
+      ["O61", "O70", "O69", "O75", "O66"], // "O" column
+
+      // Diagonal Wins
+      ["B6", "I18", "free", "G54", "O66"], // Top-left to bottom-right diagonal
+      ["O61", "G57", "free", "I29", "B8"], // Top-right to bottom-left diagonal
+
+      // Corner Win (Special Condition)
+      ["B6", "B8", "O61", "O66"], // Four corners
     ];
 
     const winningLines = [];
@@ -96,7 +104,9 @@ function Card51() {
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -114,6 +124,21 @@ function Card51() {
 
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${

@@ -4,11 +4,13 @@ import styles from "../css/Card.module.css"; // Import the CSS module for stylin
 import { useNavigate } from "react-router-dom";
 import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
-
+import WinCelebration from "./Wincelebration";
+import { motion } from "framer-motion";
 function Card70() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const calledNumbers = new Set(JSON.parse(params.get("calledNumbers")));
+  const [showCelebration, setShowCelebration] = useState(false);
   const [animateCurrent, setAnimateCurrent] = useState(false);
   const [currentNumber, setCurrentNumber] = useState("");
   useEffect(() => {
@@ -46,27 +48,26 @@ function Card70() {
 
   const checkWin = () => {
     const winConditions = [
-  // Rows
-  ["B2", "I25", "N45", "G56", "O62"],
-  ["B14", "I21", "N41", "G48", "O74"],
-  ["B13", "I30", "free", "G60", "O75"],
-  ["B15", "I18", "N36", "G46", "O61"],
-  ["B7", "I19", "N39", "G59", "O68"],
+      // Rows
+      ["B2", "I25", "N45", "G56", "O62"],
+      ["B14", "I21", "N41", "G48", "O74"],
+      ["B13", "I30", "free", "G60", "O75"],
+      ["B15", "I18", "N36", "G46", "O61"],
+      ["B7", "I19", "N39", "G59", "O68"],
 
-  // Columns
-  ["B2", "B14", "B13", "B15", "B7"],
-  ["I25", "I21", "I30", "I18", "I19"],
-  ["N45", "N41", "free", "N36", "N39"],
-  ["G56", "G48", "G60", "G46", "G59"],
-  ["O62", "O74", "O75", "O61", "O68"],
+      // Columns
+      ["B2", "B14", "B13", "B15", "B7"],
+      ["I25", "I21", "I30", "I18", "I19"],
+      ["N45", "N41", "free", "N36", "N39"],
+      ["G56", "G48", "G60", "G46", "G59"],
+      ["O62", "O74", "O75", "O61", "O68"],
 
-  // Diagonals
-  ["B2", "I21", "free", "G46", "O68"],
-  ["B7", "I18", "free", "G48", "O62"],
+      // Diagonals
+      ["B2", "I21", "free", "G46", "O68"],
+      ["B7", "I18", "free", "G48", "O62"],
 
-  // 4 corners
-  ["B2", "B7", "O62", "O68"]
-
+      // 4 corners
+      ["B2", "B7", "O62", "O68"],
     ];
 
     const winningLines = [];
@@ -103,7 +104,9 @@ function Card70() {
   const audioNotwin = new Audio(Notwin);
 
   const playWinSound = () => {
+    setShowCelebration(true);
     audioWin.play();
+    setTimeout(() => setShowCelebration(false), 30000);
   };
 
   const playNotwinSound = () => {
@@ -121,6 +124,21 @@ function Card70() {
 
   return (
     <div className={styles.container}>
+      {showCelebration && <WinCelebration />}
+      <div className={styles.celeb}>
+        {" "}
+        {showCelebration && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-[20px] z-50"
+          >
+            🎉 BINGO! YOU WIN! 🎉
+          </motion.div>
+        )}
+      </div>
       <div className={styles.current11}>
         <div
           className={`${styles.current} ${
