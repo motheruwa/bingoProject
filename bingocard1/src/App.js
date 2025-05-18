@@ -77,7 +77,36 @@ import Card67 from "./component/Card67";
 import Card68 from "./component/Card68";
 import Card69 from "./component/Card69";
 import Card70 from "./component/Card70";
-
+import Card71 from './component/Card71';
+import Card72 from './component/Card72';
+import Card73 from './component/Card73';
+import Card74 from './component/Card74';
+import Card75 from './component/Card75';
+import Card76 from './component/Card76';
+import Card77 from './component/Card77';
+import Card78 from './component/Card78';
+import Card79 from './component/Card79';
+import Card80 from './component/Card80';
+import Card81 from './component/Card81';
+import Card82 from './component/Card82';
+import Card83 from './component/Card83';
+import Card84 from './component/Card84';
+import Card85 from './component/Card85';
+import Card86 from './component/Card86';
+import Card87 from './component/Card87';
+import Card88 from './component/Card88';
+import Card89 from './component/Card89';
+import Card90 from './component/Card90';
+import Card91 from './component/Card91';
+import Card92 from './component/Card92';
+import Card93 from './component/Card93';
+import Card94 from './component/Card94';
+import Card95 from './component/Card95';
+import Card96 from './component/Card96';
+import Card97 from './component/Card97';
+import Card98 from './component/Card98';
+import Card99 from './component/Card99';
+import Card100 from './component/Card100';
 function App() {
   return (
     <div className="App">
@@ -158,7 +187,36 @@ function App() {
             <Route path="/card68" element={<Card68 />} />
             <Route path="/card69" element={<Card69 />} />
             <Route path="/card70" element={<Card70 />} />
-
+<Route path="/card71" element={<Card71 />} />
+      <Route path="/card72" element={<Card72 />} />
+      <Route path="/card73" element={<Card73 />} />
+      <Route path="/card74" element={<Card74 />} />
+      <Route path="/card75" element={<Card75 />} />
+      <Route path="/card76" element={<Card76 />} />
+      <Route path="/card77" element={<Card77 />} />
+      <Route path="/card78" element={<Card78 />} />
+      <Route path="/card79" element={<Card79 />} />
+      <Route path="/card80" element={<Card80 />} />
+      <Route path="/card81" element={<Card81 />} />
+      <Route path="/card82" element={<Card82 />} />
+      <Route path="/card83" element={<Card83 />} />
+      <Route path="/card84" element={<Card84 />} />
+      <Route path="/card85" element={<Card85 />} />
+      <Route path="/card86" element={<Card86 />} />
+      <Route path="/card87" element={<Card87 />} />
+      <Route path="/card88" element={<Card88 />} />
+      <Route path="/card89" element={<Card89 />} />
+      <Route path="/card90" element={<Card90 />} />
+      <Route path="/card91" element={<Card91 />} />
+      <Route path="/card92" element={<Card92 />} />
+      <Route path="/card93" element={<Card93 />} />
+      <Route path="/card94" element={<Card94 />} />
+      <Route path="/card95" element={<Card95 />} />
+      <Route path="/card96" element={<Card96 />} />
+      <Route path="/card97" element={<Card97 />} />
+      <Route path="/card98" element={<Card98 />} />
+      <Route path="/card99" element={<Card99 />} />
+      <Route path="/card100" element={<Card100 />} />
             <Route path="/startbingo" element={<StartBingo />} />
             <Route path="/report" element={<Report />} />
           </Routes>
