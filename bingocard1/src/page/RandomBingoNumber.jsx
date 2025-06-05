@@ -4791,7 +4791,6 @@ function RandomBingoNumber() {
         </button>
         <div className={styles.name}>
           <select id="amount" value={selectedName} onChange={handleNameChange}>
-            <option value={"ngus"}>ngus</option>
             <option value={"bereket"}>bereket</option>
             <option value={"Xbingo"}>Xbingo</option>
             <option value={"aradaw"}>Aradaw</option>
