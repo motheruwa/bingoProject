@@ -5,15 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext';
+// import { AudioProvider } from './context/AudioContext';
+import { AudioProvider } from './context/AudioContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <React.StrictMode>
-  <AuthContextProvider>
+    <AudioProvider>
 
+  <AuthContextProvider>
     <App />
     </AuthContextProvider>
+    </AudioProvider>
 
   </React.StrictMode>
   </BrowserRouter>
