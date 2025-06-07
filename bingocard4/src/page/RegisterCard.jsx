@@ -19,22 +19,21 @@ const RegisterCard = () => {
   const [fetchedUser, setFetchedUser] = useState([]);
   // eslint-disable-next-line
   const [userName, setUserName] = useState("");
+  const [showModal, setShowModal] = useState(false); // Modal state
 
   const handleLogOut = () => {
     logout();
-    navigate("/login");
-    alert("you have been restricted");
+    setShowModal(true); // Show custom fullscreen modal
   };
+
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
         `https://binx2.wabisecurityandcleaningservice.com/api/user/${userName}`
       );
 
-      // Check if the response status is successful
       if (response.status === 200) {
         setFetchedUser(response.data);
-        console.log(response.data);
         if (response.data.permission === "false") {
           handleLogOut();
         }
@@ -42,21 +41,8 @@ const RegisterCard = () => {
         throw new Error("Failed to fetch user data");
       }
     } catch (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        console.error(
-          "Server responded with non-2xx status:",
-          error.response.data
-        );
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error("No response received:", error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Request failed:", error.message);
-      }
-
-      throw error; // Re-throw the error for handling in the calling code
+      console.error("Error fetching user:", error);
+      throw error;
     }
   };
 
@@ -85,7 +71,7 @@ const RegisterCard = () => {
     }
 
     if (storedRounds) {
-      setRoundsPlayed(parseInt(storedRounds, 10)); // Set the rounds played state
+      setRoundsPlayed(parseInt(storedRounds, 10));
     }
   }, []);
 
@@ -118,22 +104,20 @@ const RegisterCard = () => {
         </div>
         <div className={styles.phone1}>የቢንጎ ሶፍትዌር ይፈልጋሉ ?</div>
         <div className={styles.phone1}>
-          {" "}
           <div>
             <FaPhoneAlt /> 0900-380476
           </div>
         </div>
         <div className={styles.phone2}>
-          {" "}
           <div>
             <FaPhoneAlt /> 0912-012543
           </div>
         </div>
       </div>
+
       <div className={styles.contwhole}>
         <div className={styles.cont}>
           <div className={styles.odd}>ካርድ ቁጥሮች</div>
-
           <div className={styles.numberscontainer}>
             {[...Array(100).keys()].map((number) => (
               <div
@@ -179,13 +163,59 @@ const RegisterCard = () => {
                 <option value={500}>በ 500</option>
               </select>
             </div>
-
             <button className={styles.button} onClick={handlePlay}>
               Play
             </button>
           </div>
         )}
       </div>
+
+      {/* Fullscreen Modal */}
+      {showModal && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            height: "100vh",
+            width: "100vw",
+            backgroundColor: "rgba(0, 0, 0, 0.85)",
+            color: "white",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+        >
+          <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>
+            እርስዎ መግባት ተከልክለዋል
+          </h1>
+          <h1 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
+            You have been restricted
+          </h1>
+          <h1 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
+            ለተጨማሪ መረጃና ሲስተሙን ለማስተካክል በዚህ ስልክ ቁጥር ይደውሉ
+          </h1>
+          <h1 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
+            0948256222 // 0912012543
+          </h1>
+          <button
+            style={{
+              padding: "10px 20px",
+              fontSize: "1rem",
+              backgroundColor: "#ff4444",
+              border: "none",
+              borderRadius: "8px",
+              color: "white",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/login")}
+          >
+            Go to Login
+          </button>
+        </div>
+      )}
     </div>
   );
 };
