@@ -48,7 +48,7 @@ const SignUp = () => {
     }
   };
   const handleBackClick = () => {
-    navigate("/");
+    navigate("/adminmrxbingobingo");
   };
   return (
     <div className={styles.container}>

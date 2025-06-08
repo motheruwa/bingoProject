@@ -165,7 +165,7 @@ const updateBalance = async (userName) => {
   };
   const totalDeductedAmount = filteredReportData.reduce((acc, curr) => acc + curr.deductedAmount, 0);
   const handleBackClick = () => {
-    navigate("/");
+    navigate("/adminmrxbingobingo");
   };
     return (
         <div className={styles.container}>
