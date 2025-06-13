@@ -424,12 +424,6 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
 
     if (audio) {
       audio.play();
-
-      // Pause the audio after 3 seconds
-      setTimeout(() => {
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
-      }, 3000); // Duration of 3 seconds
     }
   };
 
@@ -669,12 +663,6 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
 
     if (audio) {
       audio.play();
-
-      // Pause the audio after 3 seconds
-      setTimeout(() => {
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
-      }, 3000); // Duration of 3 seconds
     }
   };
   const playAudioForNumberaradaw = (number) => {
@@ -1063,12 +1051,6 @@ export const BingoCall = ({ currentNumber, calledNumbers, totalAmount }) => {
 
     if (audio) {
       audio.play();
-
-      // Pause the audio after 3 seconds
-      setTimeout(() => {
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the begiNNNNing
-      }, 3000); // Duration of 3 seconds
     }
   };
   const allPossibilities = [
