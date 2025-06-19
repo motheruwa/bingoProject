@@ -3663,7 +3663,7 @@ function RandomBingoNumber() {
       "N42",
       "G60",
       "B8",
-      " I19",
+      "I19",
       "I26",
       "O65",
       "O72",
