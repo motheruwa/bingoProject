@@ -64,10 +64,10 @@ const Login = () => {
 
   return (
      <div className={styles.container}>
-          <div className={styles.phone1}>
+          <div className={styles.phone}>
             <FaPhoneAlt /> 09 00 38 04 76
           </div>
-          <div className={styles.phone}>
+          <div className={styles.phone1}>
             <FaPhoneAlt /> 09 12 01 25 43
           </div>
           <div className={styles.logo}>
