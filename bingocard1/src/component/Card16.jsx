@@ -6,6 +6,7 @@ import Win from "../audio/WIN.mp4";
 import Notwin from "../audio/NOTWIN.mp4";
 import WinCelebration from "./Wincelebration";
 import { motion } from "framer-motion";
+import Replay from "./Replay";
 function Card16() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -116,6 +117,8 @@ function Card16() {
     winningNumbers.includes("O71");
   return (
     <div className={styles.container}>
+      <Replay />
+
       {showCelebration && <WinCelebration />}
       <div className={styles.celeb}>
         {" "}
