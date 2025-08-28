@@ -1,0 +1,131 @@
+.container {
+  padding: 24px;
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #1f2937;
+}
+
+.oddsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.oddBtn {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.oddBtn:hover {
+  background: #e5e7eb;
+}
+
+.oddBtnActive {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.selectedWrapper {
+  margin-bottom: 16px;
+}
+
+.subTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.selectedItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: #f9fafb;
+}
+
+.oddLabel {
+  width: 60px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.amountInput {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 100px;
+}
+
+.generateBtn {
+  width: 100%;
+  background: #3b82f6;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.generateBtn:hover {
+  background: #2563eb;
+}
+
+.ticketBox {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.betList {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.total {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.printBtn {
+  margin-top: 12px;
+  background: #10b981;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.printBtn:hover {
+  background: #059669;
+}

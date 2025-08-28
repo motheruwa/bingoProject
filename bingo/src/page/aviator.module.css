@@ -1,0 +1,380 @@
+.gameArea {
+  position: relative;
+  width: 100%;
+  height: 24rem;
+  background: linear-gradient(to bottom, #3b82f6, #60a5fa, #34d399);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 4px solid #334155;
+}
+
+/* Cloud animations */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.cloud1 {
+  top: 2rem;
+  left: 5rem;
+  width: 4rem;
+  height: 2rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cloud2 {
+  top: 4rem;
+  right: 8rem;
+  width: 5rem;
+  height: 2.5rem;
+  opacity: 0.7;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.cloud3 {
+  top: 3rem;
+  left: 50%;
+  width: 3rem;
+  height: 1.5rem;
+  opacity: 0.9;
+  animation: float 7s ease-in-out infinite;
+}
+
+.cloud4 {
+  top: 5rem;
+  left: 25%;
+  width: 3.5rem;
+  height: 1.75rem;
+  opacity: 0.6;
+  animation: float 9s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Ground styling */
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(to top, #166534, #16a34a, #22c55e);
+}
+
+.groundTexture {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.5rem;
+  background: #14532d;
+}
+
+/* Plane styling */
+.plane {
+  position: absolute;
+  transition: all 0.1s ease-out;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.plane.crashed {
+  transform: rotate(45deg);
+  animation: bounce 0.5s ease-in-out;
+}
+
+.propeller {
+  animation: spin 0.1s linear infinite;
+  transform-origin: 8px 25px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smoke trail */
+.smokeTrail {
+  position: absolute;
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.25rem;
+}
+
+.smoke {
+  border-radius: 50%;
+  background: #9ca3af;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.smoke1 {
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 0.7;
+}
+
+.smoke2 {
+  width: 0.5rem;
+  height: 0.5rem;
+  opacity: 0.5;
+  animation-delay: 0.2s;
+}
+
+.smoke3 {
+  width: 0.25rem;
+  height: 0.25rem;
+  opacity: 0.3;
+  background: #d1d5db;
+  animation-delay: 0.5s;
+}
+
+/* Explosion effects */
+.explosion {
+  position: absolute;
+}
+
+.explosionCore {
+  position: relative;
+}
+
+.explosionLayer1 {
+  width: 5rem;
+  height: 5rem;
+  background: radial-gradient(circle, #fde047, #f97316, #dc2626);
+  border-radius: 50%;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.explosionLayer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5rem;
+  height: 5rem;
+  background: radial-gradient(circle, #f87171, #fb923c, #fde047);
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.explosionLayer3 {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: radial-gradient(circle, white, #fde047, #fb923c);
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+/* Smoke clouds */
+.smokeCloud {
+  position: absolute;
+  background: #374151;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.smokeCloud1 {
+  top: -1rem;
+  left: -1rem;
+  width: 7rem;
+  height: 7rem;
+  animation: pulse 2s infinite;
+}
+
+.smokeCloud2 {
+  top: -1.5rem;
+  right: -1rem;
+  width: 4rem;
+  height: 4rem;
+  background: #4b5563;
+  opacity: 0.4;
+  animation: bounce 1s infinite;
+}
+
+.smokeCloud3 {
+  bottom: -0.5rem;
+  left: -1.5rem;
+  width: 5rem;
+  height: 5rem;
+  background: #6b7280;
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+/* Flying debris */
+.debris {
+  position: absolute;
+  background: #374151;
+}
+
+.debris1 {
+  top: 0.5rem;
+  left: 3rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  animation: bounce 1s infinite;
+}
+
+.debris2 {
+  top: 2rem;
+  right: 1.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #4b5563;
+  animation: ping 1s infinite;
+}
+
+.debris3 {
+  bottom: 1rem;
+  left: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #6b7280;
+  animation: pulse 2s infinite;
+}
+
+.debris4 {
+  top: 1.5rem;
+  left: 0.5rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #dc2626;
+  animation: bounce 1s infinite;
+}
+
+/* Crash site marker */
+.crashSite {
+  position: absolute;
+}
+
+.crashMarker1 {
+  width: 3rem;
+  height: 3rem;
+  background: black;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+.crashMarker2 {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background: #1f2937;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.crashMarker3 {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #7f1d1d;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* Status indicator */
+.statusIndicator {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.statusDot.flying {
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+.statusDot.crashed {
+  background: #ef4444;
+}
+
+.statusDot.cashedOut {
+  background: #eab308;
+}
+
+.statusDot.ready {
+  background: #ef4444;
+}
+
+/* Multiplier display */
+.multiplierDisplay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(234, 179, 8, 0.9);
+  color: black;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+/* Animation keyframes */
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}

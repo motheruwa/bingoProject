@@ -1,130 +1,121 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../store/Supabase';
-import styles from '../css/Report.module.css';
-import { useAuthContext } from '../hooks/useAuthContext';
-import FilterReport from './FilterReport';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
+import { Plane } from 'lucide-react';
+import styles from './App.module.css';
 
-const Report = () => {
-  const [reportData, setReportData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [filteredReportData, setFilteredReportData] = useState([]);
-  // eslint-disable-next-line
-  const [fetchedUser, setFetchedUser] = useState([]);
-  // eslint-disable-next-line
-  const [userName, setUserName] = useState('');
-  const { user } = useAuthContext();
+const App = () => {
+  const [multiplier, setMultiplier] = useState(1.0);
+  const [isFlying, setIsFlying] = useState(false);
+  const [isCrashed, setIsCrashed] = useState(false);
+  const [lastCashedOutMultiplier, setLastCashedOutMultiplier] = useState(null);
+  const [message, setMessage] = useState('Place your bet and press start!');
+  const [balance, setBalance] = useState(100.0);
+  const [betAmount, setBetAmount] = useState(5.0);
 
-  const fetchUserByUsername = async (userName) => {
-    try {
-      const response = await axios.get(`https://bingoproject-3.onrender.com/api/user/${userName}`);
-      console.log('Fetched user by username:', response.data);
-      setFetchedUser(response.data);
-      // Handle the fetched user data as needed
-    } catch (error) {
-      console.error('Error fetching user by username:', error);
-      // Handle errors
-    }
-  };
+  const crashPointRef = useRef(1 + Math.random() * 5);
 
   useEffect(() => {
-    if (user) {
-      setUserName(user.userName);
-      fetchUserByUsername(user.userName);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    const fetchReportData = async () => {
-      if (user && user.userName) {
-        try {
-          const { data, error } = await supabase
-            .from('report')
-            .select()
-            .eq('userName', user.userName);
-
-          if (error) {
-            throw error;
+    let interval;
+    if (isFlying) {
+      interval = setInterval(() => {
+        setMultiplier((prev) => {
+          const newMultiplier = prev + 0.01;
+          if (newMultiplier >= crashPointRef.current) {
+            clearInterval(interval);
+            setIsFlying(false);
+            setIsCrashed(true); // ✅ mark crashed
+            setMessage('💥 CRASHED!');
+            setBalance((prevBalance) => prevBalance - betAmount);
+            return crashPointRef.current;
           }
+          return parseFloat(newMultiplier.toFixed(2));
+        });
+      }, 100);
+    }
+    return () => clearInterval(interval);
+  }, [isFlying, betAmount]);
 
-          setReportData(data);
-        } catch (error) {
-          console.error('Error fetching report data:', error.message);
-        }
-      }
-    };
-
-    fetchReportData();
-  }, [selectedDate, user]);
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
+  const startGame = () => {
+    if (balance < betAmount) {
+      setMessage('Not enough balance!');
+      return;
+    }
+    setMultiplier(1.0);
+    setIsFlying(true);
+    setIsCrashed(false); // ✅ reset crash
+    setMessage('Flying...');
+    setLastCashedOutMultiplier(null);
+    crashPointRef.current = 1 + Math.random() * 5;
   };
 
-  const handleShowData = () => {
-    const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
-
-    const filteredData = reportData.filter((report) => {
-      const formattedCreatedAt = new Date(report.created_at).toISOString().slice(0, 10);
-      return formattedCreatedAt === formattedSelectedDate;
-    }).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by created_at in ascending order
-
-    setFilteredReportData(filteredData);
-};
-
-  const totalDeductedAmount = filteredReportData.reduce((acc, curr) => acc + curr.deductedAmount, 0);
+  const cashOut = () => {
+    if (isFlying) {
+      setIsFlying(false);
+      setLastCashedOutMultiplier(multiplier);
+      setMessage(`You cashed out at ${multiplier.toFixed(2)}x!`);
+      setBalance((prev) => prev + betAmount * multiplier - betAmount);
+    }
+  };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.date}>
-        <Link to="/startbingo" className={styles.home}>
-          Home
-        </Link>
-        <input
-          type="date"
-          id="dateInput"
-          value={selectedDate}
-          onChange={handleDateChange}
-        />
-        <button onClick={handleShowData}>Show Data</button>
-        <div className={styles.balance}>
-          <span>balance :</span> {fetchedUser.balance}
-        </div>
-      </div>
+    <div className={`${styles.app} ${isCrashed ? styles.crashedApp : ''}`}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Aviator Game</h1>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Round</th>
-            <th>Amount</th>
-            <th>No of Players</th>
-            <th>Win Amount</th>
-            <th>Income</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredReportData.map((report, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{report.selectedAmount}</td>
-              <td>{report.noOfPlayer}</td>
-              <td>{report.winAmount}</td>
-              <td>{report.deductedAmount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {filteredReportData.length > 0 && (
-        <div className={styles.total}>
-          <p className={styles.totalincome}>Total Income: {totalDeductedAmount}</p>
+        <div className={styles.stats}>
+          <div className={styles.statBox}>
+            Balance: <span className={styles.green}>${balance.toFixed(2)}</span>
+          </div>
+          <div className={styles.statBox}>
+            Bet: <span className={styles.yellow}>${betAmount.toFixed(2)}</span>
+          </div>
         </div>
-      )}
-      <div className={styles.filterreport}>
-        <FilterReport />
+
+        <div className={`${styles.playArea} ${isCrashed ? styles.crashedPlayArea : ''}`}>
+          <div className={`${styles.cloud} ${styles.cloud1} ${isFlying ? styles.cloudMove1 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+          <div className={`${styles.cloud} ${styles.cloud2} ${isFlying ? styles.cloudMove2 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+          <div className={`${styles.cloud} ${styles.cloud3} ${isFlying ? styles.cloudMove3 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+          <div className={`${styles.cloud} ${styles.cloud4} ${isFlying ? styles.cloudMove4 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+          <div className={`${styles.cloud} ${styles.cloud5} ${isFlying ? styles.cloudMove5 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+          <div className={`${styles.cloud} ${styles.cloud6} ${isFlying ? styles.cloudMove6 : ''} ${isCrashed ? styles.cloudCrashed : ''}`} />
+
+          <div className={`${styles.plane} ${isCrashed ? styles.planeCrashed : ''}`}>
+            <Plane className={styles.planeIcon} />
+          </div>
+
+          <div className={styles.multiplier}>
+            <span className={`${isFlying ? styles.multiplierFlying : styles.multiplierIdle} ${isCrashed ? styles.multiplierCrashed : ''}`}>
+              {isCrashed ? '💥 CRASHED!' : `${multiplier.toFixed(2)}x`}
+            </span>
+          </div>
+        </div>
+
+        <div className={`${styles.message} ${isCrashed ? styles.messageCrashed : ''}`}>{message}</div>
+
+        <div className={styles.controls}>
+          <button
+            onClick={startGame}
+            disabled={isFlying}
+            className={`${styles.button} ${isFlying ? styles.disabled : styles.start}`}
+          >
+            {isCrashed ? "Restart" : "Start Game"}
+          </button>
+          <button
+            onClick={cashOut}
+            disabled={!isFlying}
+            className={`${styles.button} ${!isFlying ? styles.disabled : styles.cashout}`}
+          >
+            Cash Out
+          </button>
+        </div>
+
+        {lastCashedOutMultiplier && (
+          <div className={styles.lastRound}>
+            Last Round: Cashed out at {lastCashedOutMultiplier.toFixed(2)}x
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Report;
+export default App;
