@@ -151,7 +151,7 @@ const RegisterCard = () => {
                 value={selectedAmount}
                 onChange={handleAmountChange}
               >
-                {user?.userName?.toLowerCase() !== "emuye2" && (
+                {user?.userName?.toLowerCase() !== "hpnew bingo" && (
       <option value={10}>በ 10</option>
     )}
                 <option value={20}>በ 20</option>
