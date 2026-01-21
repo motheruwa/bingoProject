@@ -102,53 +102,57 @@ const getAllUsers = async (req, res) => {
   };
 
   const signupUser = async (req, res) => {
-  const { userName, password, permission, balance, playType } = req.body;
-
-  if (!userName || !password) {
-    return res.status(400).json({ error: "Username and password required" });
-  }
-
-  const query = `
-    INSERT INTO \`user\` (\`userName\`, \`password\`, \`permission\`, \`balance\`, \`playType\`)
-    VALUES (?, ?, ?, ?, ?)
-  `;
-
-  db.query(
-    query,
-    [userName, password, permission, balance ?? 0, playType],
-    (error, results) => {
-      if (error) {
-        console.error("SIGNUP ERROR:", error);
-        return res.status(500).json({ error: error.sqlMessage || "Signup failed" });
-      }
-
-      const token = createToken(results.insertId);
-      res.status(200).json({ userName, token });
+    const { userName, password, permission, balance, playType } = req.body;
+  
+    try {
+      const query = `
+        INSERT INTO user (userName, password, permission, balance, playType)
+        VALUES (?, ?, ?, ?, ?)
+      `;
+      db.query(query, [userName, password, permission, balance, playType], (error, results) => {
+        if (error) {
+          console.error(error);
+          res.status(500).json({ error: 'Could not create user' });
+        } else {
+          const userId = results.insertId;
+          const token = createToken(userId);
+          res.status(200).json({ userName, token });
+        }
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Could not create user' });
     }
-  );
-};
-
+  };
 
   const loginUser = async (req, res) => {
-  const { userName, password } = req.body;
-
-  const query = `SELECT * FROM \`user\` WHERE userName = ? AND password = ?`;
-
-  db.query(query, [userName, password], (error, results) => {
-    if (error) {
-      console.error(error);
-      return res.status(500).json({ error: "Server error" });
+    const { userName, password } = req.body;
+  
+    try {
+      if (!userName) {
+        throw new Error('Username is required. Please fill it.');
+      }
+  
+      if (!password) {
+        throw new Error('Password is required. Please fill it.');
+      }
+  
+      const query = `SELECT * FROM user WHERE userName = ? AND password = ?`;
+      db.query(query, [userName, password], (error, results) => {
+        if (error) {
+          console.error('Error logging in user:', error);
+          res.status(500).json({ error: 'Internal server error' });
+        } else if (results.length === 0) {
+          res.status(400).json({ error: 'Incorrect username or password' });
+        } else {
+          const token = createToken(results[0]._id);
+          res.status(200).json({ userName, token });
+        }
+      });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
-
-    if (results.length === 0) {
-      return res.status(400).json({ error: "Invalid credentials" });
-    }
-
-    const token = createToken(results[0].id);
-    res.status(200).json({ userName, token });
-  });
-};
-
+  };
 
   const updatePlayType = async (req, res) => {
     const { userName, playType } = req.body;
