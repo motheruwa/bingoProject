@@ -56,7 +56,7 @@ const Report = () => {
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
-        `https://binx2.wabisecurityandcleaningservice.com/api/user/${userName}`
+        `https://binx2.mrxbingo.com/api/user/${userName}`
       );
       console.log("Fetched user by username:", response.data);
       setFetchedUser(response.data);
