@@ -33,7 +33,7 @@ const StartBingo = () => {
   const fetchUserByUsername = async (userName) => {
     try {
       const response = await axios.get(
-        `https://binx.wabisecurityandcleaningservice.com/api/user/${userName}`
+        `https://binx.mrxbingo.com/api/user/${userName}`
       );
       console.log("Fetched user by username:", response.data);
       setFetchedUser(response.data);
