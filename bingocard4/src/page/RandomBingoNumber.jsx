@@ -1496,7 +1496,7 @@ function RandomBingoNumber() {
   useEffect(() => {
     const updatePlayType = async (userName, defaultPlayType) => {
         try {
-            const response = await axios.put(`https://binx2.wabisecurityandcleaningservice.com/api/user/updateplayType`, { userName, defaultPlayType });
+            const response = await axios.put(`https://binx2.mrxbingo.com/api/user/updateplayType`, { userName, defaultPlayType });
 
             if (response.status === 200) {
                 console.log('playType updated successfully:', response.data);

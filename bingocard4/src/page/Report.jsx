@@ -38,7 +38,7 @@ const Report = () => {
   const getReportsByUserName = async (userName) => {
     try {
       const response = await axios.get(
-        `https://binx2.wabisecurityandcleaningservice.com/api/report/${userName}`
+        `https://binx2.mrxbingo.com/api/report/${userName}`
       );
 
       if (response.status === 200) {

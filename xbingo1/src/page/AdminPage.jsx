@@ -9,7 +9,7 @@ const AdminPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://binx2.wabisecurityandcleaningservice.com/api/user');
+                const response = await axios.get('https://binx2.mrxbingo.com/api/user');
                 setUsers(response.data);
                 console.log(response.data);
             } catch (error) {

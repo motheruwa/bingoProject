@@ -2054,7 +2054,7 @@ const StartBingo = () => {
         return;
       }
       const response = await axios.put(
-        `https://binx.wabisecurityandcleaningservice.com/api/user/update`,
+        `https://binx.mrxbingo.com/api/user/update`,
         { userName, newBalance }
       );
 
@@ -2097,7 +2097,7 @@ const StartBingo = () => {
   const createReport = async () => {
     try {
       const response = await axios.post(
-        "https://binx.wabisecurityandcleaningservice.com/api/report",
+        "https://binx.mrxbingo.com/api/report",
         {
           round: round,
           selectedAmount: selectedAmount,

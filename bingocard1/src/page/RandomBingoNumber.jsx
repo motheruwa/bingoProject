@@ -2542,7 +2542,7 @@ function RandomBingoNumber() {
     const updatePlayType = async (userName, defaultPlayType) => {
       try {
         const response = await axios.put(
-          `https://binx.wabisecurityandcleaningservice.com/api/user/updateplayType`,
+          `https://binx.mrxbingo.com/api/user/updateplayType`,
           { userName, defaultPlayType }
         );
 

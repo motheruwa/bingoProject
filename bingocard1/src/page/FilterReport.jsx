@@ -33,7 +33,7 @@ const FilterReport = () => {
   const getReportsByUserName = async (userName) => {
     try {
       const response = await axios.get(
-        `https://binx.wabisecurityandcleaningservice.com/api/report/${userName}`
+        `https://binx.mrxbingo.com/api/report/${userName}`
       );
 
       if (response.status === 200) {

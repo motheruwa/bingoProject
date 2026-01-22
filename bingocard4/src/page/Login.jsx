@@ -26,7 +26,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://binx2.wabisecurityandcleaningservice.com/api/user/login",
+        "https://binx2.mrxbingo.com/api/user/login",
         userData
       );
 

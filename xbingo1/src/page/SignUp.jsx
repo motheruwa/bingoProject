@@ -34,7 +34,7 @@ const SignUp = () => {
     };
 
     try {
-      const response = await axios.post('https://binx2.wabisecurityandcleaningservice.com/api/user/signup', userData);
+      const response = await axios.post('https://binx2.mrxbingo.com/api/user/signup', userData);
 
       if (response.status === 200) {
         // update the auth context
